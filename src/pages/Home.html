@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#4d6320",
+                    "tertiary-container": "#657c36",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#0057bf",
+                    "primary-container": "#026fef",
+                    "surface-dim": "#dbd9d9",
+                    "on-primary-fixed": "#001a42",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#eae8e7",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fbf9f8",
+                    "background": "#fbf9f8",
+                    "on-surface": "#1b1c1c",
+                    "inverse-surface": "#303030",
+                    "surface": "#fbf9f8",
+                    "tertiary-fixed": "#d2ed99",
+                    "on-tertiary-fixed": "#141f00",
+                    "secondary-fixed-dim": "#ebbf87",
+                    "outline": "#727786",
+                    "tertiary-fixed-dim": "#b6d080",
+                    "on-secondary-fixed-variant": "#5f4114",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-surface-variant": "#414754",
+                    "on-secondary-fixed": "#291800",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "secondary": "#795829",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#785728",
+                    "secondary-container": "#fdd096",
+                    "on-tertiary-fixed-variant": "#394d0b",
+                    "on-tertiary-container": "#faffe7",
+                    "outline-variant": "#c1c6d7",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f5f3f3",
+                    "on-primary-container": "#fefcff",
+                    "error": "#ba1a1a",
+                    "on-background": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "secondary-fixed": "#ffddb4",
+                    "inverse-primary": "#aec6ff",
+                    "surface-tint": "#005ac4",
+                    "surface-container": "#f0eded",
+                    "primary-fixed-dim": "#aec6ff",
+                    "on-primary-fixed-variant": "#004396",
+                    "primary-fixed": "#d8e2ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans", "Noto Sans SC"],
+                    "body": ["Inter", "Noto Sans SC"],
+                    "label": ["Inter", "Noto Sans SC"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f8]/80 dark:bg-stone-950/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+<div class="text-2xl font-bold text-[#0057bf] dark:text-blue-400 tracking-tighter">Serene Guardian</div>
+<div class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans'] font-semibold tracking-tight">
+<a class="text-[#0057bf] dark:text-blue-400 border-b-2 border-[#0057bf] pb-1" href="#">首页</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#0057bf] dark:hover:text-blue-300 transition-colors duration-300" href="#">准父母</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#0057bf] dark:hover:text-blue-300 transition-colors duration-300" href="#">代孕妈妈</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#0057bf] dark:hover:text-blue-300 transition-colors duration-300" href="#">关于我们</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#0057bf] dark:hover:text-blue-300 transition-colors duration-300" href="#">博客</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#0057bf] dark:hover:text-blue-300 transition-colors duration-300" href="#">联系我们</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-semibold scale-95 duration-200 active:opacity-80 hover:bg-primary-container transition-colors">
+                立即咨询
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 tracking-wide">专业 · 诚信 · 温暖</span>
+<h1 class="text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.1] tracking-tight mb-8">
+                        让爱延伸，<br/><span class="text-primary">圆您家庭梦想</span>
+</h1>
+<p class="text-xl text-on-surface-variant leading-relaxed mb-10 max-w-lg">
+                        我们致力于为您提供全球顶尖的辅助生殖咨询服务，在充满尊重的环境中，陪伴您走过通往为人父母的每一步。
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary rounded-full font-bold text-lg hover:bg-primary-container transition-all duration-300 shadow-xl shadow-primary/20">开始咨询</button>
+<button class="px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all duration-300">了解更多</button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl transform rotate-2">
+<img class="w-full h-full object-cover" data-alt="A heartwarming close-up of a diverse happy family with a newborn baby in a sunlit modern living room, soft natural lighting and warm atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWcyXkgjPR4hbLJFgTMn4_eV8sw91wzNvMImSHRAOrr3X69AeYzWP7JmpUHVl5jGs49omsRt3xHSehioGgfeM7H6VFnE7ecm_tIfvM2QJv0afu4lpAd4VlSgfwp5AWFQkZdO0axhh40NpuczA59wVPeEHygGMoOC8qT6ZdcLIsoUdQSdHf5k-jIwNYjmkd8O6ZZnIt28Wfv2FqXmtyosmWybyBsJCffP1duvFcsHJQ7B8tJcUoHQ-CX7eOjgKTMLOAJGrp0DoiJKN"/>
+</div>
+<!-- Glassmorphic floating card -->
+<div class="absolute -bottom-10 -left-10 p-8 bg-white/70 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl max-w-xs hidden md:block">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div class="font-bold text-lg text-on-surface">1,200+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">过去十年间，我们已成功帮助一千多个家庭迎来了他们梦寐以求的新生命。</p>
+</div>
+</div>
+</div>
+<!-- Decorative background glow -->
+<div class="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent blur-3xl"></div>
+</section>
+<!-- Trust Section -->
+<section class="bg-surface-container-low py-16">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-12">
+<p class="text-sm font-bold text-stone-400 uppercase tracking-[0.2em] mb-4">合作伙伴与认证机构</p>
+</div>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+<span class="text-2xl font-black italic tracking-tighter">MEDICARE</span>
+<span class="text-2xl font-black italic tracking-tighter">GLOBAL IVF</span>
+<span class="text-2xl font-black italic tracking-tighter">FERTILITY+</span>
+<span class="text-2xl font-black italic tracking-tighter">LIFECARE</span>
+<span class="text-2xl font-black italic tracking-tighter">GENESIS</span>
+</div>
+</div>
+</section>
+<!-- Core Services -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Service Card 1 -->
+<div class="group bg-surface-container-low p-12 rounded-[2.5rem] hover:bg-white transition-all duration-500 border border-transparent hover:border-outline-variant/10">
+<div class="w-16 h-16 bg-primary text-on-primary rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined text-3xl">family_restroom</span>
+</div>
+<h3 class="text-3xl font-bold mb-6">准父母计划</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                            我们深知寻子之路的艰辛。Serene Guardian 提供全方位的法律支持、医疗筛选和心理辅导，为您寻找最合适的代孕伙伴。
+                        </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>定制化代孕方案</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>法律风险全程管控</span>
+</li>
+</ul>
+<button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                            了解详情 <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Service Card 2 -->
+<div class="group bg-tertiary-container/5 p-12 rounded-[2.5rem] hover:bg-white transition-all duration-500 border border-transparent hover:border-outline-variant/10">
+<div class="w-16 h-16 bg-tertiary text-on-tertiary rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform">
+<span class="material-symbols-outlined text-3xl">volunteer_activism</span>
+</div>
+<h3 class="text-3xl font-bold mb-6">代孕妈妈关怀</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                            作为代孕妈妈，您是在创造奇迹。我们为您提供顶级的医疗保障、优厚的酬劳方案以及尊严与温暖并存的服务体验。
+                        </p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>全面的身心健康保障</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>透明且优渥的薪酬体系</span>
+</li>
+</ul>
+<button class="text-tertiary font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                            立即申请 <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Process -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center max-w-2xl mx-auto mb-20">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">我们的服务流程</h2>
+<p class="text-on-surface-variant text-lg">四个简单步骤，让梦想照进现实。</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+<span class="text-3xl font-black text-primary">01</span>
+</div>
+<h4 class="text-xl font-bold mb-4">初步咨询</h4>
+<p class="text-on-surface-variant">深入了解您的需求与期待，制定初步计划。</p>
+</div>
+<div class="text-center">
+<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+<span class="text-3xl font-black text-primary">02</span>
+</div>
+<h4 class="text-xl font-bold mb-4">精准配对</h4>
+<p class="text-on-surface-variant">基于价值观与期望，为您寻找完美的合作伙伴。</p>
+</div>
+<div class="text-center">
+<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+<span class="text-3xl font-black text-primary">03</span>
+</div>
+<h4 class="text-xl font-bold mb-4">科学怀孕</h4>
+<p class="text-on-surface-variant">顶尖生殖诊所全程监控，确保孕期健康安全。</p>
+</div>
+<div class="text-center">
+<div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+<span class="text-3xl font-black text-primary">04</span>
+</div>
+<h4 class="text-xl font-bold mb-4">喜悦诞生</h4>
+<p class="text-on-surface-variant">迎接新生命的到来，完成法律文件的交接。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Success Stories: Empathy Carousel Style -->
+<section class="py-24 bg-surface overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<div class="relative bg-on-surface rounded-[3rem] min-h-[600px] flex items-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50" data-alt="Soft desaturated image of a mother gently holding her baby's hand, warm sunlight, very high quality, emotional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJp9huadnqHhaSirGSZqXctlH-QhMg4mUOpLJ-paPrl_qXNqFEzn1PT-3TLq5oIvWYqM3HfGdeWISOmA0nFxozcO6RTKVWhP4sbNa-_LTjZ8a9uOsthx4RNnzva8w4Ux2hUIQA3K_UWzGZcoEhO2EoQ0iRJt5LzqxsuxkfZj_dB3L7b6Cs_rVe-v8d9nQpN9q7qcvkCMIe0Zhe4tYwgzfuwwZQ71ojEyQeLTLinmVWbwiJMdRksE02QTX7KsgH-3dlY-D5ZnMtNmaQ"/>
+<div class="relative z-10 px-12 md:px-24 py-20 max-w-3xl">
+<span class="material-symbols-outlined text-primary text-6xl mb-8" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<h2 class="text-3xl md:text-5xl font-medium text-white leading-tight mb-12 italic">
+                            "在Serene Guardian的帮助下，我们不仅迎来了可爱的女儿，更感受到了前所未有的尊重与支持。这不仅是一项服务，更是一段关于爱的旅程。"
+                        </h2>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a smiling middle-aged woman, warm lighting, natural look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBME5O6IpAMlSI7XX9XYo1CVvtdgRLDu1lwzdkERoiYJRWURIAqD_ASFq4omcSlqWmz0XcHdZ2JwEsRm16LUswV6di9xXLAY0-ZirXv0sSdIBtX15jFba1MJzo-WsIiLhDRLqS2Ov6diRSh_mYy3XuAT3HN6AJjXqTIhiqcZC9A4lYkYfC976gSDCAqn-DIdg3oa82YQSKkcvKqQFTyP96V-iZvfVrdHnym8Nhtu6xhBoMVcyjRJIPJaNrYrhpQqArw3bjiXrxirOUB"/>
+</div>
+<div class="text-white">
+<p class="font-bold text-lg">Li Wei &amp; Zhang Fan</p>
+<p class="text-stone-400">来自上海的快乐父母</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog/Resources -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="text-4xl font-bold mb-4">育儿与代孕百科</h2>
+<p class="text-on-surface-variant">探索专业的医疗知识与感人的真实故事。</p>
+</div>
+<button class="hidden md:block px-6 py-3 border border-outline-variant rounded-full font-bold hover:bg-surface-container-low transition-colors">查看全部文章</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<article class="group">
+<div class="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cute baby clothes hanging on a rack with soft natural light and neutral colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJLlnHsOIWKS078PLeO5Cijn9WCijV5di24Oc4y-rMIJCHHWL2dImuKbpl2Hs7VKM8Qx1ZfCy8ARf5CXhfm680f6fhwcAndyEIVpnqlQ49tLDO5HkbD4RVzN6SD4OIfRt5d4LhRbC6Grf0deHW92j5ayDntCCHCVJnKveN8UN9WoKYGkt_e0G_2-fCD8TvsU15ah4Znyhwmj5swRym6DMmCNZS54LV0aODpmmSM3a6BgwSfVH3i-gZdUKAnULpDjiUIDdHwNhmHGOY"/>
+</div>
+<p class="text-primary text-sm font-bold mb-3">法律法规</p>
+<h4 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">2024年全球代孕法律动态概览</h4>
+<p class="text-on-surface-variant line-clamp-2">了解不同国家和地区最新的辅助生殖法律调整，为您的计划提供安全保障。</p>
+</article>
+<article class="group">
+<div class="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract medical laboratory with soft blue lighting and modern equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvMpq5zd1ODTwJDFYmPwN79eDEvgY9AsSugOptIqATyOTv_NHa91hOtxaZDfBfzIEbp1qUMTfXKKB0d3QK9kl4LfDjaYc9rh1qHdlY5aXIVS7480kCaGyzhCvkCp3Pgt2J8cmEoX1kZofFzgBFNSjJVxoKNBW6DFLE5QUPRy18SCf7CM_JyAZFGGed8fV0tm5wDNF8VjPewTQAlNv0RSISOHImPyyxJohIZzTiAnOhx3paZuAfR0J_KUL1EvpNK0b4gEWv7KAIIaIo"/>
+</div>
+<p class="text-primary text-sm font-bold mb-3">医学前沿</p>
+<h4 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">IVF技术的新突破：提高胚胎植入成功率</h4>
+<p class="text-on-surface-variant line-clamp-2">专家解读最新的实验室技术如何帮助准父母更早实现家庭梦想。</p>
+</article>
+<article class="group">
+<div class="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Children playing with colorful wooden toys in a bright sunlit room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnX0ssQnM8IM-WEYuCYZ6d23BKCOmaNgMNRgyZ7XeDNXX-0m94xgPAIq8_g_T_tSJYm2SHP0NfDd4eH7NbI3X960GHCqgXAAQ9HOd1no7e9sknAB324VEuGGl2bDYhWY8qL9znjn2PFjftXdHgBOEziu1zRGz45JUQvViL6Qa_-OEyo1_g55caXFCKPDkpZ7Vty2pxKpH0XLmSUbc9LXdaqEPOxvbB6e1RsZsEATwVCI3fKjb2RBPdP-pMJ3NSPLTjivqWjOGkkMaA"/>
+</div>
+<p class="text-primary text-sm font-bold mb-3">心理健康</p>
+<h4 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">如何开启与代孕妈妈的心理建设之旅</h4>
+<p class="text-on-surface-variant line-clamp-2">建立信任与沟通是代孕成功的基石，分享实用的沟通技巧。</p>
+</article>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent)] pointer-events-none"></div>
+<h2 class="text-4xl md:text-6xl font-extrabold text-white mb-8 relative z-10 leading-tight">准备好开启您的<br/>家庭新篇章了吗？</h2>
+<p class="text-primary-fixed/80 text-xl mb-12 max-w-2xl mx-auto relative z-10">
+                        我们的专家顾问随时待命，为您提供 100% 隐私保护的免费初步咨询。
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+<button class="px-10 py-5 bg-white text-primary rounded-full font-black text-xl hover:scale-105 transition-transform shadow-2xl">立即私密咨询</button>
+<button class="px-10 py-5 bg-primary-container text-white rounded-full font-black text-xl border border-white/20 hover:bg-white hover:text-primary transition-all">拨打服务热线</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-stone-200/30 dark:border-stone-800/30 bg-[#fbf9f8] dark:bg-stone-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto w-full">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-[#0057bf] dark:text-blue-400 mb-6">Serene Guardian</div>
+<p class="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+                    提供全球领先的辅助生殖与代孕咨询服务。我们以专业和爱，守护每一个家庭的梦想。
+                </p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">快速链接</h4>
+<ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">准父母指南</a></li>
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">代孕妈妈申请</a></li>
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">成功案例</a></li>
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">常见问题</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">法律合规</h4>
+<ul class="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">隐私政策</a></li>
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">服务条款</a></li>
+<li><a class="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">加入我们</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">联系我们</h4>
+<p class="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 dark:text-stone-400 mb-4">
+                    上海市浦东新区陆家嘴环路1000号<br/>
+                    contact@sereneguardian.com<br/>
+                    400-123-4567
+                </p>
+<div class="flex gap-4">
+<div class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-8 border-t border-stone-200/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 dark:text-stone-400">
+                © 2024 Serene Guardian. All rights reserved. 沪ICP备12345678号
+            </p>
+<div class="flex gap-6 font-['Plus_Jakarta_Sans'] text-sm text-stone-500">
+<span>沪公网安备 31010000000001号</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,38 @@
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import ProcessGrid from './components/ProcessGrid';
+import Services from './components/Services';
+import Testimonial from './components/Testimonial';
+import FAQ from './components/FAQ';
+import CTA from './components/CTA';
+import Footer from './components/Footer';
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      
+      <main className="grid grid-cols-1 w-full">
+        {/* Hero Section */}
+        <Hero />
+        
+        {/* Process Section */}
+        <ProcessGrid />
+        
+        {/* Services Section */}
+        <Services />
+        
+        {/* Testimonial Section */}
+        <Testimonial />
+        
+        {/* FAQ Section */}
+        <FAQ />
+        
+        {/* CTA Section */}
+        <CTA />
+      </main>
+      
+      <Footer />
+    </div>
+  );
+}
