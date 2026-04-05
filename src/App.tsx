@@ -1,38 +1,18 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProcessGrid from './components/ProcessGrid';
-import Services from './components/Services';
-import Testimonial from './components/Testimonial';
-import FAQ from './components/FAQ';
-import CTA from './components/CTA';
-import Footer from './components/Footer';
+import { useState } from 'react';
+import Home from './pages/Home';
+import Parents from './pages/Parents';
+import Surrogates from './pages/Surrogates';
+import About from './pages/About';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      
-      <main className="grid grid-cols-1 w-full">
-        {/* Hero Section */}
-        <Hero />
-        
-        {/* Process Section */}
-        <ProcessGrid />
-        
-        {/* Services Section */}
-        <Services />
-        
-        {/* Testimonial Section */}
-        <Testimonial />
-        
-        {/* FAQ Section */}
-        <FAQ />
-        
-        {/* CTA Section */}
-        <CTA />
-      </main>
-      
-      <Footer />
+      {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
+      {currentPage === 'parents' && <Parents setCurrentPage={setCurrentPage} />}
+      {currentPage === 'surrogates' && <Surrogates setCurrentPage={setCurrentPage} />}
+      {currentPage === 'about' && <About setCurrentPage={setCurrentPage} />}
     </div>
   );
 }
