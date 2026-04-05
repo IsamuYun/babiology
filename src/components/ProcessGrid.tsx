@@ -1,67 +1,60 @@
-import { MessageSquare, Handshake, Gavel, Baby } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ClipboardList, Users, ShieldCheck, PartyPopper } from 'lucide-react';
 
 const steps = [
   {
-    id: '01',
-    title: '初期咨询',
-    desc: '深入了解您的家庭需求，提供个性化的初步方案与法律合规性解答。',
-    icon: MessageSquare,
-    rounded: 'rounded-t-3xl md:rounded-tr-none md:rounded-l-3xl'
+    icon: <ClipboardList size={32} />,
+    title: '初步咨询',
+    description: '深入了解您的需求、家庭背景及医学史，为您量身定制初步方案。',
+    color: 'primary'
   },
   {
-    id: '02',
-    title: '匹配筛选',
-    desc: '严苛筛选代孕妈妈，通过背景调查与医疗评估，确保双方的高度匹配与信任。',
-    icon: Handshake,
-    rounded: ''
+    icon: <Users size={32} />,
+    title: '精准配对',
+    description: '在广泛的候选库中，基于价值观与医学指标，为您寻找最契合的爱心妈妈。',
+    color: 'secondary'
   },
   {
-    id: '03',
-    title: '医疗与法律',
-    desc: '专业的医疗团队执行IVF，同时由顶尖法律团队起草严密的法律协议，保障权益。',
-    icon: Gavel,
-    rounded: ''
+    icon: <ShieldCheck size={32} />,
+    title: '法律与医疗',
+    description: '签署严密的法律协议，并在顶尖生殖医学中心开启胚胎移植与孕期监护。',
+    color: 'tertiary'
   },
   {
-    id: '04',
-    title: '迎接新生命',
-    desc: '全程陪产协调，协助办理身份证明及回国手续，直至您全家平安团聚。',
-    icon: Baby,
-    rounded: 'rounded-b-3xl md:rounded-bl-none md:rounded-r-3xl'
+    icon: <PartyPopper size={32} />,
+    title: '圆满诞生',
+    description: '全程陪同分娩与法律文件交接，见证奇迹时刻，协助您顺利带宝宝回家。',
+    color: 'primary'
   }
 ];
 
 export default function ProcessGrid() {
   return (
-    <section className="py-24 bg-surface-container-low">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">为您定制的圆梦之路</h2>
-          <p className="text-on-surface-variant text-lg">清晰透明的流程，让您每一步都走得踏实、安心</p>
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tighter text-on-surface">透明专业的服务流程</h2>
+          <p className="text-lg text-on-surface-variant max-w-2xl">
+            我们将复杂的旅程拆解为四个清晰的阶段，确保每一个步骤都在您的掌控与我们的专业守护之中。
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/10 rounded-3xl overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-100 rounded-3xl overflow-hidden border border-stone-100">
           {steps.map((step, index) => (
-            <motion.div 
-              key={step.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`group p-10 bg-surface-container-lowest transition-all hover:bg-primary hover:text-on-primary cursor-default`}
+            <div 
+              key={index}
+              className={`group p-10 bg-white transition-all hover:bg-stone-50 cursor-default`}
             >
-              <span className="text-5xl font-black opacity-10 group-hover:opacity-20 mb-8 block transition-opacity">
-                {step.id}
-              </span>
-              <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-              <p className="text-base leading-relaxed opacity-70 group-hover:opacity-90">
-                {step.desc}
-              </p>
-              <div className="mt-10 text-primary group-hover:text-on-primary transition-colors">
-                <step.icon size={32} strokeWidth={1.5} className="group-hover:translate-x-2 transition-transform" />
+              <div className={`mb-8 text-primary transition-transform group-hover:scale-110 duration-500`}>
+                {step.icon}
               </div>
-            </motion.div>
+              <div className="text-stone-300 font-black text-4xl mb-6 opacity-50 group-hover:text-primary transition-colors">
+                0{index + 1}
+              </div>
+              <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
+              <p className="text-on-surface-variant leading-relaxed">
+                {step.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

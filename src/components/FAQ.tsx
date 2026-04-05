@@ -20,14 +20,14 @@ export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24">
+    <section className="py-24 bg-white">
       <div className="max-w-3xl mx-auto px-6 md:px-8">
         <h2 className="text-4xl font-extrabold text-center mb-16 tracking-tight">常见问题解答</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-surface-container-low rounded-3xl overflow-hidden">
+            <div key={index} className="bg-stone-50 rounded-3xl overflow-hidden border border-stone-100/50">
               <button 
-                className="w-full flex justify-between items-center p-6 md:p-8 text-left font-bold text-xl hover:bg-surface-container transition-colors"
+                className="w-full flex justify-between items-center p-6 md:p-8 text-left font-bold text-xl hover:bg-stone-100/50 transition-colors"
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
               >
                 <span className="pr-4">{faq.question}</span>

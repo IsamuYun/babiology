@@ -13,7 +13,7 @@ interface ParentsProps {
 
 export default function Parents({ setCurrentPage }: ParentsProps) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navbar setCurrentPage={setCurrentPage} currentPage="parents" />
       
       <main className="grid grid-cols-1 w-full">

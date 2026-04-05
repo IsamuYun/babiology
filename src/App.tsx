@@ -8,7 +8,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
       {currentPage === 'parents' && <Parents setCurrentPage={setCurrentPage} />}
       {currentPage === 'surrogates' && <Surrogates setCurrentPage={setCurrentPage} />}

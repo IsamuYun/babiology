@@ -7,12 +7,12 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
   return (
-    <div className="bg-surface text-on-surface selection:bg-primary/20">
+    <div className="bg-white text-on-surface selection:bg-primary/20">
       <Navbar setCurrentPage={setCurrentPage} currentPage="home" />
 
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden">
+        <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden bg-white">
           <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="z-10">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 tracking-wide">专业 · 诚信 · 温暖</span>
@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="px-8 py-4 bg-primary text-on-primary rounded-full font-bold text-lg hover:bg-primary-container transition-all duration-300 shadow-xl shadow-primary/20">开始咨询</button>
                 <button 
-                  className="px-8 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all duration-300"
+                  className="px-8 py-4 bg-white border border-outline-variant text-on-surface rounded-full font-bold text-lg hover:bg-stone-50 transition-all duration-300"
                   onClick={() => setCurrentPage('parents')}
                 >
                   了解更多
@@ -53,7 +53,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Trust Section */}
-        <section className="bg-surface-container-low py-16">
+        <section className="bg-white py-16 border-y border-stone-50">
           <div className="max-w-7xl mx-auto px-8">
             <div className="text-center mb-12">
               <p className="text-sm font-bold text-stone-400 uppercase tracking-[0.2em] mb-4">合作伙伴与认证机构</p>
@@ -69,17 +69,17 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Core Services */}
-        <section className="py-24 bg-surface">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Service Card 1 */}
-              <div className="group bg-surface-container-low p-12 rounded-[2.5rem] hover:bg-white transition-all duration-500 border border-transparent hover:border-outline-variant/10">
+              <div className="group bg-white p-12 rounded-[2.5rem] hover:shadow-xl transition-all duration-500 border border-stone-100 hover:border-primary/10">
                 <div className="w-16 h-16 bg-primary text-on-primary rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform">
                   <span className="material-symbols-outlined text-3xl">family_restroom</span>
                 </div>
                 <h3 className="text-3xl font-bold mb-6">准父母计划</h3>
                 <p className="text-on-surface-variant text-lg leading-relaxed mb-8">
-                  我们深知寻子之路的艰辛。Serene Guardian 提供全方位的法律支持、医疗筛选和心理辅导，为您寻找最合适的代孕伙伴。
+                  我们深知寻子之路的艰辛。Serene Guardian 提供全方位的法律支持、医疗筛选 and 心理辅导，为您寻找最合适的代孕伙伴。
                 </p>
                 <ul className="space-y-4 mb-10">
                   <li className="flex items-center gap-3">
@@ -99,7 +99,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                 </button>
               </div>
               {/* Service Card 2 */}
-              <div className="group bg-tertiary-container/5 p-12 rounded-[2.5rem] hover:bg-white transition-all duration-500 border border-transparent hover:border-outline-variant/10">
+              <div className="group bg-white p-12 rounded-[2.5rem] hover:shadow-xl transition-all duration-500 border border-stone-100 hover:border-tertiary/10">
                 <div className="w-16 h-16 bg-tertiary text-on-tertiary rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-6 transition-transform">
                   <span className="material-symbols-outlined text-3xl">volunteer_activism</span>
                 </div>
@@ -126,36 +126,36 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Our Process */}
-        <section className="py-24 bg-surface-container-low">
+        <section className="py-24 bg-white border-y border-stone-50">
           <div className="max-w-7xl mx-auto px-8">
             <div className="text-center max-w-2xl mx-auto mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">我们的服务流程</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-on-surface">我们的服务流程</h2>
               <p className="text-on-surface-variant text-lg">四个简单步骤，让梦想照进现实。</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+              <div className="text-center p-8 bg-white rounded-3xl border border-stone-50 shadow-sm">
+                <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mx-auto mb-8">
                   <span className="text-3xl font-black text-primary">01</span>
                 </div>
                 <h4 className="text-xl font-bold mb-4">初步咨询</h4>
                 <p className="text-on-surface-variant">深入了解您的需求与期待，制定初步计划。</p>
               </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+              <div className="text-center p-8 bg-white rounded-3xl border border-stone-50 shadow-sm">
+                <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mx-auto mb-8">
                   <span className="text-3xl font-black text-primary">02</span>
                 </div>
                 <h4 className="text-xl font-bold mb-4">精准配对</h4>
                 <p className="text-on-surface-variant">基于价值观与期望，为您寻找完美的合作伙伴。</p>
               </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+              <div className="text-center p-8 bg-white rounded-3xl border border-stone-50 shadow-sm">
+                <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mx-auto mb-8">
                   <span className="text-3xl font-black text-primary">03</span>
                 </div>
                 <h4 className="text-xl font-bold mb-4">科学怀孕</h4>
                 <p className="text-on-surface-variant">顶尖生殖诊所全程监控，确保孕期健康安全。</p>
               </div>
-              <div className="text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+              <div className="text-center p-8 bg-white rounded-3xl border border-stone-50 shadow-sm">
+                <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mx-auto mb-8">
                   <span className="text-3xl font-black text-primary">04</span>
                 </div>
                 <h4 className="text-xl font-bold mb-4">喜悦诞生</h4>
@@ -166,7 +166,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Success Stories */}
-        <section className="py-24 bg-surface overflow-hidden">
+        <section className="py-24 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-8">
             <div className="relative bg-on-surface rounded-[3rem] min-h-[600px] flex items-center overflow-hidden">
               <img className="absolute inset-0 w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJp9huadnqHhaSirGSZqXctlH-QhMg4mUOpLJ-paPrl_qXNqFEzn1PT-3TLq5oIvWYqM3HfGdeWISOmA0nFxozcO6RTKVWhP4sbNa-_LTjZ8a9uOsthx4RNnzva8w4Ux2hUIQA3K_UWzGZcoEhO2EoQ0iRJt5LzqxsuxkfZj_dB3L7b6Cs_rVe-v8d9nQpN9q7qcvkCMIe0Zhe4tYwgzfuwwZQ71ojEyQeLTLinmVWbwiJMdRksE02QTX7KsgH-3dlY-D5ZnMtNmaQ" alt="Mother holding baby's hand" />
@@ -190,14 +190,14 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Blog/Resources */}
-        <section className="py-24 bg-surface">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-8">
             <div className="flex justify-between items-end mb-16">
               <div>
                 <h2 className="text-4xl font-bold mb-4">育儿与代孕百科</h2>
                 <p className="text-on-surface-variant">探索专业的医疗知识与感人的真实故事。</p>
               </div>
-              <button className="hidden md:block px-6 py-3 border border-outline-variant rounded-full font-bold hover:bg-surface-container-low transition-colors">查看全部文章</button>
+              <button className="hidden md:block px-6 py-3 border border-outline-variant rounded-full font-bold hover:bg-stone-50 transition-colors">查看全部文章</button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <article className="group">
@@ -229,9 +229,9 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Final CTA */}
-        <section className="py-24 bg-surface">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-8">
-            <div className="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+            <div className="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl shadow-primary/20">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent)] pointer-events-none"></div>
               <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 relative z-10 leading-tight">准备好开启您的<br />家庭新篇章了吗？</h2>
               <p className="text-primary-fixed/80 text-xl mb-12 max-w-2xl mx-auto relative z-10">
@@ -247,47 +247,47 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-stone-200/30 dark:border-stone-800/30 bg-[#fbf9f8] dark:bg-stone-950">
+      <footer className="w-full border-t border-stone-100 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto w-full">
           <div className="col-span-1 md:col-span-1">
-            <div className="text-xl font-bold text-[#0057bf] dark:text-blue-400 mb-6">Serene Guardian</div>
-            <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
+            <div className="text-xl font-bold text-primary mb-6">Serene Guardian</div>
+            <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 leading-relaxed">
               提供全球领先的辅助生殖与代孕咨询服务。我们以专业和爱，守护每一个家庭的梦想。
             </p>
           </div>
           <div>
             <h4 className="font-bold text-on-surface mb-6">快速链接</h4>
             <ul className="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">准父母指南</a></li>
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">代孕妈妈申请</a></li>
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">成功案例</a></li>
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">常见问题</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">准父母指南</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">代孕妈妈申请</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">成功案例</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">常见问题</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold text-on-surface mb-6">法律合规</h4>
             <ul className="space-y-4 font-['Plus_Jakarta_Sans'] text-sm">
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">隐私政策</a></li>
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">服务条款</a></li>
-              <li><a className="text-stone-500 hover:text-[#0057bf] transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">加入我们</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">隐私政策</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">服务条款</a></li>
+              <li><a className="text-stone-500 hover:text-primary transition-transform duration-300 hover:translate-y-[-2px] inline-block" href="#">加入我们</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold text-on-surface mb-6">联系我们</h4>
-            <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 dark:text-stone-400 mb-4">
+            <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 mb-4">
               上海市浦东新区陆家嘴环路1000号<br />
               contact@sereneguardian.com<br />
               400-123-4567
             </p>
             <div className="flex gap-4">
-              <div className="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-stone-600 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+              <div className="w-8 h-8 rounded-full bg-stone-50 flex items-center justify-center text-stone-600 hover:bg-primary hover:text-white transition-colors cursor-pointer">
                 <span className="material-symbols-outlined text-sm">share</span>
               </div>
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-8 py-8 border-t border-stone-200/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 dark:text-stone-400">
+        <div className="max-w-7xl mx-auto px-8 py-8 border-t border-stone-50 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500">
             © 2024 Serene Guardian. All rights reserved. 沪ICP备12345678号
           </p>
           <div className="flex gap-6 font-['Plus_Jakarta_Sans'] text-sm text-stone-500">

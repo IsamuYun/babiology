@@ -19,13 +19,13 @@ export default function Navbar({ setCurrentPage, currentPage }: NavbarProps) {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass border-b border-outline-variant/10">
+    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
         <div 
           className="text-2xl font-extrabold text-primary tracking-tighter cursor-pointer"
           onClick={(e) => handleNavClick(e, 'home')}
         >
-          Serene Guardian
+          Babiology Family
         </div>
 
         {/* Desktop Menu */}
@@ -72,7 +72,7 @@ export default function Navbar({ setCurrentPage, currentPage }: NavbarProps) {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-surface border-b border-outline-variant/10 px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
+        <div className="md:hidden bg-white border-b border-outline-variant/10 px-6 py-8 flex flex-col gap-6 animate-in slide-in-from-top duration-300">
           <a 
             href="#" 
             className={`text-lg font-bold ${currentPage === 'home' ? 'text-primary' : 'text-on-surface-variant'}`}

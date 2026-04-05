@@ -8,7 +8,7 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
   return (
-    <div className="bg-background text-on-surface selection:bg-primary/20">
+    <div className="bg-white text-on-surface selection:bg-primary/20">
       <Navbar setCurrentPage={setCurrentPage} currentPage="about" />
 
       <main className="pt-24">
@@ -25,7 +25,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
               </p>
             </div>
             <div className="lg:col-span-5 relative">
-              <div className="rounded-[2rem] overflow-hidden aspect-[4/5] bg-surface-container-low shadow-2xl">
+              <div className="rounded-[2rem] overflow-hidden aspect-[4/5] bg-white shadow-2xl">
                 <img alt="Warm embrace" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhzT4nivMkfK8Dqx6pkL4XalLxgYHJKMFNVaUANBneUzH11OhLuX_x_acHfIOdHa-KgStKYED5vgs6mL7X7LF10GyXnLQ5q2Mh46rqqoF71Dc6HImkWpeyLfnOS82WP4f6ng1e3zN_Mp2GuLeWptmxiO45eAv8JSLw2OHqQjWxuxHhF-P3utauP-zBdryDMCirOvEgfDIUGPoa5AwkZ5E0WzoP7FUGJvJD6M8GRdh9zSQcttSymz56hZnuQO0Qsrr8UgzM9OjU80fn" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-xl max-w-xs hidden md:block">
@@ -36,10 +36,10 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Mission & Vision: Bento Layout */}
-        <section className="bg-surface-container-low py-24 px-8">
+        <section className="bg-white py-24 px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-2 bg-surface-container-lowest p-12 rounded-[2rem] flex flex-col justify-between shadow-sm">
+              <div className="md:col-span-2 bg-white p-12 rounded-[2rem] flex flex-col justify-between shadow-sm">
                 <div>
                   <h2 className="text-3xl font-bold mb-6">我们的愿景</h2>
                   <p className="text-lg text-on-surface-variant leading-relaxed mb-12">
@@ -95,7 +95,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Meet the Team */}
-        <section className="bg-surface-container-low py-24 px-8">
+        <section className="bg-white py-24 px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4">专家团队</h2>
@@ -103,8 +103,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Team Member 1 */}
-              <div className="bg-surface-container-lowest rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-80 bg-stone-200 overflow-hidden">
+              <div className="bg-white rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-80 bg-stone-100 overflow-hidden">
                   <img alt="Team Leader" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMKgSJw4DCyjUEF9XGY6KNCiCtI1hEkzOjdAbCFQEthFzsV1aX4NSMi4ElIULlIKa_WzUhEZ3iwv-G52S2GHpPk3bq4_zhWKow0LZK8e46OkcSzMtns04uraNPhesGcE9CyJnJaZLRwfT2KvaXmAtWrt4LMvqVUHGGQtDGxDamhn4CVcHzzWH7At4VsccYDBL4GdXOcOnzeRHfO3YtvoTMRGYT3EFzQIrbtBbM6Y6AYKvHebGAzA2Lnx5t_SXfMjl5eX9G2gSASKNu" />
                 </div>
                 <div className="p-6">
@@ -114,8 +114,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 </div>
               </div>
               {/* Team Member 2 */}
-              <div className="bg-surface-container-lowest rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-80 bg-stone-200 overflow-hidden">
+              <div className="bg-white rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-80 bg-stone-100 overflow-hidden">
                   <img alt="Lawyer" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtaxegrOQKWYonM81kZn6ztxbW2vpSffBqW4iFgnbrJLcdavpgxkMAprETteDp9ygxs_j75n6EsHIF3Zs71a_Wn3xT0WkDMi9j-EvXsBHPz8QWAYNGVq1Z2iL8tnEx_WJNTagzmP1fMAXFY4v9qfI3z3xARY_pB3stJhs4vvLlUydx3yc-UtpWjQda8kl1GZdUD4j7vqwy1-KRsQHKEJ1acgmm6WNjZxA8SUIg0unMGjPht7EV-Bvn7hG5jYwU4gyc9AzqWoeIVTQ_" />
                 </div>
                 <div className="p-6">
@@ -125,8 +125,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 </div>
               </div>
               {/* Team Member 3 */}
-              <div className="bg-surface-container-lowest rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-80 bg-stone-200 overflow-hidden">
+              <div className="bg-white rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-80 bg-stone-100 overflow-hidden">
                   <img alt="Case Manager" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYCX7ePzw3Z9VTwy2HrsseUGvwksIXX-qT1gTvab-hvAiD2w2H3PuaPCkpepowixlpvde2ZRgUgyUb9k-uTkyFsKWBCvplh6S44tlRvVAuc5jWGi9APFwl1ZJ7YqtfNoB_WpXHCHq7zXIJkcoY-reb8MuuAu8Sb_MDjA6In-wRx20e7gLU5fxb109kG2PKtMe_4jfk-cesg74QSAM1UjipT7L_bUm8ZuJL1EyBYKAQHyl1lyfHXs-Jqtsds-2vGN8UUdATCHAPA_ao" />
                 </div>
                 <div className="p-6">
@@ -136,8 +136,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 </div>
               </div>
               {/* Team Member 4 */}
-              <div className="bg-surface-container-lowest rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-80 bg-stone-200 overflow-hidden">
+              <div className="bg-white rounded-3xl overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-80 bg-stone-100 overflow-hidden">
                   <img alt="Coordinator" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBURNo_yksR_h5OOzclfFq_NfDOdUnT65E7qazsZ2uXPJ1anApOlZ4qoqtjcxBjhSFZwxfyrcBzOSiO39qNFbj0pm5kAa5m1tl2y7QXoft9uYySaXrgXST0k7T-8L2GlGtFZhDyryX_VPq1yKRKYID_HVHMUCu5JB9BEqMYWrvG3NrpRaWLr1Q_yhwOlF5Rt7kkNA-gxpixdjWvZLDuBZzfK97bldwXjmSRz8w_a9Q15ZcUldhVwe1Cq_MRddeFTPNyFuwTOPn7HZnH" />
                 </div>
                 <div className="p-6">
@@ -177,9 +177,9 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Contact & Map */}
-        <section className="bg-surface py-24 px-8">
+        <section className="bg-white py-24 px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-surface-container-lowest rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-xl">
+            <div className="bg-white rounded-[3rem] overflow-hidden grid grid-cols-1 lg:grid-cols-2 shadow-xl border border-stone-100">
               <div className="p-16">
                 <h2 className="text-4xl font-bold mb-8">联系我们</h2>
                 <div className="space-y-8">
@@ -205,14 +205,14 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-12 p-8 bg-surface-container-low rounded-3xl">
+                <div className="mt-12 p-8 bg-stone-50 rounded-3xl">
                   <p className="font-medium text-on-surface mb-4">期待为您提供专业建议：</p>
                   <button className="w-full bg-primary text-on-primary py-4 rounded-full font-bold hover:scale-[1.02] active:scale-95 transition-transform shadow-lg shadow-primary/20">
                     联系我们的团队
                   </button>
                 </div>
               </div>
-              <div className="h-[600px] bg-surface-container-highest relative">
+              <div className="h-[600px] bg-stone-100 relative">
                 <img alt="Map area" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACUUttKnKyHPrimzpvGGalidOUsYecg1HH1WJbv9p4e220F2SkNQOVtac7slqYOO9d-Gd4NBJSxZdgtNA4V0FBsBnsvYIaWgEZ6Qr7gZ13RF3vUQyTZ48ggnO1Tg56irRrky8q-Q7ARX-o2iQV2r17KGMpfLf4Miediqa1jeWKfkw6i_l_uJ8niFELUQ-ARDU6A5iw6n_1uD3yVceb_OSUZmHSzRgavNrVum4ODxjAbujKkZG3uomUZ4o5DfTJNHRVY44QYR7_rmof" />
               </div>
             </div>

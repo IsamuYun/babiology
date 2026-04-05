@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export default function Testimonial() {
   return (
-    <section className="py-24 bg-surface-container">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight">感人的真实故事</h2>
         

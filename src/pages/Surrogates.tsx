@@ -8,12 +8,12 @@ interface SurrogatesProps {
 
 const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
   return (
-    <div className="bg-surface text-on-surface selection:bg-primary/20">
+    <div className="bg-white text-on-surface selection:bg-primary/20">
       <Navbar setCurrentPage={setCurrentPage} currentPage="surrogates" />
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative min-h-[870px] flex items-center overflow-hidden bg-surface">
+        <section className="relative min-h-[870px] flex items-center overflow-hidden bg-white">
           <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="z-10">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-bold mb-6 tracking-wide">代孕妈妈招募计划</span>
@@ -25,14 +25,14 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <button className="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-container transition-all">立即申请</button>
-                <button className="bg-surface-container-high text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-surface-container-highest transition-all">查看资格</button>
+                <button className="bg-white border border-outline-variant text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-stone-50 transition-all">查看资格</button>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
                 <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnmQzsHDSxwz--_SkgF4U5_aru2XSMGcGHlyaG8uy80crxx-7YgDWryGbbxBtNH-696vWJYM44KBxkowLncd459Z1CWM3cflzp8zPgmMVG_lhXhO1UJtIdHsEEguKXqajdyPBVdks5FJm3WYd9vYjf-hRSMtp3Z1SWqAEBr6ITbfkxoOHlAn5AcVJeUJ_NfkAgmyoc8hmNLmc0Lp8QXeb86Admkpu7_YLFVuEzHuO6BYuAsUG4JTc1UoEDgK8iLQma3nd_QbesGa-N" alt="Compassionate woman in garden" />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-surface-container-lowest p-8 rounded-3xl shadow-xl max-w-xs backdrop-blur-xl bg-white/90">
+              <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-xl max-w-xs backdrop-blur-xl border border-white/20">
                 <div className="flex items-center gap-4 mb-3">
                   <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>volunteer_activism</span>
                   <span className="font-bold text-lg">全程专业守护</span>
@@ -46,7 +46,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Requirements Bento Grid */}
-        <section className="py-24 bg-surface-container-low">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4">申请基本要求</h2>
@@ -54,7 +54,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Requirement 1 */}
-              <div className="bg-surface-container-lowest p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
+              <div className="bg-white border border-stone-100 p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
                 <div className="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-primary text-2xl">calendar_today</span>
                 </div>
@@ -62,7 +62,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
                 <p className="text-on-surface-variant">年龄在 21 至 38 岁之间，身心健康，正处于生育的黄金年龄。</p>
               </div>
               {/* Requirement 2 */}
-              <div className="bg-surface-container-lowest p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
+              <div className="bg-white border border-stone-100 p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
                 <div className="w-14 h-14 bg-secondary-fixed rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-secondary text-2xl">child_care</span>
                 </div>
@@ -70,7 +70,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
                 <p className="text-on-surface-variant">至少有过一次足月产且无并发症的健康生育经历，目前正在抚育自己的孩子。</p>
               </div>
               {/* Requirement 3 */}
-              <div className="bg-surface-container-lowest p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
+              <div className="bg-white border border-stone-100 p-8 rounded-3xl group hover:shadow-lg transition-all duration-300">
                 <div className="w-14 h-14 bg-tertiary-fixed rounded-2xl flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-tertiary text-2xl">health_metrics</span>
                 </div>
@@ -82,10 +82,10 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Benefits & Support */}
-        <section className="py-24 bg-surface overflow-hidden">
+        <section className="py-24 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
-              <div className="aspect-square rounded-full overflow-hidden border-[16px] border-surface-container-low">
+              <div className="aspect-square rounded-full overflow-hidden border-[16px] border-stone-50">
                 <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVuVKT05dFuJ7WUc6Ri3ivdgPK62fM0MZIJ_Jl7tKPL7yMNwophR0hom9792I71BPS2d84efCCFl6srnjqJgZNA1Jmgv58GVkD9HNXzagd0RGrbyburLXQhnDrxUXWtu-du6y9dkZK4NLVKt2u3x44LYkPwpUmndYPG2yhJlIvHxrLRzFG2mXK8rkkVVxWnOeDGBduyYIIT_5m_cQFfVSfNGnTtPax4BK5ZK00erh4NiuP62pQjS4NffvKkB3l6n0z4pYsjsW76u1A" alt="Hands holding each other" />
               </div>
               <div className="absolute top-0 right-0 w-48 h-48 bg-primary-fixed rounded-full -z-10 opacity-50 blur-3xl"></div>
@@ -126,7 +126,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* The Process */}
-        <section className="py-24 bg-surface-container">
+        <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-8">
             <div className="mb-16">
               <h2 className="text-4xl font-bold mb-4">开启旅程的四个步骤</h2>
@@ -135,25 +135,25 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
             <div className="relative">
               <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 -translate-y-1/2"></div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                <div className="relative z-10 bg-surface p-8 rounded-3xl">
+                <div className="relative z-10 bg-white border border-stone-50 p-8 rounded-3xl shadow-sm">
                   <div className="text-5xl font-black text-primary/10 absolute top-4 right-6">01</div>
                   <span className="material-symbols-outlined text-primary text-4xl mb-6">description</span>
                   <h3 className="text-xl font-bold mb-3">申请与审核</h3>
                   <p className="text-sm text-on-surface-variant leading-relaxed">提交在线申请，我们的协调员将在24小时内联系您进行初步沟通与背景了解。</p>
                 </div>
-                <div className="relative z-10 bg-surface p-8 rounded-3xl mt-8 lg:mt-12">
+                <div className="relative z-10 bg-white border border-stone-50 p-8 rounded-3xl mt-8 lg:mt-12 shadow-sm">
                   <div className="text-5xl font-black text-primary/10 absolute top-4 right-6">02</div>
                   <span className="material-symbols-outlined text-primary text-4xl mb-6">handshake</span>
                   <h3 className="text-xl font-bold mb-3">匹配准父母</h3>
                   <p className="text-sm text-on-surface-variant leading-relaxed">基于价值观与期望值进行双向选择，确保您与准父母之间建立起信任与尊重的纽带。</p>
                 </div>
-                <div className="relative z-10 bg-surface p-8 rounded-3xl lg:mt-0">
+                <div className="relative z-10 bg-white border border-stone-50 p-8 rounded-3xl lg:mt-0 shadow-sm">
                   <div className="text-5xl font-black text-primary/10 absolute top-4 right-6">03</div>
                   <span className="material-symbols-outlined text-primary text-4xl mb-6">pill</span>
                   <h3 className="text-xl font-bold mb-3">医疗程序</h3>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">在专业医生的指导下进行体外受精（IVF）胚胎移植，开启神圣的孕育过程。</p>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">在专业医生的指导下进行体外受受精（IVF）胚胎移植，开启神圣的孕育过程。</p>
                 </div>
-                <div className="relative z-10 bg-surface p-8 rounded-3xl mt-8 lg:mt-12">
+                <div className="relative z-10 bg-white border border-stone-50 p-8 rounded-3xl mt-8 lg:mt-12 shadow-sm">
                   <div className="text-5xl font-black text-primary/10 absolute top-4 right-6">04</div>
                   <span className="material-symbols-outlined text-primary text-4xl mb-6">cake</span>
                   <h3 className="text-xl font-bold mb-3">宝宝降生</h3>
@@ -165,7 +165,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
         </section>
 
         {/* Surrogate Stories */}
-        <section className="py-24 bg-surface overflow-hidden">
+        <section className="py-24 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-8">
             <h2 className="text-4xl font-bold mb-16 text-center">听听她们的心声</h2>
             <div className="relative h-[600px] w-full rounded-[3rem] overflow-hidden group">
@@ -199,7 +199,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
                 我们的顾问团队随时准备解答您的任何疑问。这是一个匿名且免费的咨询过程。
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="bg-surface text-primary px-12 py-5 rounded-full font-bold text-xl hover:bg-surface-container-low transition-all">立即申请</button>
+                <button className="bg-white text-primary px-12 py-5 rounded-full font-bold text-xl hover:bg-stone-50 transition-all">立即申请</button>
                 <button className="border-2 border-on-primary text-on-primary px-12 py-5 rounded-full font-bold text-xl hover:bg-white/10 transition-all">在线咨询</button>
               </div>
             </div>

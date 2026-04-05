@@ -2,7 +2,7 @@ import { Globe, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container-low border-t border-outline-variant/10">
+    <footer className="bg-white border-t border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           <div className="space-y-8">
@@ -11,13 +11,13 @@ export default function Footer() {
               全球领先的专业代孕咨询机构，以科学、法律、仁爱为基石，守护每一个家庭的圆梦旅程。
             </p>
             <div className="flex gap-5">
-              <a href="#" className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-all">
+              <a href="#" className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-all">
                 <Globe size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-all">
+              <a href="#" className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-all">
                 <Mail size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-all">
+              <a href="#" className="w-10 h-10 rounded-full bg-stone-50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-primary/10 transition-all">
                 <Phone size={20} />
               </a>
             </div>

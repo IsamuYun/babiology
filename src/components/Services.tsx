@@ -2,7 +2,7 @@ import { ShieldCheck, Stethoscope, HeartHandshake } from 'lucide-react';
 
 export default function Services() {
   return (
-    <section className="py-24">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         <div className="grid grid-cols-2 gap-6">
           <div className="space-y-6 pt-12">
@@ -14,13 +14,13 @@ export default function Services() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="p-8 bg-secondary-container/10 rounded-[2rem]">
+            <div className="p-8 bg-stone-50 rounded-[2rem] border border-stone-100">
               <h4 className="font-bold text-secondary text-lg mb-2">顶级医疗资源</h4>
               <p className="text-sm text-on-surface-variant leading-relaxed">合作全球领先的生殖医学中心，确保高成功率。</p>
             </div>
           </div>
           <div className="space-y-6">
-            <div className="p-8 bg-tertiary-container/10 rounded-[2rem]">
+            <div className="p-8 bg-stone-50 rounded-[2rem] border border-stone-100">
               <h4 className="font-bold text-tertiary text-lg mb-2">透明化财务</h4>
               <p className="text-sm text-on-surface-variant leading-relaxed">全流程资金信托账户监管，无任何隐形费用支出。</p>
             </div>
@@ -39,7 +39,7 @@ export default function Services() {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-10 tracking-tight">超越期待的全面支持</h2>
           <div className="space-y-10">
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-stone-50 flex items-center justify-center text-primary border border-stone-100">
                 <ShieldCheck size={32} strokeWidth={1.5} />
               </div>
               <div>
@@ -48,7 +48,7 @@ export default function Services() {
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-stone-50 flex items-center justify-center text-primary border border-stone-100">
                 <Stethoscope size={32} strokeWidth={1.5} />
               </div>
               <div>
@@ -57,7 +57,7 @@ export default function Services() {
               </div>
             </div>
             <div className="flex gap-6">
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-stone-50 flex items-center justify-center text-primary border border-stone-100">
                 <HeartHandshake size={32} strokeWidth={1.5} />
               </div>
               <div>
