@@ -25,7 +25,7 @@ export default function Navbar({ setCurrentPage, currentPage }: NavbarProps) {
           className="flex flex-row items-center align-middle text-2xl font-extrabold text-primary tracking-tighter cursor-pointer"
           onClick={(e) => handleNavClick(e, 'home')}
         >
-          <img src="/images/icon/babiology-icon-128.png" alt="Babiology Logo" className="w-18 h-18" />
+          <img src="images/icon/babiology-icon-128.png" alt="Babiology Logo" className="w-18 h-18" />
           <span className="text-3xl ml-2">Babiology Family</span>
         </div>
 
