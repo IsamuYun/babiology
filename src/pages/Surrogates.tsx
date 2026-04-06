@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 
 interface SurrogatesProps {
@@ -11,39 +12,23 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
     <div className="bg-white text-on-surface selection:bg-primary/20">
       <Navbar setCurrentPage={setCurrentPage} currentPage="surrogates" />
 
-      <main className="pt-20">
+      <main>
         {/* Hero Section */}
-        <section className="relative min-h-[870px] flex items-center overflow-hidden bg-white">
-          <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="z-10">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-sm font-bold mb-6 tracking-wide">代孕妈妈招募计划</span>
-              <h1 className="text-6xl font-extrabold text-on-surface leading-[1.1] tracking-tight mb-8">
-                赋予他人<span className="text-primary">生命之礼</span> — 开启您的爱心旅程
-              </h1>
-              <p className="text-xl text-on-surface-variant leading-relaxed mb-10 max-w-xl">
-                成为代孕妈妈不仅是一份经济上的回报，更是一次通过爱与关怀改变另一个家庭命运的高尚行为。我们为您提供全方位的专业医疗、法律与情感支持。
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-container transition-all">立即申请</button>
-                <button className="bg-white border border-outline-variant text-on-surface px-8 py-4 rounded-full font-bold text-lg hover:bg-stone-50 transition-all">查看资格</button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl">
-                <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnmQzsHDSxwz--_SkgF4U5_aru2XSMGcGHlyaG8uy80crxx-7YgDWryGbbxBtNH-696vWJYM44KBxkowLncd459Z1CWM3cflzp8zPgmMVG_lhXhO1UJtIdHsEEguKXqajdyPBVdks5FJm3WYd9vYjf-hRSMtp3Z1SWqAEBr6ITbfkxoOHlAn5AcVJeUJ_NfkAgmyoc8hmNLmc0Lp8QXeb86Admkpu7_YLFVuEzHuO6BYuAsUG4JTc1UoEDgK8iLQma3nd_QbesGa-N" alt="Compassionate woman in garden" />
-              </div>
-              <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-xl max-w-xs backdrop-blur-xl border border-white/20">
-                <div className="flex items-center gap-4 mb-3">
-                  <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>volunteer_activism</span>
-                  <span className="font-bold text-lg">全程专业守护</span>
-                </div>
-                <p className="text-sm text-on-surface-variant leading-relaxed">
-                  从最初的咨询到最终的健康分娩，Serene Guardian 全程陪伴在您身边。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero 
+          tag="代孕妈妈招募计划"
+          title={<>赋予他人<span className="text-primary">生命之礼</span> — 开启您的爱心旅程</>}
+          description="成为代孕妈妈不仅是一份经济上的回报，更是一次通过爱与关怀改变另一个家庭命运的高尚行为。"
+          buttons={[
+            { label: '立即申请', variant: 'primary' },
+            { label: '查看资格', variant: 'outline' }
+          ]}
+          imageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuBnmQzsHDSxwz--_SkgF4U5_aru2XSMGcGHlyaG8uy80crxx-7YgDWryGbbxBtNH-696vWJYM44KBxkowLncd459Z1CWM3cflzp8zPgmMVG_lhXhO1UJtIdHsEEguKXqajdyPBVdks5FJm3WYd9vYjf-hRSMtp3Z1SWqAEBr6ITbfkxoOHlAn5AcVJeUJ_NfkAgmyoc8hmNLmc0Lp8QXeb86Admkpu7_YLFVuEzHuO6BYuAsUG4JTc1UoEDgK8iLQma3nd_QbesGa-N"
+          testimonial={{
+            text: "从最初的咨询到最终的健康分娩，Serene Guardian 全程陪伴在您身边。",
+            author: "全程专业守护",
+            icon: <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>volunteer_activism</span>
+          }}
+        />
 
         {/* Requirements Bento Grid */}
         <section className="py-24 bg-white">

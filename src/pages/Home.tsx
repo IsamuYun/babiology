@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
 
 interface HomeProps {
   setCurrentPage: (page: string) => void;
@@ -12,45 +13,21 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 overflow-hidden bg-white">
-          <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="z-10">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-6 tracking-wide">专业 · 诚信 · 温暖</span>
-              <h1 className="text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.1] tracking-tight mb-8">
-                让爱延伸，<br /><span className="text-primary">圆您家庭梦想</span>
-              </h1>
-              <p className="text-xl text-on-surface-variant leading-relaxed mb-10 max-w-lg">
-                我们致力于为您提供全球顶尖的辅助生殖咨询服务，在充满尊重的环境中，陪伴您走过通往为人父母的每一步。
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-4 bg-primary text-on-primary rounded-full font-bold text-lg hover:bg-primary-container transition-all duration-300 shadow-xl shadow-primary/20">开始咨询</button>
-                <button 
-                  className="px-8 py-4 bg-white border border-outline-variant text-on-surface rounded-full font-bold text-lg hover:bg-stone-50 transition-all duration-300"
-                  onClick={() => setCurrentPage('parents')}
-                >
-                  了解更多
-                </button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl transform rotate-2">
-                <img className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWcyXkgjPR4hbLJFgTMn4_eV8sw91wzNvMImSHRAOrr3X69AeYzWP7JmpUHVl5jGs49omsRt3xHSehioGgfeM7H6VFnE7ecm_tIfvM2QJv0afu4lpAd4VlSgfwp5AWFQkZdO0axhh40NpuczA59wVPeEHygGMoOC8qT6ZdcLIsoUdQSdHf5k-jIwNYjmkd8O6ZZnIt28Wfv2FqXmtyosmWybyBsJCffP1duvFcsHJQ7B8tJcUoHQ-CX7eOjgKTMLOAJGrp0DoiJKN" alt="Happy family with newborn" />
-              </div>
-              {/* Glassmorphic floating card */}
-              <div className="absolute -bottom-10 -left-10 p-8 bg-white/70 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl max-w-xs hidden md:block">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
-                    <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
-                  </div>
-                  <div className="font-bold text-lg text-on-surface">1,200+</div>
-                </div>
-                <p className="text-sm text-on-surface-variant leading-relaxed">过去十年间，我们已成功帮助一千多个家庭迎来了他们梦寐以求的新生命。</p>
-              </div>
-            </div>
-          </div>
-          {/* Decorative background glow */}
-          <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent blur-3xl"></div>
-        </section>
+        <Hero 
+          tag="专业 · 诚信 · 温暖"
+          title={<>让爱延伸，<br /><span className="text-primary">圆您家庭梦想</span></>}
+          description="我们致力于为您提供全球顶尖的辅助生殖咨询服务，在充满尊重的环境中，陪伴您走过通往为人父母的每一步。"
+          buttons={[
+            { label: '开始咨询', variant: 'primary' },
+            { label: '了解更多', variant: 'outline', onClick: () => setCurrentPage('parents') }
+          ]}
+          imageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWcyXkgjPR4hbLJFgTMn4_eV8sw91wzNvMImSHRAOrr3X69AeYzWP7JmpUHVl5jGs49omsRt3xHSehioGgfeM7H6VFnE7ecm_tIfvM2QJv0afu4lpAd4VlSgfwp5AWFQkZdO0axhh40NpuczA59wVPeEHygGMoOC8qT6ZdcLIsoUdQSdHf5k-jIwNYjmkd8O6ZZnIt28Wfv2FqXmtyosmWybyBsJCffP1duvFcsHJQ7B8tJcUoHQ-CX7eOjgKTMLOAJGrp0DoiJKN"
+          testimonial={{
+            text: "过去十年间，我们已成功帮助一千多个家庭迎来了他们梦寐以求的新生命。",
+            author: "1,200+",
+            icon: <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+          }}
+        />
 
         {/* Trust Section */}
         <section className="bg-white py-16 border-y border-stone-50">

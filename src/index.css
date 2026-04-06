@@ -10,10 +10,11 @@
   
   --color-tertiary: #4d6320;
   --color-tertiary-container: #657c36;
-  --color-on-tertiary: #ffffff;
+  --color-on-tertiary: #FFFFFF;
   --color-primary: #4D179A;
   --color-primary-container: #4c1d95;
-  --color-surface-dim: #ffffff;
+  
+  --color-surface-dim: #FFFFFF;
   --color-on-primary-fixed: #1e0a42;
   --color-error-container: #ffdad6;
   --color-surface-container-high: #ffffff;

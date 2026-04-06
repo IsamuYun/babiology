@@ -22,10 +22,11 @@ export default function Navbar({ setCurrentPage, currentPage }: NavbarProps) {
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
         <div 
-          className="text-2xl font-extrabold text-primary tracking-tighter cursor-pointer"
+          className="flex flex-row items-center align-middle text-2xl font-extrabold text-primary tracking-tighter cursor-pointer"
           onClick={(e) => handleNavClick(e, 'home')}
         >
-          Babiology Family
+          <img src="/images/icon/babiology-icon-128.png" alt="Babiology Logo" className="w-18 h-18" />
+          <span className="text-3xl ml-2">Babiology Family</span>
         </div>
 
         {/* Desktop Menu */}
