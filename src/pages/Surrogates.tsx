@@ -24,7 +24,7 @@ const Surrogates: React.FC<SurrogatesProps> = ({ setCurrentPage }) => {
           ]}
           imageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuBnmQzsHDSxwz--_SkgF4U5_aru2XSMGcGHlyaG8uy80crxx-7YgDWryGbbxBtNH-696vWJYM44KBxkowLncd459Z1CWM3cflzp8zPgmMVG_lhXhO1UJtIdHsEEguKXqajdyPBVdks5FJm3WYd9vYjf-hRSMtp3Z1SWqAEBr6ITbfkxoOHlAn5AcVJeUJ_NfkAgmyoc8hmNLmc0Lp8QXeb86Admkpu7_YLFVuEzHuO6BYuAsUG4JTc1UoEDgK8iLQma3nd_QbesGa-N"
           testimonial={{
-            text: "从最初的咨询到最终的健康分娩，Serene Guardian 全程陪伴在您身边。",
+            text: "从最初的咨询到最终的健康分娩，Babiology 全程陪伴在您身边。",
             author: "全程专业守护",
             icon: <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>volunteer_activism</span>
           }}

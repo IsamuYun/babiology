@@ -16,7 +16,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         <Hero 
           tag="专业 · 诚信 · 温暖"
           title={<>让爱延伸，<br /><span className="text-primary">圆您家庭梦想</span></>}
-          description="我们致力于为您提供全球顶尖的辅助生殖咨询服务，在充满尊重的环境中，陪伴您走过通往为人父母的每一步。"
+          description="我们致力于为您提供全球顶尖的辅助生育咨询服务，在充满尊重的环境中，陪伴您走过通往为人父母的每一步。"
           buttons={[
             { label: '开始咨询', variant: 'primary' },
             { label: '了解更多', variant: 'outline', onClick: () => setCurrentPage('parents') }
@@ -56,7 +56,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                 </div>
                 <h3 className="text-3xl font-bold mb-6">准父母计划</h3>
                 <p className="text-on-surface-variant text-lg leading-relaxed mb-8">
-                  我们深知寻子之路的艰辛。Serene Guardian 提供全方位的法律支持、医疗筛选 and 心理辅导，为您寻找最合适的代孕伙伴。
+                  我们深知寻子之路的艰辛。Babiology 提供全方位的法律支持、医疗筛选 and 心理辅导，为您寻找最合适的代孕伙伴。
                 </p>
                 <ul className="space-y-4 mb-10">
                   <li className="flex items-center gap-3">
@@ -129,7 +129,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                   <span className="text-3xl font-black text-primary">03</span>
                 </div>
                 <h4 className="text-xl font-bold mb-4">科学怀孕</h4>
-                <p className="text-on-surface-variant">顶尖生殖诊所全程监控，确保孕期健康安全。</p>
+                <p className="text-on-surface-variant">顶尖生育诊所全程监控，确保孕期健康安全。</p>
               </div>
               <div className="text-center p-8 bg-white rounded-3xl border border-stone-50 shadow-sm">
                 <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mx-auto mb-8">
@@ -150,7 +150,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
               <div className="relative z-10 px-12 md:px-24 py-20 max-w-3xl">
                 <span className="material-symbols-outlined text-primary text-6xl mb-8" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
                 <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight mb-12 italic">
-                  "在Serene Guardian的帮助下，我们不仅迎来了可爱的女儿，更感受到了前所未有的尊重与支持。这不仅是一项服务，更是一段关于爱的旅程。"
+                  "在Babiology的帮助下，我们不仅迎来了可爱的女儿，更感受到了前所未有的尊重与支持。这不仅是一项服务，更是一段关于爱的旅程。"
                 </h2>
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary">
@@ -183,7 +183,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                 </div>
                 <p className="text-primary text-sm font-bold mb-3">法律法规</p>
                 <h4 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">2024年全球代孕法律动态概览</h4>
-                <p className="text-on-surface-variant line-clamp-2">了解不同国家和地区最新的辅助生殖法律调整，为您的计划提供安全保障。</p>
+                <p className="text-on-surface-variant line-clamp-2">了解不同国家和地区最新的辅助生育法律调整，为您的计划提供安全保障。</p>
               </article>
               <article className="group">
                 <div className="aspect-[16/10] rounded-3xl overflow-hidden mb-6">
@@ -227,9 +227,9 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
       <footer className="w-full border-t border-stone-100 bg-white">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto w-full">
           <div className="col-span-1 md:col-span-1">
-            <div className="text-xl font-bold text-primary mb-6">Serene Guardian</div>
+            <div className="text-xl font-bold text-primary mb-6">Babiology</div>
             <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 leading-relaxed">
-              提供全球领先的辅助生殖与代孕咨询服务。我们以专业和爱，守护每一个家庭的梦想。
+              提供全球领先的辅助生育与代孕咨询服务。我们以专业和爱，守护每一个家庭的梦想。
             </p>
           </div>
           <div>
@@ -265,7 +265,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </div>
         <div className="max-w-7xl mx-auto px-8 py-8 border-t border-stone-50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500">
-            © 2024 Serene Guardian. All rights reserved. 沪ICP备12345678号
+            © 2024 Babiology. All rights reserved. 沪ICP备12345678号
           </p>
           <div className="flex gap-6 font-['Plus_Jakarta_Sans'] text-sm text-stone-500">
             <span>沪公网安备 31010000000001号</span>

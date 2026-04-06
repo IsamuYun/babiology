@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
 import Footer from '../components/Footer';
 
 interface AboutProps {
@@ -13,28 +14,22 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
 
       <main className="pt-24">
         {/* Hero Section: Editorial Intro */}
-        <section className="px-8 py-20 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <span className="text-primary font-bold tracking-widest text-sm uppercase mb-4 block">我们的使命</span>
-              <h1 className="text-5xl lg:text-7xl font-extrabold text-on-surface tracking-tighter leading-[1.1] mb-8">
-                用专业与温情，<br />守护每一个<span className="text-primary">家庭梦想</span>
-              </h1>
-              <p className="text-xl text-on-surface-variant leading-relaxed max-w-2xl">
-                在 Serene Guardian，我们不仅仅提供代孕咨询服务。我们提供的是一个充满信任、法律保障和医学支持的避风港，致力于为每一个渴望成为父母的家庭铺平道路。
-              </p>
-            </div>
-            <div className="lg:col-span-5 relative">
-              <div className="rounded-[2rem] overflow-hidden aspect-[4/5] bg-white shadow-2xl">
-                <img alt="Warm embrace" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhzT4nivMkfK8Dqx6pkL4XalLxgYHJKMFNVaUANBneUzH11OhLuX_x_acHfIOdHa-KgStKYED5vgs6mL7X7LF10GyXnLQ5q2Mh46rqqoF71Dc6HImkWpeyLfnOS82WP4f6ng1e3zN_Mp2GuLeWptmxiO45eAv8JSLw2OHqQjWxuxHhF-P3utauP-zBdryDMCirOvEgfDIUGPoa5AwkZ5E0WzoP7FUGJvJD6M8GRdh9zSQcttSymz56hZnuQO0Qsrr8UgzM9OjU80fn" />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-xl max-w-xs hidden md:block">
-                <p className="italic text-primary font-medium">“在这里，每一个生命都被赋予了最神圣的尊严与期待。”</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <Hero 
+          tag="我们的使命"
+          title={<>用专业与温情，<br />守护每一个<span className="text-primary">家庭梦想</span></>}
+          description="在 Babiology，我们不仅仅提供代孕咨询服务。我们提供的是一个充满信任、法律保障和医学支持的避风港，致力于为每一个渴望成为父母的家庭铺平道路。"
+          buttons={[
+            { label: '开始咨询', variant: 'primary' },
+            { label: '了解更多', variant: 'outline', onClick: () => setCurrentPage('parents') }
+          ]}
+          imageSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuDhzT4nivMkfK8Dqx6pkL4XalLxgYHJKMFNVaUANBneUzH11OhLuX_x_acHfIOdHa-KgStKYED5vgs6mL7X7LF10GyXnLQ5q2Mh46rqqoF71Dc6HImkWpeyLfnOS82WP4f6ng1e3zN_Mp2GuLeWptmxiO45eAv8JSLw2OHqQjWxuxHhF-P3utauP-zBdryDMCirOvEgfDIUGPoa5AwkZ5E0WzoP7FUGJvJD6M8GRdh9zSQcttSymz56hZnuQO0Qsrr8UgzM9OjU80fn"
+          testimonial={{
+            text: "在这里，每一个生命都被赋予了最神圣的尊严与期待。",
+            author: "",
+            icon: <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>
+          }}
+        />
+        
         {/* Mission & Vision: Bento Layout */}
         <section className="bg-white py-24 px-8">
           <div className="max-w-7xl mx-auto">
@@ -87,7 +82,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
             <div className="w-full md:w-1/2">
               <h2 className="text-4xl font-bold mb-8">我们的故事</h2>
               <div className="space-y-6 text-on-surface-variant text-lg leading-relaxed">
-                <p>Serene Guardian 始于一个简单的初衷：让渴望家庭的人不再因为生理局限而心碎。创始团队由资深生殖医学专家和法律顾问组成，在见证了无数家庭的艰辛历程后，决定在上海成立这一家专业的咨询机构。</p>
+                <p>Babiology 始于一个简单的初衷：让渴望家庭的人不再因为生理局限而心碎。创始团队由资深生育医学专家和法律顾问组成，在见证了无数家庭的艰辛历程后，决定在上海成立这一家专业的咨询机构。</p>
                 <p>十余年来，我们已协助 500+ 家庭成功迎接新生命，足迹遍布美国、格鲁吉亚等合法代孕目的地。我们的成长史，就是一部与客户共同经历的“筑梦史”。</p>
               </div>
             </div>
@@ -110,7 +105,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Dr. Li Wei</h3>
                   <p className="text-primary text-sm font-semibold mb-3">首席医学顾问 / 胚胎学博士</p>
-                  <p className="text-sm text-stone-500">在生殖内分泌领域拥有 25 年经验，曾任三甲医院生殖中心副主任。</p>
+                  <p className="text-sm text-stone-500">在生育内分泌领域拥有 25 年经验，曾任三甲医院生育中心副主任。</p>
                 </div>
               </div>
               {/* Team Member 2 */}
@@ -121,7 +116,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Zhang Ming</h3>
                   <p className="text-primary text-sm font-semibold mb-3">法律合规总监</p>
-                  <p className="text-sm text-stone-500">专注跨国生殖法律事务，已处理超过 400 宗复杂的亲子确认案件。</p>
+                  <p className="text-sm text-stone-500">专注跨国生育法律事务，已处理超过 400 宗复杂的亲子确认案件。</p>
                 </div>
               </div>
               {/* Team Member 3 */}
@@ -159,7 +154,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
           <div className="flex flex-wrap justify-center items-center gap-16 opacity-60">
             <div className="flex flex-col items-center gap-4">
               <span className="material-symbols-outlined text-5xl">gavel</span>
-              <span className="font-bold text-stone-400">国际生殖法律协会</span>
+              <span className="font-bold text-stone-400">国际生育法律协会</span>
             </div>
             <div className="flex flex-col items-center gap-4">
               <span className="material-symbols-outlined text-5xl">medical_services</span>

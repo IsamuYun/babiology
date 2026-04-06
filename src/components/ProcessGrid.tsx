@@ -16,7 +16,7 @@ const steps = [
   {
     icon: <ShieldCheck size={32} />,
     title: '法律与医疗',
-    description: '签署严密的法律协议，并在顶尖生殖医学中心开启胚胎移植与孕期监护。',
+    description: '签署严密的法律协议，并在顶尖生育医学中心开启胚胎移植与孕期监护。',
     color: 'tertiary'
   },
   {

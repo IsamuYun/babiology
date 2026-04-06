@@ -23,7 +23,7 @@ export default function Testimonial() {
               className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/20 ambient-shadow"
             >
               <h3 className="text-2xl md:text-4xl font-bold text-on-surface mb-8 leading-tight">
-                “等待了八年，Serene Guardian 帮我们将梦想变成了现实。当第一次抱起宝宝时，所有的等待都值得了。”
+                “等待了八年，Babiology 帮我们将梦想变成了现实。当第一次抱起宝宝时，所有的等待都值得了。”
               </h3>
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full border-2 border-primary overflow-hidden">

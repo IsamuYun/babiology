@@ -16,7 +16,7 @@ export default function Services() {
             </div>
             <div className="p-8 bg-stone-50 rounded-[2rem] border border-stone-100">
               <h4 className="font-bold text-secondary text-lg mb-2">顶级医疗资源</h4>
-              <p className="text-sm text-on-surface-variant leading-relaxed">合作全球领先的生殖医学中心，确保高成功率。</p>
+              <p className="text-sm text-on-surface-variant leading-relaxed">合作全球领先的生育医学中心，确保高成功率。</p>
             </div>
           </div>
           <div className="space-y-6">

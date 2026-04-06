@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           <div className="space-y-8">
-            <div className="text-2xl font-extrabold text-primary tracking-tighter">Serene Guardian</div>
+            <div className="text-2xl font-extrabold text-primary tracking-tighter">Babiology</div>
             <p className="text-on-surface-variant leading-relaxed">
               全球领先的专业代孕咨询机构，以科学、法律、仁爱为基石，守护每一个家庭的圆梦旅程。
             </p>
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant opacity-70">
-          <p>© 2024 Serene Guardian. All rights reserved.</p>
+          <p>© 2024 Babiology. All rights reserved.</p>
           <p>沪ICP备12345678号</p>
         </div>
       </div>
