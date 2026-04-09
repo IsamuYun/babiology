@@ -252,9 +252,9 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
           <div>
             <h4 className="font-bold text-on-surface mb-6">联系我们</h4>
             <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500 mb-4">
-              上海市浦东新区陆家嘴环路1000号<br />
-              contact@sereneguardian.com<br />
-              400-123-4567
+              930 Roosevelt Suite #212-214, Irvine, CA 92620<br />
+              info@babiologyfamily.com<br />
+              714-699-8298
             </p>
             <div className="flex gap-4">
               <div className="w-8 h-8 rounded-full bg-stone-50 flex items-center justify-center text-stone-600 hover:bg-primary hover:text-white transition-colors cursor-pointer">
@@ -265,10 +265,10 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         </div>
         <div className="max-w-7xl mx-auto px-8 py-8 border-t border-stone-50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-['Plus_Jakarta_Sans'] text-sm text-stone-500">
-            © 2024 Babiology. All rights reserved. 沪ICP备12345678号
+            © 2026 Babiology. All rights reserved. 
           </p>
           <div className="flex gap-6 font-['Plus_Jakarta_Sans'] text-sm text-stone-500">
-            <span>沪公网安备 31010000000001号</span>
+            <span></span>
           </div>
         </div>
       </footer>

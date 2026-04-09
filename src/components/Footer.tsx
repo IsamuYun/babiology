@@ -54,8 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-on-surface-variant opacity-70">
-          <p>© 2024 Babiology. All rights reserved.</p>
-          <p>沪ICP备12345678号</p>
+          <p>© 2026 Babiology. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -182,21 +182,21 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                     <span className="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-2xl">location_on</span>
                     <div>
                       <h4 className="font-bold mb-1">总部地址</h4>
-                      <p className="text-stone-500">上海市静安区南京西路 1266 号恒隆广场一期</p>
+                      <p className="text-stone-500">930 Roosevelt Suite #212-214, Irvine, CA 92620</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <span className="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-2xl">call</span>
                     <div>
                       <h4 className="font-bold mb-1">咨询热线</h4>
-                      <p className="text-stone-500">400-123-4567 / (021) 5678-8888</p>
+                      <p className="text-stone-500">714-699-8298</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <span className="material-symbols-outlined text-primary p-3 bg-primary/10 rounded-2xl">mail</span>
                     <div>
                       <h4 className="font-bold mb-1">电子邮箱</h4>
-                      <p className="text-stone-500">contact@sereneguardian.com</p>
+                      <p className="text-stone-500">info@babiologyfamily.com</p>
                     </div>
                   </div>
                 </div>
