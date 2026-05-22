@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>预约咨询 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 96px;
+    padding: 56px 0 120px;
+  }
+  .form-card {
+    background: var(--bg);
+    padding: 0;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+  .field-full { grid-column: span 2; }
+  .field { gap: 10px; }
+  .checkbox-grid {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--fg-muted);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .checkbox:hover { border-color: var(--accent); color: var(--accent); }
+  .checkbox.is-on {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--bg-sunk);
+  }
+  .checkbox .ck {
+    width: 16px; height: 16px;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .checkbox.is-on .ck::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: currentColor;
+    border-radius: 50%;
+  }
+
+  /* Sidebar */
+  .side-card {
+    background: var(--bg-sunk);
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: fit-content;
+    position: sticky;
+    top: calc(var(--nav-height) + 32px);
+  }
+  .side-card .lbl {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 10px;
+  }
+  .side-card .v {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  .side-card .v.acc { color: var(--accent); }
+  .side-card a:hover { color: var(--accent); }
+
+  .promise {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    color: var(--fg-muted);
+  }
+  .promise .ck { color: var(--accent); }
+
+  /* Hero copy */
+  .contact-hero h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 1.0;
+    margin: 24px 0 24px;
+    letter-spacing: var(--tr-display);
+  }
+  .contact-hero h1 .ital { font-style: italic; color: var(--accent); }
+
+  @media (max-width: 960px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .field-full, .checkbox-grid { grid-column: span 1; }
+    .checkbox-grid { grid-template-columns: 1fr; }
+    .side-card { position: static; }
+  }
+</style>
+</head>
+<body data-screen-label="09 Contact">
+
+  <div data-slot="nav"></div>
+
+  <section class="container-wide contact-hero">
+    <div class="crumb" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-muted); margin: 32px 0 0; padding-top: 48px; display: flex; gap: 12px;">
+      <a href="index.html">Home</a><span class="sep">/</span><span style="color: var(--accent);">预约咨询</span>
+    </div>
+    <div style="padding: 48px 0 16px;">
+      <p class="eyebrow"><span class="num">09</span>&nbsp; START THE CONVERSATION</p>
+      <h1>从一次<span class="ital">私密</span>的<br/>90 分钟咨询开始。</h1>
+      <p class="lede" style="max-width: 56ch;">
+        提交以下表单，我们会在 24 小时内回复，并匹配最合适的双语顾问。整个对话完全保密、零承诺。
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-wide">
+      <div class="contact-layout">
+
+        <form class="form-card" onsubmit="event.preventDefault(); this.querySelector('.btn').textContent='已发送 ✓'; this.querySelector('.btn').style.background='var(--sage)'; this.querySelector('.btn').style.borderColor='var(--sage)';">
+          <div class="form-grid">
+            <div class="field">
+              <label>称呼 / Salutation</label>
+              <select>
+                <option>女士 / Ms.</option>
+                <option>先生 / Mr.</option>
+                <option>不透露 / Prefer not to say</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>姓 · 名 / Full name *</label>
+              <input type="text" placeholder="您希望我们如何称呼？" required />
+            </div>
+            <div class="field">
+              <label>邮箱 / Email *</label>
+              <input type="email" placeholder="name@example.com" required />
+            </div>
+            <div class="field">
+              <label>手机 / Phone (含国家码) *</label>
+              <input type="tel" placeholder="+86 138 0000 0000" required />
+            </div>
+            <div class="field">
+              <label>所在城市 / City</label>
+              <input type="text" placeholder="北京 · 上海 · LA …" />
+            </div>
+            <div class="field">
+              <label>家庭情况 / Household</label>
+              <select>
+                <option>异性夫妇</option>
+                <option>同性夫妇</option>
+                <option>单身父亲</option>
+                <option>单身母亲</option>
+                <option>暂不便透露</option>
+              </select>
+            </div>
+
+            <div class="checkbox-grid">
+              <label class="checkbox is-on">
+                <span class="ck"></span>
+                <span>代孕 · Surrogacy</span>
+              </label>
+              <label class="checkbox">
+                <span class="ck"></span>
+                <span>卵子捐赠 · Egg Donation</span>
+              </label>
+              <label class="checkbox">
+                <span class="ck"></span>
+                <span>胚胎冷冻 · Fertility Preservation</span>
+              </label>
+              <label class="checkbox">
+                <span class="ck"></span>
+                <span>暂时不确定</span>
+              </label>
+            </div>
+
+            <div class="field">
+              <label>预算区间 / Budget</label>
+              <select>
+                <option>USD 60–100k</option>
+                <option>USD 100–150k</option>
+                <option>USD 150–200k</option>
+                <option>USD 200k+</option>
+                <option>暂未规划</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>期望开始 / Start window</label>
+              <select>
+                <option>3 个月内</option>
+                <option>3–6 个月</option>
+                <option>6–12 个月</option>
+                <option>仅了解</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <label>想了解的事 / Anything we should know</label>
+              <textarea rows="4" placeholder="可附医疗历史、目的地偏好、亲权问题、文化考量等任何想先沟通的内容。"></textarea>
+            </div>
+
+            <div class="field field-full">
+              <label>如何称呼您是合适的 / Communication</label>
+              <select>
+                <option>中文 · 邮件 + 微信</option>
+                <option>中文 · 仅邮件</option>
+                <option>中文 · 电话</option>
+                <option>English · Email only</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top: 56px; justify-content: space-between; align-items: center; padding-top: 28px; border-top: 1px solid var(--rule);">
+            <p class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0;">
+              <span style="color: var(--accent);">●</span> &nbsp; 完全保密 · 24h 回复
+            </p>
+            <button class="btn is-solid" type="submit">提交咨询请求 <span class="arrow">→</span></button>
+          </div>
+        </form>
+
+        <aside class="side-card">
+          <div>
+            <p class="lbl">直拨 · DIRECT</p>
+            <p class="v" style="margin: 0;">+1 (415) 555-0188</p>
+            <p class="muted" style="font-size: 12px; margin: 6px 0 0;">Mon–Fri · 09:00–19:00 PT</p>
+          </div>
+          <div>
+            <p class="lbl">邮件 · EMAIL</p>
+            <a class="v acc" href="mailto:care@babiology.com" style="display: block;">care@babiology.com</a>
+            <p class="muted" style="font-size: 12px; margin: 6px 0 0;">通常 4 小时内回复</p>
+          </div>
+          <div>
+            <p class="lbl">微信 · WECHAT</p>
+            <p class="v" style="margin: 0;">@babiology_care</p>
+            <p class="muted" style="font-size: 12px; margin: 6px 0 0;">中文 · Stephanie Lin · 大中华区</p>
+          </div>
+          <div>
+            <p class="lbl">办公室 · OFFICES</p>
+            <p style="font-family: var(--font-display); font-size: 18px; margin: 0; line-height: 1.5;">
+              Los Angeles · Tbilisi<br/>Bangkok · Shanghai
+            </p>
+          </div>
+
+          <div style="margin-top: 8px; padding-top: 24px; border-top: 1px solid var(--rule);">
+            <p class="lbl">我们的承诺 · PROMISE</p>
+            <div class="promise"><span class="ck">▸</span><span>完全保密 · 不进入任何邮件名单</span></div>
+            <div class="promise"><span class="ck">▸</span><span>24 小时内人工回复</span></div>
+            <div class="promise"><span class="ck">▸</span><span>首次咨询免费 · 零承诺</span></div>
+            <div class="promise"><span class="ck">▸</span><span>支持中、英、俄、西 四语</span></div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+  <script>
+    // Toggle pill checkboxes
+    document.querySelectorAll(".checkbox").forEach(c => {
+      c.addEventListener("click", () => c.classList.toggle("is-on"));
+    });
+  </script>
+</body>
+</html>

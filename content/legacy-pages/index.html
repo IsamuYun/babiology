@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Babiology — 让家的故事，从这里开始</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  /* ---------- Page-specific: home ---------- */
+  .hero {
+    padding: 72px 0 120px;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: end;
+  }
+  .hero h1 { margin: 0; }
+  .hero h1 .ital { font-style: italic; color: var(--accent); }
+  .hero .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 12px;
+  }
+  .hero .meta .quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--fg-muted);
+    border-left: 1px solid var(--rule);
+    padding-left: 24px;
+  }
+  .hero-foot {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 24px;
+    align-items: end;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .hero-foot .pair { display: flex; flex-direction: column; gap: 4px; }
+  .hero-foot .k {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .hero-foot .v {
+    font-family: var(--font-display);
+    font-size: 26px;
+    line-height: 1.1;
+    letter-spacing: var(--tr-display);
+  }
+  .hero-foot .ctas { display: flex; gap: 12px; justify-content: flex-end; }
+
+  /* Services duo */
+  .service-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .svc-card {
+    background: var(--bg);
+    padding: 56px 48px 48px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 560px;
+    border: 1px solid var(--rule);
+  }
+  .svc-card.alt { background: var(--bg-sunk); }
+  .svc-card .num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 36px;
+  }
+  .svc-card h3 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 4vw, 60px);
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.0;
+    letter-spacing: var(--tr-display);
+  }
+  .svc-card h3 .ital { font-style: italic; color: var(--accent); }
+  .svc-card .sub { color: var(--fg-muted); margin: 28px 0 0; max-width: 38ch; line-height: 1.6; }
+  .svc-card .feat {
+    margin-top: auto;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .svc-card .feat-row {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--rule);
+    align-items: baseline;
+  }
+  .svc-card .feat-row:last-child { border-bottom: 0; }
+  .svc-card .feat-row .idx {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .svc-card .feat-row .ttl {
+    font-family: var(--font-text);
+    font-size: 15px;
+    color: var(--fg);
+  }
+  .svc-card .feat-row .arr { color: var(--fg-muted); }
+  .svc-card .more {
+    margin-top: 32px;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 80px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* How it works overview */
+  .how-overview {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+  }
+  .how-list { display: flex; flex-direction: column; }
+
+  /* Story / quote */
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .story .img-stack { position: relative; }
+  .story .img-stack .ph.is-tall { width: 78%; }
+  .story .img-stack .ph.small {
+    position: absolute;
+    right: 0; bottom: -40px;
+    width: 46%;
+    aspect-ratio: 4/5;
+  }
+
+  /* Donor preview row */
+  .donors-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .donor-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .donor-card .ph { aspect-ratio: 3/4; }
+  .donor-card .info {
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .donor-card .info .name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+  .donor-card .info .code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+    letter-spacing: 0.08em;
+  }
+  .donor-card .meta-row {
+    margin-top: 4px;
+    display: flex;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .donor-card .meta-row .dot { color: var(--accent); }
+
+  /* Practice / values block */
+  .practice {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .value-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--rule-on-dark);
+    align-items: start;
+  }
+  .value-row:last-child { border-bottom: 1px solid var(--rule-on-dark); }
+  .value-row .num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--rose);
+  }
+  .value-row h4 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 8px;
+    line-height: 1.1;
+  }
+  .value-row p {
+    margin: 0;
+    color: var(--fg-on-dark-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 40ch;
+  }
+
+  /* CTA strip */
+  .cta-strip {
+    text-align: center;
+    padding: 120px 0;
+  }
+  .cta-strip h2 {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, 96px);
+    font-weight: 400;
+    margin: 0 0 32px;
+    letter-spacing: var(--tr-display);
+    line-height: 1.0;
+  }
+  .cta-strip h2 .ital { font-style: italic; color: var(--accent); }
+
+  /* Highlights / featured */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+  .featured-grid .big {
+    grid-column: span 8;
+  }
+  .featured-grid .big .ph { aspect-ratio: 16/10; }
+  .featured-grid .side {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .featured-grid .side .ph { flex: 1; }
+
+  /* Press / mentions */
+  .press {
+    padding: 56px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .press .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: var(--tr-caps);
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .press-list {
+    display: flex;
+    gap: 56px;
+    flex-wrap: wrap;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--fg);
+  }
+  .press-list em { font-style: normal; color: var(--accent); margin-left: 6px; font-size: 14px; vertical-align: 6px; font-family: var(--font-mono); }
+
+  @media (max-width: 960px) {
+    .hero-grid, .how-overview, .story, .practice, .featured-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-foot, .stats-row, .donors-strip, .service-duo { grid-template-columns: 1fr 1fr; }
+    .featured-grid .big, .featured-grid .side { grid-column: span 1; }
+    .hero-foot .ctas { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body data-screen-label="01 Home">
+
+  <div data-slot="nav"></div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">01</span>&nbsp; SURROGACY · EGG DONATION · 2008—</p>
+      <div class="hero-grid" style="margin-top: 36px;">
+        <h1 class="display h-xl">
+          让<span class="ital">家</span>的故事，<br />
+          从这里温柔地<br />
+          开始<span class="ital">。</span>
+        </h1>
+        <div class="meta">
+          <p class="quote">"我们陪伴每一个家庭——从第一次咨询、医疗匹配、跨境法律，到孩子安全回家的那一天。"</p>
+          <p class="muted" style="font-size: 14px; line-height: 1.6; margin: 0;">
+            Babiology 是一家高端定制的代孕与卵子捐赠机构。十六年来，我们以医学严谨与人文关怀，协助来自三十二个国家的家庭迎接新生。
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <div class="pair">
+          <span class="k">FOUNDED</span>
+          <span class="v">2008</span>
+        </div>
+        <div class="pair">
+          <span class="k">FAMILIES SERVED</span>
+          <span class="v">1,240+</span>
+        </div>
+        <div class="pair">
+          <span class="k">LIVE BIRTHS · 2025</span>
+          <span class="v">186</span>
+        </div>
+        <div class="pair ctas" style="grid-column: 4;">
+          <span></span>
+          <div class="row" style="gap: 10px;">
+            <a class="btn is-solid" href="contact.html">预约咨询 <span class="arrow">→</span></a>
+            <a class="btn" href="how-it-works.html">了解流程</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MARQUEE
+       ============================================================ -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Surrogacy</span><span>Egg Donation</span><span>Embryology</span>
+      <span>Legal Counsel</span><span>Psychological Care</span><span>Newborn Concierge</span>
+      <span>Surrogacy</span><span>Egg Donation</span><span>Embryology</span>
+      <span>Legal Counsel</span><span>Psychological Care</span><span>Newborn Concierge</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="row row-between" style="margin-bottom: 56px; align-items: flex-end;">
+        <div>
+          <p class="eyebrow"><span class="num">02</span>&nbsp; 服务 · SERVICES</p>
+          <h2 class="display h-md" style="margin-top: 18px; max-width: 18ch;">
+            两条<span class="ital">路径</span>，<br/>同一份温柔的承诺。
+          </h2>
+        </div>
+        <a class="link-u" href="surrogacy.html">查看全部服务 <span class="arrow">→</span></a>
+      </div>
+
+      <div class="service-duo">
+        <div class="svc-card">
+          <div class="num">01 · 代孕 SURROGACY</div>
+          <h3>为渴望孩子的家庭，<br /><span class="ital">寻一位温柔的</span>守护者。</h3>
+          <p class="sub">从筛选、医学评估、法律保障到孕期陪护，我们的代孕项目以「无忧路径」为准则，覆盖美国、格鲁吉亚、墨西哥三大目的地。</p>
+          <div class="feat">
+            <div class="feat-row"><span class="idx">a.</span><span class="ttl">代母严选 · 多轮医学心理评估</span><span class="arr">→</span></div>
+            <div class="feat-row"><span class="idx">b.</span><span class="ttl">透明合约 · 跨境法律护航</span><span class="arr">→</span></div>
+            <div class="feat-row"><span class="idx">c.</span><span class="ttl">孕期专员 · 24h 中文支持</span><span class="arr">→</span></div>
+          </div>
+          <a class="link-u more" href="surrogacy.html">了解代孕项目 <span class="arrow">→</span></a>
+        </div>
+
+        <div class="svc-card alt">
+          <div class="num">02 · 卵子捐赠 EGG DONATION</div>
+          <h3>每一颗<span class="ital">微小的</span><br/>礼物，都被审慎以待。</h3>
+          <p class="sub">800+ 位通过严格筛选的捐赠者，覆盖亚裔、混血、欧美与拉美。基因、心理与教育多维度评估，让选择更可靠、更安心。</p>
+          <div class="feat">
+            <div class="feat-row"><span class="idx">a.</span><span class="ttl">800+ 全球捐赠者数据库</span><span class="arr">→</span></div>
+            <div class="feat-row"><span class="idx">b.</span><span class="ttl">PGT-A 基因筛查 · ASRM 标准</span><span class="arr">→</span></div>
+            <div class="feat-row"><span class="idx">c.</span><span class="ttl">新鲜或冷冻方案灵活组合</span><span class="arr">→</span></div>
+          </div>
+          <a class="link-u more" href="egg-donation.html">了解卵子捐赠 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS
+       ============================================================ -->
+  <section style="padding: 0;">
+    <div class="container-wide">
+      <div class="stats-row">
+        <div class="stat">
+          <div class="num">98<span class="sup">%</span></div>
+          <div class="lbl">活产成功率 · 经审计（2023–2025 周期数据）</div>
+        </div>
+        <div class="stat">
+          <div class="num">1,240<span class="sup">+</span></div>
+          <div class="lbl">已陪伴抵达的家庭，分布于 32 个国家与地区</div>
+        </div>
+        <div class="stat">
+          <div class="num">16</div>
+          <div class="lbl">年的临床、法律与人文积累，自 2008 起</div>
+        </div>
+        <div class="stat">
+          <div class="num">800<span class="sup">+</span></div>
+          <div class="lbl">在库认证捐赠者 · 亚裔、混血、欧裔、拉美</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS · OVERVIEW
+       ============================================================ -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="how-overview">
+        <div>
+          <p class="eyebrow"><span class="num">03</span>&nbsp; 流程 · HOW IT WORKS</p>
+          <h2 class="display h-md" style="margin-top: 18px;">
+            六个阶段，<br />
+            一份<span class="ital">从容</span>的<br />路线图。
+          </h2>
+          <p class="body muted" style="margin-top: 28px;">
+            我们将复杂的医疗、法律与跨境流程，整合为六个清晰的阶段。每一个阶段都配有专属的项目经理与中文支持。
+          </p>
+          <a class="btn" style="margin-top: 36px;" href="how-it-works.html">查看完整流程 <span class="arrow">→</span></a>
+        </div>
+        <div class="how-list">
+          <div class="card-line">
+            <span class="index">01</span>
+            <h3>启程咨询</h3>
+            <p class="muted" style="margin: 0; font-size: 15px; line-height: 1.65;">90 分钟一对一，与持照顾问梳理需求、预算与时间线。</p>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;">2 WEEKS</span>
+          </div>
+          <div class="card-line">
+            <span class="index">02</span>
+            <h3>医学评估</h3>
+            <p class="muted" style="margin: 0; font-size: 15px; line-height: 1.65;">合作生殖中心完成激素、影像与遗传咨询；制定个性化方案。</p>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;">3–6 WEEKS</span>
+          </div>
+          <div class="card-line">
+            <span class="index">03</span>
+            <h3>匹配 & 法律</h3>
+            <p class="muted" style="margin: 0; font-size: 15px; line-height: 1.65;">精准匹配代母 / 捐赠者；本地律师起草并解读跨境合约。</p>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;">4–8 WEEKS</span>
+          </div>
+          <div class="card-line">
+            <span class="index">04</span>
+            <h3>取卵 & 移植</h3>
+            <p class="muted" style="margin: 0; font-size: 15px; line-height: 1.65;">IVF 实验室同步操作；胚胎培养、PGT-A 筛查后择期移植。</p>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;">2–3 MONTHS</span>
+          </div>
+          <div class="card-line">
+            <span class="index">05</span>
+            <h3>孕期陪护</h3>
+            <p class="muted" style="margin: 0; font-size: 15px; line-height: 1.65;">月度产检、心理支持、48 周专属客户经理实时同步进度。</p>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;">40 WEEKS</span>
+          </div>
+          <div class="card-line" style="border-bottom: 1px solid var(--rule);">
+            <span class="index">06</span>
+            <h3>新生归家</h3>
+            <p class="muted" style="margin: 0; font-size: 15px; line-height: 1.65;">出生证明、护照与签证协助；新生儿陪同护士、月嫂与翻译。</p>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;">4–6 WEEKS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STORY
+       ============================================================ -->
+  <section class="section is-sunk">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">04</span>&nbsp; 客户故事 · STORIES</p>
+      <div class="story" style="margin-top: 48px;">
+        <div class="img-stack">
+          <div class="ph is-tall blush">
+            <div class="ph-corner">FAMILY · 01</div>
+            <div class="ph-caption">
+              <span>请置入：Tan 一家在洛杉矶医院抱起新生儿的照片</span>
+              <span>1200 × 1600</span>
+            </div>
+          </div>
+          <div class="ph small">
+            <div class="ph-corner">DETAIL</div>
+            <div class="ph-caption">
+              <span>婴儿手部特写</span>
+              <span>4:5</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="pull">
+            Babiology 让原本陌生的旅程，<br />变成一段我们想反复回忆的时光。
+          </p>
+          <div class="stack-4" style="margin-top: 40px;">
+            <div style="display:flex; gap: 16px; align-items: center;">
+              <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--rose); display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-size: 20px; color: #fff;">T</div>
+              <div>
+                <div style="font-family: var(--font-display); font-size: 20px;">Tan 一家</div>
+                <div class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">Shanghai → Los Angeles · 2024</div>
+              </div>
+            </div>
+            <p class="body muted" style="margin-top: 8px;">
+              从最初的犹豫，到 14 个月后接到女儿艾米的那一刻，Babiology 的团队几乎是我们的延伸——医疗、法律、生活，所有细节都被妥帖照看。
+            </p>
+            <a class="link-u" href="stories.html">阅读更多家庭故事 <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURED GRID
+       ============================================================ -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="row row-between" style="margin-bottom: 40px; align-items: flex-end;">
+        <div>
+          <p class="eyebrow"><span class="num">05</span>&nbsp; 一些被记录的瞬间</p>
+          <h2 class="display h-sm" style="margin-top: 18px;">看见，是<span class="ital">理解</span>的开始。</h2>
+        </div>
+        <a class="link-u" href="stories.html">完整画册 <span class="arrow">→</span></a>
+      </div>
+      <div class="featured-grid">
+        <div class="big">
+          <div class="ph is-wide">
+            <div class="ph-corner">EDITORIAL · 01</div>
+            <div class="ph-caption">
+              <span>请置入：Babiology 团队与代母会面的纪实摄影</span>
+              <span>1920 × 1200</span>
+            </div>
+          </div>
+        </div>
+        <div class="side">
+          <div class="ph blush">
+            <div class="ph-corner">EDITORIAL · 02</div>
+            <div class="ph-caption">
+              <span>洛杉矶办公室细节</span>
+              <span>1:1</span>
+            </div>
+          </div>
+          <div class="ph sage">
+            <div class="ph-corner">EDITORIAL · 03</div>
+            <div class="ph-caption">
+              <span>实验室器具静物</span>
+              <span>1:1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DONOR PREVIEW
+       ============================================================ -->
+  <section class="section is-sunk">
+    <div class="container-wide">
+      <div class="row row-between" style="margin-bottom: 48px; align-items: flex-end;">
+        <div>
+          <p class="eyebrow"><span class="num">06</span>&nbsp; 捐赠者库 · DONORS</p>
+          <h2 class="display h-md" style="margin-top: 18px;">每一份选择，<br/>都<span class="ital">值得</span>被尊重。</h2>
+        </div>
+        <a class="btn" href="donors.html">浏览全部捐赠者 <span class="arrow">→</span></a>
+      </div>
+      <div class="donors-strip">
+        <div class="donor-card">
+          <div class="ph"><div class="ph-corner">D-218</div><div class="ph-caption"><span>亚裔 · 26 岁</span><span>3:4</span></div></div>
+          <div class="info"><span class="name">Aria L.</span><span class="code">D—218</span></div>
+          <div class="meta-row"><span><span class="dot">●</span> 亚裔</span><span>26 岁</span><span>O+ · 165cm</span></div>
+        </div>
+        <div class="donor-card">
+          <div class="ph blush"><div class="ph-corner">D-403</div><div class="ph-caption"><span>欧裔 · 24 岁</span><span>3:4</span></div></div>
+          <div class="info"><span class="name">Elena V.</span><span class="code">D—403</span></div>
+          <div class="meta-row"><span><span class="dot">●</span> 欧裔</span><span>24 岁</span><span>A+ · 170cm</span></div>
+        </div>
+        <div class="donor-card">
+          <div class="ph sage"><div class="ph-corner">D-091</div><div class="ph-caption"><span>混血 · 28 岁</span><span>3:4</span></div></div>
+          <div class="info"><span class="name">Mira H.</span><span class="code">D—091</span></div>
+          <div class="meta-row"><span><span class="dot">●</span> 混血</span><span>28 岁</span><span>B+ · 168cm</span></div>
+        </div>
+        <div class="donor-card">
+          <div class="ph"><div class="ph-corner">D-512</div><div class="ph-caption"><span>拉美裔 · 25 岁</span><span>3:4</span></div></div>
+          <div class="info"><span class="name">Sofía R.</span><span class="code">D—512</span></div>
+          <div class="meta-row"><span><span class="dot">●</span> 拉美裔</span><span>25 岁</span><span>O+ · 162cm</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRACTICE / VALUES
+       ============================================================ -->
+  <section class="section is-dark">
+    <div class="container-wide">
+      <div class="practice">
+        <div>
+          <p class="eyebrow" style="color: var(--rose);"><span class="num" style="color: var(--rose);">07</span>&nbsp; 我们的执业 · OUR PRACTICE</p>
+          <h2 class="display h-md" style="margin-top: 28px;">
+            一份关于<span class="ital">人</span>的<br />承诺。
+          </h2>
+          <p class="body" style="color: var(--fg-on-dark-muted); margin-top: 28px;">
+            我们相信，技术只是入口。真正抵达家庭的，是十六年来在医学、伦理、心理与法律之间反复打磨的判断力。
+          </p>
+        </div>
+        <div>
+          <div class="value-row">
+            <span class="num">01</span>
+            <div>
+              <h4>临床优先</h4>
+              <p>仅与通过 ASRM / SART 认证的生殖中心合作；活产率每季度公开审计。</p>
+            </div>
+          </div>
+          <div class="value-row">
+            <span class="num">02</span>
+            <div>
+              <h4>透明合约</h4>
+              <p>统一定价、阶段化付款、可终止条款——所有费用结构在第一周咨询中即被清晰说明。</p>
+            </div>
+          </div>
+          <div class="value-row">
+            <span class="num">03</span>
+            <div>
+              <h4>双语陪伴</h4>
+              <p>每个家庭配备中、英双语项目经理，跨四个时区提供 24 小时响应。</p>
+            </div>
+          </div>
+          <div class="value-row">
+            <span class="num">04</span>
+            <div>
+              <h4>心理同行</h4>
+              <p>从准父母到代母，每一位都获得不少于 8 次专业心理咨询陪护。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRESS
+       ============================================================ -->
+  <section>
+    <div class="container-wide">
+      <div class="press">
+        <span class="lbl">As mentioned in</span>
+        <div class="press-list">
+          <span>Vogue<em>'24</em></span>
+          <span>Bloomberg<em>'23</em></span>
+          <span>南方周末<em>'24</em></span>
+          <span>Forbes<em>'25</em></span>
+          <span>The Cut<em>'24</em></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="cta-strip">
+    <div class="container">
+      <p class="eyebrow is-plain" style="justify-content: center;">— 下一步 ·  NEXT —</p>
+      <h2 style="margin-top: 32px;">
+        预约一次<span class="ital">私密的</span><br />
+        90 分钟启程咨询。
+      </h2>
+      <p class="body muted" style="margin: 0 auto 40px; text-align: center; max-width: 52ch;">
+        每月只开放 12 位准父母名额。我们会在 24 小时内回复，并匹配最合适的双语顾问。
+      </p>
+      <div class="row" style="justify-content: center; gap: 12px;">
+        <a class="btn is-solid" href="contact.html">预约咨询 <span class="arrow">→</span></a>
+        <a class="btn" href="faq.html">常见问题</a>
+      </div>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

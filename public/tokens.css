@@ -1,0 +1,161 @@
+/* ============================================================
+   Babiology — Brand tokens
+   Editorial, high-touch service for surrogacy & egg donation.
+   Palette is a softened, extended derivative of the logo.
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ---------- Brand palette (Sakura Sky) ---------------------- */
+  --cream:      #FFFFFF;  /* pure white paper */
+  --mist:       #FFF5F8;  /* sunk surface — barely-pink */
+  --sakura:     #FFB7C5;  /* 樱花粉 sakura pink */
+  --sakura-deep:#FF8AA8;  /* deeper sakura */
+  --sky:        #6EC1E4;  /* 天蓝 sky blue */
+  --sky-deep:   #3FA9D4;  /* deeper sky */
+  --peach:      #FFAB91;  /* 浅桃红 light peach */
+  --peach-deep: #FF8A6E;  /* deeper peach */
+  --plum-ink:   #1A1A1A;  /* near-black ink */
+
+  /* ---------- Legacy aliases (mapped to new palette) --------- */
+  --blush:      #FFE0E8;  /* soft sakura tint */
+  --rose:       var(--sakura);
+  --rose-deep:  var(--sakura-deep);
+  --mauve:      var(--sky-deep);
+  --plum:       #2D3A4A;  /* deep ink-blue for dark surfaces */
+  --sage:       var(--peach);
+  --sage-soft:  #FFE3D8;  /* soft peach tint */
+  --gold:       var(--peach-deep);
+
+  /* ---------- Semantic ---------------------------------------- */
+  --bg:        #FFFFFF;
+  --bg-sunk:   var(--mist);
+  --bg-dark:   var(--plum-ink);
+  --bg-dark-2: #000000;
+
+  --fg:          var(--plum-ink);
+  --fg-muted:    #5C5560;
+  --fg-faint:    #9A8E96;
+  --fg-on-dark:  #FFFFFF;
+  --fg-on-dark-muted: #E0D8DD;
+
+  --rule:        #F0E4E8;
+  --rule-soft:   #F7ECF0;
+  --rule-on-dark: rgba(255,255,255,0.18);
+
+  --accent:      var(--sakura-deep);
+  --accent-2:    var(--sky);
+  --accent-3:    var(--peach);
+
+  /* ---------- Type families ---------------------------------- */
+  --font-display: "Cormorant Garamond", "Noto Serif SC", "Songti SC", "Source Han Serif SC", serif;
+  --font-serif:   "Cormorant Garamond", "Noto Serif SC", serif;
+  --font-text:    "Manrope", "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* ---------- Type scale ------------------------------------- */
+  --t-xs:   12px;
+  --t-sm:   14px;
+  --t-base: 16px;
+  --t-md:   18px;
+  --t-lg:   22px;
+  --t-xl:   30px;
+  --t-2xl:  42px;
+  --t-3xl:  58px;
+  --t-4xl:  78px;
+  --t-5xl:  104px;
+  --t-6xl:  140px;
+
+  /* ---------- Spacing scale (8px base) ----------------------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+  --s-11: 160px;
+  --s-12: 200px;
+
+  /* ---------- Layout ----------------------------------------- */
+  --content-max: 1280px;
+  --content-pad: 64px;
+  --nav-height: 80px;
+
+  /* ---------- Effects ---------------------------------------- */
+  --tr-display: -0.018em;
+  --tr-tight:   -0.008em;
+  --tr-caps:    0.18em;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ============================================================
+   Palette variants — toggled via [data-palette] on <html>
+   ============================================================ */
+/* Sakura Sky — pure white + sakura pink / sky blue / light peach */
+html[data-palette="rose"] {
+  --bg: #FFFFFF;
+  --bg-sunk: #FFF5F8;
+  --fg: #1A1A1A;
+  --fg-muted: #5C5560;
+  --fg-faint: #9A8E96;
+  --rule: #F0E4E8;
+  --rule-soft: #F7ECF0;
+  --accent: #FF8AA8;
+  --accent-2: #6EC1E4;
+  --accent-3: #FFAB91;
+}
+/* Electric Lilac — pure white + vivid violet / hot pink / cyan */
+html[data-palette="mauve"] {
+  --bg: #FFFFFF;
+  --bg-sunk: #F5F0FF;
+  --fg: #1A1A1A;
+  --fg-muted: #5A5070;
+  --fg-faint: #9A90AE;
+  --rule: #E8DFFA;
+  --rule-soft: #F0E9FC;
+  --accent: #7C4DFF;
+  --accent-2: #FF4081;
+  --accent-3: #00BCD4;
+}
+/* Citrus Sky — pure white + sky blue / juicy orange / fresh green */
+html[data-palette="sage"] {
+  --bg: #FFFFFF;
+  --bg-sunk: #EEF7FF;
+  --fg: #1A1A1A;
+  --fg-muted: #4F5C66;
+  --fg-faint: #8E9AA4;
+  --rule: #DDEBF6;
+  --rule-soft: #ECF4FB;
+  --accent: #00B0FF;
+  --accent-2: #FF8A33;
+  --accent-3: #66BB6A;
+}
+/* Berry Mint — pure white + raspberry / mint / amber */
+html[data-palette="plum-dark"] {
+  --bg: #FFFFFF;
+  --bg-sunk: #F0FFFA;
+  --fg: #1A1A1A;
+  --fg-muted: #4F665C;
+  --fg-faint: #8EA49A;
+  --rule: #D9F2E6;
+  --rule-soft: #ECFAF3;
+  --accent: #E91E63;
+  --accent-2: #00E5A0;
+  --accent-3: #FFC107;
+}
+
+/* ============================================================
+   Type style toggle — [data-typeface] on <html>
+   ============================================================ */
+html[data-typeface="serif-display"] {
+  --font-display: "Cormorant Garamond", "Noto Serif SC", serif;
+}
+html[data-typeface="sans-display"] {
+  --font-display: "Manrope", "Noto Sans SC", system-ui, sans-serif;
+}

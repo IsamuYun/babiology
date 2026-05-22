@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>客户故事 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .lead-story {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: end;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .lead-story .ph { aspect-ratio: 4/5; }
+  .lead-story h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 24px;
+    letter-spacing: var(--tr-display);
+  }
+  .lead-story h2 .ital { font-style: italic; color: var(--accent); }
+  .lead-story .by {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 32px;
+  }
+  .lead-story .by .acc { color: var(--accent); }
+  .lead-story .quote-block { display: flex; flex-direction: column; gap: 32px; }
+  .lead-story .quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--fg);
+    max-width: 28ch;
+  }
+
+  /* Story cards */
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px 24px;
+  }
+  .story-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .story-card .ph { aspect-ratio: 4/5; }
+  .story-card .meta {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .story-card .meta .label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .story-card .meta .label .acc { color: var(--accent); }
+  .story-card h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 400;
+    margin: 12px 0 8px;
+    line-height: 1.15;
+    letter-spacing: var(--tr-display);
+  }
+  .story-card h3 .ital { font-style: italic; color: var(--accent); }
+  .story-card p {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .story-card .more {
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .span-tall .ph { aspect-ratio: 3/5; }
+
+  /* Quote strip */
+  .quote-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+    margin-top: 80px;
+  }
+  .qs-item {
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .qs-item .q {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--fg);
+    margin: 0 0 24px;
+  }
+  .qs-item .qm {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 0.4;
+    margin-bottom: 8px;
+  }
+  .qs-item .by {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+
+  @media (max-width: 960px) {
+    .lead-story { grid-template-columns: 1fr; gap: 32px; }
+    .stories-grid { grid-template-columns: 1fr 1fr; }
+    .span-4, .span-6, .span-8, .span-12 { grid-column: span 1 !important; }
+    .quote-strip { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body data-screen-label="06 Stories">
+
+  <div data-slot="nav"></div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container-wide">
+      <div class="crumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span style="color: var(--accent);">客户故事</span>
+      </div>
+      <div class="grid grid-2" style="gap: 80px; align-items: end;">
+        <div>
+          <p class="eyebrow"><span class="num">06</span>&nbsp; CLIENT STORIES</p>
+          <h1 class="display h-xl" style="margin-top: 28px;">
+            一千多个<br/>家庭，<br/>一千多种<span class="ital">温柔</span>。
+          </h1>
+        </div>
+        <div>
+          <p class="lede">
+            从 2008 到 2026，我们陪伴的家庭来自三十二个国家与地区。这里是其中一些选择公开身份与故事的家庭——他们愿意把自己走过的路，留给后来的人看见。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD STORY -->
+  <section class="section-sm">
+    <div class="container-wide">
+      <div class="lead-story">
+        <div class="ph blush">
+          <div class="ph-corner">STORY · 01</div>
+          <div class="ph-caption"><span>请置入：Tan 一家与女儿艾米在洛杉矶机场的合影</span><span>4:5</span></div>
+        </div>
+        <div class="quote-block">
+          <div class="by"><span class="acc">封面故事</span> &nbsp;·&nbsp; SHANGHAI → LOS ANGELES &nbsp;·&nbsp; 2024</div>
+          <h2>从一个<span class="ital">未知</span>的<br/>电话，到艾米<br/>抱在怀里。</h2>
+          <p class="quote">"我们最害怕的，从来不是 IVF 的注射，而是孤单地等待。Babiology 让陌生的旅程，变成一段我们想反复回忆的时光。"</p>
+          <div style="display:flex; align-items: center; gap: 16px;">
+            <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--rose); display:flex; align-items:center; justify-content:center; font-family: var(--font-display); font-size: 20px; color: #fff;">T</div>
+            <div>
+              <div style="font-family: var(--font-display); font-size: 20px;">Tan 一家</div>
+              <div class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">14 个月 · 加州方案 · 单胎</div>
+            </div>
+          </div>
+          <a class="link-u" href="#">阅读完整故事 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY CARDS -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="row row-between" style="margin-bottom: 56px; align-items: flex-end;">
+        <h2 class="display h-md" style="max-width: 18ch;">更多<span class="ital">家庭</span>的足迹。</h2>
+        <div class="row" style="gap: 12px;">
+          <span class="tag" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent);">全部 · 24</span>
+          <span class="tag" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); color: var(--fg-muted);">代孕</span>
+          <span class="tag" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); color: var(--fg-muted);">卵子捐赠</span>
+          <span class="tag" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); color: var(--fg-muted);">LGBTQ+</span>
+          <span class="tag" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule); color: var(--fg-muted);">单身父亲</span>
+        </div>
+      </div>
+
+      <div class="stories-grid">
+        <article class="story-card span-4 span-tall">
+          <div class="ph">
+            <div class="ph-corner">02</div>
+            <div class="ph-caption"><span>Singapore → Tbilisi · 2023</span><span>3:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">代孕</span> · 双胞胎</span><span class="label">18 MO</span></div>
+          <h3>Lim 夫妇 · <span class="ital">两个</span>意外的奇迹。</h3>
+          <p>胚胎双胎移植，36 周顺利出生；现已两岁，住在新加坡。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-4">
+          <div class="ph sage">
+            <div class="ph-corner">03</div>
+            <div class="ph-caption"><span>Berlin · 2024 · LGBTQ+</span><span>4:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">代孕</span> · 同性夫妇</span><span class="label">22 MO</span></div>
+          <h3>Markus & Felix · 两个父亲，<span class="ital">一个</span>家。</h3>
+          <p>加州方案 · 双胞胎；柏林政府承认亲权过程花费三个月。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-4">
+          <div class="ph blush">
+            <div class="ph-corner">04</div>
+            <div class="ph-caption"><span>Beijing → Bangkok · 2025</span><span>4:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">捐赠+代孕</span></span><span class="label">19 MO</span></div>
+          <h3>Wang 一家 · <span class="ital">第二次</span>选择。</h3>
+          <p>第一胎自然受孕；二孩 39 岁，选择捐赠卵 + 代孕。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-6">
+          <div class="ph">
+            <div class="ph-corner">05 · FEATURED</div>
+            <div class="ph-caption"><span>Mexico City · 2023 · 单身父亲</span><span>4:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">单身父亲</span> · 单胎</span><span class="label">17 MO</span></div>
+          <h3>David — <span class="ital">独自</span>，但从不孤单。</h3>
+          <p>跨国企业法务总监；选择墨西哥方案，孩子九个月大随他回到悉尼。心理咨询贯穿整个周期。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-3 span-tall">
+          <div class="ph sage">
+            <div class="ph-corner">06</div>
+            <div class="ph-caption"><span>Taipei · 2024</span><span>3:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">捐赠</span></span><span class="label">10 MO</span></div>
+          <h3>Lin 一家 · <span class="ital">迟来的</span>双胞胎。</h3>
+          <p>43 岁尝试 IVF 六次未果；冷冻卵方案，一次成功。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-3 span-tall">
+          <div class="ph blush">
+            <div class="ph-corner">07</div>
+            <div class="ph-caption"><span>Vancouver · 2025</span><span>3:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">代孕</span></span><span class="label">20 MO</span></div>
+          <h3>Park 夫妇 · 三胎与<span class="ital">耐心</span>。</h3>
+          <p>两次移植失败后第三次成功；35 周分娩。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-4">
+          <div class="ph blush">
+            <div class="ph-corner">08</div>
+            <div class="ph-caption"><span>Hong Kong · 2024</span><span>4:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">代孕+捐赠</span></span><span class="label">16 MO</span></div>
+          <h3>Cheung — 一个母亲的<span class="ital">坚持</span>。</h3>
+          <p>遗传携带筛查后选择捐赠卵 + 代孕；女儿现已 14 个月。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-4">
+          <div class="ph sage">
+            <div class="ph-corner">09</div>
+            <div class="ph-caption"><span>Seoul · 2023</span><span>4:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">代孕</span></span><span class="label">21 MO</span></div>
+          <h3>Choi & Soo — <span class="ital">第二个</span>孩子。</h3>
+          <p>第一胎在格鲁吉亚；二胎重启相同流程，已认识团队。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+
+        <article class="story-card span-4">
+          <div class="ph">
+            <div class="ph-corner">10</div>
+            <div class="ph-caption"><span>Dubai · 2025</span><span>4:5</span></div>
+          </div>
+          <div class="meta"><span class="label"><span class="acc">代孕</span></span><span class="label">18 MO</span></div>
+          <h3>Al-Mansoori — <span class="ital">穿越</span>三个国家。</h3>
+          <p>UAE 家庭，胚胎在加州培养，孩子在加州出生。</p>
+          <span class="more">完整故事 →</span>
+        </article>
+      </div>
+
+      <!-- Quote strip -->
+      <div class="quote-strip">
+        <div class="qs-item">
+          <div class="qm">"</div>
+          <p class="q">他们是我们在异国时唯一始终在线的人。</p>
+          <span class="by">Y 一家 · 北京 · 2024</span>
+        </div>
+        <div class="qs-item">
+          <div class="qm">"</div>
+          <p class="q">十六个月里没有任何意外，这本身就是一种奢侈。</p>
+          <span class="by">M & J · 巴黎 · 2025</span>
+        </div>
+        <div class="qs-item">
+          <div class="qm">"</div>
+          <p class="q">代母至今还会发来孩子周年的祝福照片。</p>
+          <span class="by">K 一家 · 东京 · 2023</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip" style="padding: 100px 0;">
+    <div class="container">
+      <h2 class="display h-lg" style="margin: 0 0 28px;">下一个故事，<br/><span class="ital">是不是您</span>？</h2>
+      <a class="btn is-solid" href="contact.html">预约咨询 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

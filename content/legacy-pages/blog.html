@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>资源中心 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .blog-feature {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: end;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .blog-feature .ph { aspect-ratio: 5/4; }
+  .blog-feature .meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 24px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .blog-feature .meta .acc { color: var(--accent); }
+  .blog-feature h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.4vw, 64px);
+    font-weight: 400;
+    line-height: 1.0;
+    margin: 0 0 24px;
+    letter-spacing: var(--tr-display);
+  }
+  .blog-feature h2 .ital { font-style: italic; color: var(--accent); }
+  .blog-feature .ex {
+    color: var(--fg-muted);
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 48ch;
+  }
+  .blog-feature .by {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--fg);
+  }
+  .blog-feature .by .dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+  }
+
+  /* Tag bar */
+  .tag-bar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 56px 0 40px;
+  }
+  .tag-pill {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+    color: var(--fg-muted);
+    cursor: pointer;
+  }
+  .tag-pill.is-on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+  /* Article grid */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 32px;
+  }
+  .post .ph { aspect-ratio: 5/4; margin-bottom: 18px; }
+  .post .post-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 8px;
+  }
+  .post .post-meta .acc { color: var(--accent); }
+  .post h3 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    margin: 0 0 8px;
+    line-height: 1.15;
+    letter-spacing: var(--tr-display);
+  }
+  .post h3 .ital { font-style: italic; color: var(--accent); }
+  .post p {
+    margin: 0;
+    color: var(--fg-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .post .more {
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Newsletter strip */
+  .news {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .news h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 400;
+    margin: 0 0 16px;
+    line-height: 1.05;
+    letter-spacing: var(--tr-display);
+  }
+  .news h2 .ital { font-style: italic; color: var(--rose); }
+  .news-form {
+    display: flex;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule-on-dark);
+  }
+  .news-form input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    color: var(--cream);
+    padding: 14px 0;
+    font-size: 16px;
+    outline: none;
+    border-bottom: 1px solid transparent;
+  }
+  .news-form input::placeholder { color: var(--fg-on-dark-muted); }
+
+  @media (max-width: 960px) {
+    .blog-feature, .news { grid-template-columns: 1fr; gap: 32px; }
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-screen-label="10 Resources">
+
+  <div data-slot="nav"></div>
+
+  <section class="page-hero">
+    <div class="container-wide">
+      <div class="crumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span style="color: var(--accent);">资源中心</span>
+      </div>
+      <div class="grid grid-2" style="gap: 80px; align-items: end;">
+        <div>
+          <p class="eyebrow"><span class="num">10</span>&nbsp; JOURNAL · RESOURCES</p>
+          <h1 class="display h-xl" style="margin-top: 28px;">
+            从临床到家庭，<br/>那些我们正在<br/>认真<span class="ital">写</span>的事。
+          </h1>
+        </div>
+        <p class="lede">
+          每月 4 篇深度长文，覆盖医学进展、跨境法律、家庭心理与文化思考；由 Babiology 医师团队与特邀作者共同撰写。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE -->
+  <section class="section-sm">
+    <div class="container-wide">
+      <div class="blog-feature">
+        <div class="ph blush">
+          <div class="ph-corner">FEATURE · 01</div>
+          <div class="ph-caption"><span>请置入：编辑级人物 / 概念封面</span><span>5:4</span></div>
+        </div>
+        <div>
+          <div class="meta">
+            <span class="acc">特别报道</span>
+            <span>·</span>
+            <span>MAY 2026</span>
+            <span>·</span>
+            <span>18 分钟</span>
+          </div>
+          <h2>当母亲身份<span class="ital">分化</span>：<br/>遗传、孕育与<br/>抚养的当代肖像。</h2>
+          <p class="ex">第三方辅助生殖正在重新定义「母亲」这一概念。我们采访了 24 位准父母、代母与孩子，绘制了一张关于身份、伦理与爱的现代地图。</p>
+          <div class="by"><span class="dot">L</span><span>Dr. Margaret Liu &nbsp;·&nbsp; CO-FOUNDER</span></div>
+          <a class="link-u" style="margin-top: 32px;" href="#">阅读全文 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGS -->
+  <section>
+    <div class="container-wide">
+      <div class="tag-bar">
+        <span class="tag-pill is-on">全部 · 48</span>
+        <span class="tag-pill">医学 · 12</span>
+        <span class="tag-pill">法律 · 8</span>
+        <span class="tag-pill">心理 · 9</span>
+        <span class="tag-pill">家庭故事 · 11</span>
+        <span class="tag-pill">伦理 · 5</span>
+        <span class="tag-pill">指南 · 3</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSTS -->
+  <section class="section-sm" style="padding-top: 0;">
+    <div class="container-wide">
+      <div class="blog-grid">
+
+        <article class="post">
+          <div class="ph"><div class="ph-corner">01</div><div class="ph-caption"><span>胚胎冷冻技术</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">医学</span> · APR 2026 · 9 分钟</div>
+          <h3>PGT-A 真的<span class="ital">必要</span>吗？六个数据角度。</h3>
+          <p>对 38 岁以上的母亲，PGT-A 究竟是默认配置还是过度医疗？我们用 7,000 例数据回答这一问。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph blush"><div class="ph-corner">02</div><div class="ph-caption"><span>洛杉矶法院</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">法律</span> · APR 2026 · 11 分钟</div>
+          <h3>产前判令（PBO）的<span class="ital">十二</span>个细节。</h3>
+          <p>这份在加州签发的法律文书，比许多家庭以为的要复杂——但也比想象的更稳固。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph sage"><div class="ph-corner">03</div><div class="ph-caption"><span>母亲与代母会面</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">心理</span> · MAR 2026 · 14 分钟</div>
+          <h3>「我应该告诉孩子吗？」<br/>—— 关于<span class="ital">起源</span>。</h3>
+          <p>越来越多的研究表明，对辅助生殖出生的孩子开诚布公，对其心理发展是更好的选择。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph"><div class="ph-corner">04</div><div class="ph-caption"><span>家庭照片</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">家庭故事</span> · MAR 2026 · 22 分钟</div>
+          <h3>三百天里，<span class="ital">每一天</span>都被记得。</h3>
+          <p>柏林夫妇 Markus 与 Felix 共同抚养双胞胎的第一年——以及他们如何把代母 Anna 写进家族相册。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph blush"><div class="ph-corner">05</div><div class="ph-caption"><span>显微图</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">医学</span> · MAR 2026 · 7 分钟</div>
+          <h3>2025 年活产率<span class="ital">98.3%</span>，<br/>意味着什么。</h3>
+          <p>我们公开了第三方审计报告 · 解释为什么这个数字比行业平均值更可信。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph sage"><div class="ph-corner">06</div><div class="ph-caption"><span>家庭客厅</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">伦理</span> · FEB 2026 · 13 分钟</div>
+          <h3>性别选择的<span class="ital">边界</span>在哪里？</h3>
+          <p>当医学技术允许选择，伦理与个人意愿的界线就需要被重新讨论——我们的医师与生命伦理学家对话。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph"><div class="ph-corner">07</div><div class="ph-caption"><span>抵达机场</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">指南</span> · FEB 2026 · 10 分钟</div>
+          <h3>新生儿<span class="ital">回国</span>路线图。</h3>
+          <p>从洛杉矶起飞到上海，从出生证到落户：一份给中国家庭的清单。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph blush"><div class="ph-corner">08</div><div class="ph-caption"><span>第比利斯街景</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">法律</span> · JAN 2026 · 8 分钟</div>
+          <h3>格鲁吉亚法律的<span class="ital">边界</span>更新。</h3>
+          <p>2025 年第比利斯立法的最新动向——以及对异性夫妇代孕项目的影响。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+        <article class="post">
+          <div class="ph sage"><div class="ph-corner">09</div><div class="ph-caption"><span>夫妇侧影</span><span>5:4</span></div></div>
+          <div class="post-meta"><span class="acc">心理</span> · JAN 2026 · 16 分钟</div>
+          <h3>当一段<span class="ital">等待</span>变成<br/>14 个月。</h3>
+          <p>等待是辅助生殖最容易被低估的部分——我们的心理首席给出 6 个实践方法。</p>
+          <span class="more">阅读全文 →</span>
+        </article>
+
+      </div>
+
+      <div class="row" style="justify-content: center; margin-top: 80px;">
+        <a class="btn" href="#">加载更多文章 <span class="arrow">↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section is-dark">
+    <div class="container-wide">
+      <div class="news">
+        <div>
+          <p class="eyebrow" style="color: var(--rose);">— THE LETTER · 月度信</p>
+          <h2 style="margin-top: 24px;">每月一封，<br/>来自<span class="ital">医师团</span><br/>的认真书写。</h2>
+          <p style="color: var(--fg-on-dark-muted); margin: 0; max-width: 38ch; line-height: 1.7;">
+            内容包括：上月医学新进展、一位家庭的来信、一条跨境政策解读、一个我们正在思考的伦理问题。订阅完全免费、随时退订。
+          </p>
+        </div>
+        <div>
+          <form class="news-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='已订阅 ✓';">
+            <input type="email" placeholder="your@email.com" required />
+            <button class="btn" style="border-color: var(--rose); color: var(--rose);" type="submit">订阅 <span class="arrow">→</span></button>
+          </form>
+          <p style="margin-top: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-on-dark-muted);">
+            <span style="color: var(--rose);">●</span> &nbsp; 已有 12,400+ 订阅 · 平均阅读时长 6 分钟
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

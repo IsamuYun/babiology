@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>服务流程 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  /* Vertical timeline */
+  .timeline {
+    position: relative;
+    margin-top: 64px;
+    padding-left: 80px;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 24px; top: 12px; bottom: 12px;
+    width: 1px;
+    background: var(--rule);
+  }
+  .tl-step {
+    position: relative;
+    padding: 0 0 80px 0;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .tl-step:last-child { padding-bottom: 0; }
+  .tl-step::before {
+    content: "";
+    position: absolute;
+    left: -69px; top: 14px;
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .tl-step .num-big {
+    position: absolute;
+    left: -310px; top: 0;
+    font-family: var(--font-display);
+    font-size: 96px;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: var(--tr-display);
+    font-style: italic;
+    opacity: 0.9;
+  }
+  .tl-head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .tl-head .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .tl-head .label .duration {
+    color: var(--accent);
+    padding: 4px 10px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+  }
+  .tl-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.05;
+    letter-spacing: var(--tr-display);
+  }
+  .tl-head h2 .ital { font-style: italic; color: var(--accent); }
+  .tl-head p {
+    color: var(--fg-muted);
+    font-size: 17px;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 36ch;
+  }
+  .tl-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .tl-detail .ph { aspect-ratio: 4/3; }
+  .tl-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .tl-checklist .row-i {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    font-size: 14px;
+  }
+  .tl-checklist .row-i .ck { color: var(--accent); }
+  .tl-checklist .row-i .end {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+
+  /* Roles */
+  .roles {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .role {
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .role h4 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 12px;
+  }
+  .role .who {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .role p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--fg-muted); }
+
+  @media (max-width: 960px) {
+    .timeline { padding-left: 32px; }
+    .timeline::before { left: 12px; }
+    .tl-step { grid-template-columns: 1fr; gap: 24px; }
+    .tl-step::before { left: -27px; }
+    .tl-step .num-big { display: none; }
+    .roles { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body data-screen-label="04 How it works">
+
+  <div data-slot="nav"></div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container-wide">
+      <div class="crumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span style="color: var(--accent);">服务流程</span>
+      </div>
+      <div class="grid grid-2" style="gap: 80px; align-items: end;">
+        <div>
+          <p class="eyebrow"><span class="num">04</span>&nbsp; HOW IT WORKS</p>
+          <h1 class="display h-xl" style="margin-top: 28px;">
+            六个<span class="ital">阶段</span>，<br/>一份从容的<br/>路线图。
+          </h1>
+        </div>
+        <div>
+          <p class="lede">
+            我们将复杂的医疗、法律与跨境流程，整合为六个清晰的阶段——平均 18 个月，从启程对话到孩子安全到家。
+          </p>
+          <div class="row" style="margin-top: 32px; gap: 12px;">
+            <a class="btn is-solid" href="contact.html">开始第一阶段 <span class="arrow">→</span></a>
+            <a class="btn" href="faq.html">常见问题</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top totals strip -->
+      <div class="grid grid-4" style="margin-top: 80px; padding-top: 36px; border-top: 1px solid var(--rule);">
+        <div>
+          <div class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">总周期</div>
+          <div class="display h-sm" style="margin-top: 8px;">14–22 月</div>
+        </div>
+        <div>
+          <div class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">阶段</div>
+          <div class="display h-sm" style="margin-top: 8px;">6 个</div>
+        </div>
+        <div>
+          <div class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">对接角色</div>
+          <div class="display h-sm" style="margin-top: 8px;">7 位</div>
+        </div>
+        <div>
+          <div class="muted" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;">中文响应</div>
+          <div class="display h-sm" style="margin-top: 8px;">24 h</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="timeline">
+
+        <div class="tl-step">
+          <span class="num-big">01</span>
+          <div class="tl-head">
+            <div class="label"><span>启程咨询</span><span class="duration">2 WEEKS</span></div>
+            <h2>从一次<span class="ital">私密</span>对话开始。</h2>
+            <p>持照顾问陪伴 90 分钟一对一咨询，梳理家庭情况、预算、时间线与目的地偏好；初步医学问诊与心理评估。</p>
+          </div>
+          <div class="tl-detail">
+            <div class="ph blush">
+              <div class="ph-corner">PHASE 01</div>
+              <div class="ph-caption"><span>请置入：顾问与准父母的咨询场景</span><span>4:3</span></div>
+            </div>
+            <div class="tl-checklist">
+              <div class="row-i"><span class="ck">▸</span><span>90 分钟双语 1:1 咨询</span><span class="end">2 H</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>家庭医学问卷</span><span class="end">D2</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>预算与目的地推荐</span><span class="end">D5</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>正式服务协议草案</span><span class="end">D12</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-step">
+          <span class="num-big">02</span>
+          <div class="tl-head">
+            <div class="label"><span>医学评估</span><span class="duration">3–6 WEEKS</span></div>
+            <h2>把<span class="ital">不确定</span>转化为<br/>可衡量的事实。</h2>
+            <p>合作生殖中心完成激素、影像与遗传咨询；与生殖内分泌专家共同制定个性化用药与刺激方案。</p>
+          </div>
+          <div class="tl-detail">
+            <div class="ph sage">
+              <div class="ph-corner">PHASE 02</div>
+              <div class="ph-caption"><span>请置入：胚胎实验室细节</span><span>4:3</span></div>
+            </div>
+            <div class="tl-checklist">
+              <div class="row-i"><span class="ck">▸</span><span>FSH / AMH / E2 激素六项</span><span class="end">W1</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>妇科超声 · AFC</span><span class="end">W2</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>遗传咨询与携带筛查</span><span class="end">W3</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>个性化刺激方案</span><span class="end">W4</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-step">
+          <span class="num-big">03</span>
+          <div class="tl-head">
+            <div class="label"><span>匹配 & 法律</span><span class="duration">4–8 WEEKS</span></div>
+            <h2><span class="ital">郑重的</span>选择，<br/>清晰的契约。</h2>
+            <p>精准匹配代母 / 捐赠者档案；与本地律师团队共同审阅三方合约，并就亲权认定流程做完整说明。</p>
+          </div>
+          <div class="tl-detail">
+            <div class="ph">
+              <div class="ph-corner">PHASE 03</div>
+              <div class="ph-caption"><span>请置入：合约签署文档</span><span>4:3</span></div>
+            </div>
+            <div class="tl-checklist">
+              <div class="row-i"><span class="ck">▸</span><span>3 位捐赠者候选档案</span><span class="end">W1</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>代母医学/心理面谈</span><span class="end">W3</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>三方协议起草</span><span class="end">W4</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>签约 · 启动周期</span><span class="end">W6</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-step">
+          <span class="num-big">04</span>
+          <div class="tl-head">
+            <div class="label"><span>取卵 & 移植</span><span class="duration">2–3 MONTHS</span></div>
+            <h2>实验室里的<span class="ital">谨慎</span>，<br/>是孩子未来的底色。</h2>
+            <p>IVF 周期同步进行；胚胎培养至囊胚阶段，PGT-A 基因筛查后择优移植；可同步冷冻备份胚胎。</p>
+          </div>
+          <div class="tl-detail">
+            <div class="ph sage">
+              <div class="ph-corner">PHASE 04</div>
+              <div class="ph-caption"><span>请置入：移植手术准备</span><span>4:3</span></div>
+            </div>
+            <div class="tl-checklist">
+              <div class="row-i"><span class="ck">▸</span><span>促排 · 取卵</span><span class="end">M1</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>体外受精 · 囊胚培养</span><span class="end">M1+5</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>PGT-A 基因筛查</span><span class="end">M2</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>代母身体准备 · 移植</span><span class="end">M3</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-step">
+          <span class="num-big">05</span>
+          <div class="tl-head">
+            <div class="label"><span>孕期陪护</span><span class="duration">40 WEEKS</span></div>
+            <h2><span class="ital">从远方</span>，<br/>同样能感受到心跳。</h2>
+            <p>每月产检报告、影像与代母日记，通过专属客户端同步推送；月度视频问诊与代母三方会议。</p>
+          </div>
+          <div class="tl-detail">
+            <div class="ph blush">
+              <div class="ph-corner">PHASE 05</div>
+              <div class="ph-caption"><span>请置入：孕期 B 超影像截图</span><span>4:3</span></div>
+            </div>
+            <div class="tl-checklist">
+              <div class="row-i"><span class="ck">▸</span><span>每月产检报告</span><span class="end">×10</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>代母心理陪护</span><span class="end">月 1</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>家庭专属客户端</span><span class="end">24 H</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>分娩计划三方会议</span><span class="end">W36</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-step">
+          <span class="num-big">06</span>
+          <div class="tl-head">
+            <div class="label"><span>新生归家</span><span class="duration">4–6 WEEKS</span></div>
+            <h2>抱起<span class="ital">新生</span>的那一刻，<br/>我们在你身边。</h2>
+            <p>分娩当日的医院陪同、出生证明办理、护照与签证协助；新生儿护士、月嫂与翻译陪同回国。</p>
+          </div>
+          <div class="tl-detail">
+            <div class="ph">
+              <div class="ph-corner">PHASE 06</div>
+              <div class="ph-caption"><span>请置入：新生儿手部特写</span><span>4:3</span></div>
+            </div>
+            <div class="tl-checklist">
+              <div class="row-i"><span class="ck">▸</span><span>分娩医院陪同</span><span class="end">D0</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>出生证明 · 亲权认定</span><span class="end">D7</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>护照 · 签证 · 领事认证</span><span class="end">D21</span></div>
+              <div class="row-i"><span class="ck">▸</span><span>新生儿陪同回国</span><span class="end">D35</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section class="section is-sunk">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">05</span>&nbsp; 您将合作的人 · YOUR TEAM</p>
+      <h2 class="display h-md" style="margin: 24px 0 56px; max-width: 24ch;">
+        每一段旅程，<span class="ital">七</span>位<br/>专属伙伴同行。
+      </h2>
+      <div class="roles">
+        <div class="role"><div class="who">PRIMARY</div><h4>项目经理</h4><p>双语，孕周内 24h 响应，是您主要的联络人，所有信息的中心。</p></div>
+        <div class="role"><div class="who">CLINIC</div><h4>生殖医师</h4><p>主治生殖内分泌专家，制定刺激与移植方案；周期内每周复盘。</p></div>
+        <div class="role"><div class="who">LEGAL</div><h4>当地律师</h4><p>本州 / 国持照律师，起草并解读三方协议；负责亲权与出生证。</p></div>
+        <div class="role"><div class="who">CARE</div><h4>心理顾问</h4><p>跨周期陪护，从决策、孕期至产后；准父母与代母双向支持。</p></div>
+        <div class="role"><div class="who">MATCH</div><h4>匹配专员</h4><p>负责捐赠者/代母初筛与匹配；维护数据库的细节与更新。</p></div>
+        <div class="role"><div class="who">OB-GYN</div><h4>产科医师</h4><p>整个孕期产检与分娩协调；与代母共同制定分娩计划。</p></div>
+        <div class="role"><div class="who">CONCIERGE</div><h4>抵达专员</h4><p>分娩当日陪同、签证文件、新生儿护士、月嫂与回国安排。</p></div>
+        <div class="role"><div class="who">FINANCE</div><h4>财务管家</h4><p>阶段化收款明细、医院发票翻译、保险报销与年度对账。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip" style="padding: 100px 0;">
+    <div class="container">
+      <h2 class="display h-lg" style="margin: 0 0 28px;">
+        准备好走进<span class="ital">第一阶段</span>？
+      </h2>
+      <a class="btn is-solid" href="contact.html">预约启程咨询 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

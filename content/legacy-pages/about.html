@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>关于我们 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .about-hero {
+    padding: 64px 0 96px;
+  }
+  .about-hero h1 .ital { font-style: italic; color: var(--accent); }
+  .about-img {
+    margin-top: 72px;
+    position: relative;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+  }
+  .about-img .ph { height: 100%; }
+
+  /* Manifesto */
+  .manifesto {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .manifesto .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .manifesto .text {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    max-width: 30ch;
+  }
+  .manifesto .text .ital { font-style: italic; color: var(--accent); }
+  .manifesto .text + .text { margin-top: 32px; }
+
+  /* Timeline of history */
+  .history {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 64px;
+    margin-top: 80px;
+  }
+  .history .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .history-list { border-top: 1px solid var(--rule); }
+  .history-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .history-row .y {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--accent);
+    letter-spacing: var(--tr-display);
+  }
+  .history-row h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+  }
+  .history-row p { color: var(--fg-muted); margin: 0; font-size: 14px; line-height: 1.6; max-width: 36ch; }
+
+  /* Team grid */
+  .team {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .team-card .ph { aspect-ratio: 3/4; margin-bottom: 16px; }
+  .team-card h4 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 4px;
+  }
+  .team-card .role-l {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .team-card p {
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--fg-muted);
+  }
+
+  /* Offices */
+  .offices {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule-on-dark);
+    border-bottom: 1px solid var(--rule-on-dark);
+  }
+  .office {
+    padding: 40px 32px;
+    border-right: 1px solid var(--rule-on-dark);
+  }
+  .office:last-child { border-right: 0; }
+  .office h3 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 0 8px;
+  }
+  .office .addr {
+    color: var(--fg-on-dark-muted);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 16px 0 0;
+  }
+  .office .est {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 960px) {
+    .about-img, .manifesto, .history, .team, .offices { grid-template-columns: 1fr; gap: 24px; }
+    .office { border-right: 0; border-bottom: 1px solid var(--rule-on-dark); }
+    .about-img { height: auto; }
+    .about-img .ph { height: 320px; }
+  }
+</style>
+</head>
+<body data-screen-label="05 About">
+
+  <div data-slot="nav"></div>
+
+  <!-- HERO -->
+  <section class="container-wide">
+    <div class="about-hero">
+      <div class="crumb" style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 56px;">
+        <a href="index.html">Home</a> <span class="sep">/</span> <span style="color: var(--accent);">关于我们</span>
+      </div>
+      <p class="eyebrow"><span class="num">05</span>&nbsp; ABOUT BABIOLOGY</p>
+      <h1 class="display h-xl" style="margin-top: 36px;">
+        我们做的，<br/>是把<span class="ital">不安</span>翻译成<br/>可以前行的<span class="ital">下一步</span>。
+      </h1>
+
+      <div class="about-img">
+        <div class="ph blush">
+          <div class="ph-corner">TEAM · 01</div>
+          <div class="ph-caption"><span>请置入：洛杉矶总部团队群像</span><span>1.4:1</span></div>
+        </div>
+        <div class="ph">
+          <div class="ph-corner">DETAIL</div>
+          <div class="ph-caption"><span>办公室静物</span><span>1:1.4</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="manifesto">
+        <div class="lbl">— 宣言 · MANIFESTO</div>
+        <div>
+          <p class="text">我们相信，每一个想成为父母的人，都应当被<span class="ital">温柔地</span>对待。</p>
+          <p class="text">我们相信，技术只是入口；<span class="ital">人</span>，才是真正抵达家庭的桥。</p>
+          <p class="text">我们相信，复杂的旅程，可以被设计得<span class="ital">从容</span>。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="section is-sunk">
+    <div class="container-wide">
+      <div class="history">
+        <div class="lbl">— 时间线 · HISTORY</div>
+        <div class="history-list">
+          <div class="history-row">
+            <span class="y">2008</span>
+            <h3>洛杉矶 · 创立</h3>
+            <p>由生殖医学专家 Dr. Margaret Liu 与跨境律师 Jonathan Park 联合创立。</p>
+          </div>
+          <div class="history-row">
+            <span class="y">2012</span>
+            <h3>第 100 个家庭</h3>
+            <p>迎来第 100 位 Babiology 宝宝；同年开放上海远程顾问办公室。</p>
+          </div>
+          <div class="history-row">
+            <span class="y">2015</span>
+            <h3>第比利斯落地</h3>
+            <p>在格鲁吉亚设立首个海外办公室与合作生殖中心；服务欧亚客户。</p>
+          </div>
+          <div class="history-row">
+            <span class="y">2018</span>
+            <h3>双语客户端</h3>
+            <p>自研中英 / 俄三语家庭客户端正式上线，孕期数据实时同步。</p>
+          </div>
+          <div class="history-row">
+            <span class="y">2021</span>
+            <h3>曼谷办公室</h3>
+            <p>东南亚枢纽建立；与三家泰国 JCI 认证医院签订合作协议。</p>
+          </div>
+          <div class="history-row">
+            <span class="y">2024</span>
+            <h3>第 1,000 位宝宝</h3>
+            <p>第 1,000 位 Babiology 宝宝出生于洛杉矶 Cedars-Sinai 医院。</p>
+          </div>
+          <div class="history-row">
+            <span class="y">2026</span>
+            <h3>—</h3>
+            <p>16 年，覆盖 32 个国家与地区；2025 年活产率 98.3%。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="row row-between" style="margin-bottom: 56px; align-items: flex-end;">
+        <div>
+          <p class="eyebrow"><span class="num">06</span>&nbsp; 核心团队 · LEADERSHIP</p>
+          <h2 class="display h-md" style="margin-top: 18px;">您将合作的<span class="ital">人</span>。</h2>
+        </div>
+        <p class="muted" style="max-width: 32ch; font-size: 14px; line-height: 1.6;">
+          来自医学、法律、心理与产业的跨学科团队。共同点是：把每一个家庭当作一项长期承诺。
+        </p>
+      </div>
+      <div class="team">
+        <div class="team-card">
+          <div class="ph"><div class="ph-corner">DR. LIU</div><div class="ph-caption"><span>创始人 · 生殖医学</span><span>3:4</span></div></div>
+          <div class="role-l">CO-FOUNDER · CMO</div>
+          <h4>Dr. Margaret Liu</h4>
+          <p>哈佛医学院 PhD，UCLA 生殖内分泌主任医师；从业 22 年。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph blush"><div class="ph-corner">J. PARK</div><div class="ph-caption"><span>创始人 · 跨境律师</span><span>3:4</span></div></div>
+          <div class="role-l">CO-FOUNDER · CLO</div>
+          <h4>Jonathan Park</h4>
+          <p>哥伦比亚法学院 JD，跨境家庭法专家；American Bar Association 会员。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph sage"><div class="ph-corner">M. CHEN</div><div class="ph-caption"><span>客户体验总监</span><span>3:4</span></div></div>
+          <div class="role-l">DIRECTOR · CARE</div>
+          <h4>Mei Chen</h4>
+          <p>中、英、日三语；曾任酒店行业奢华品牌运营，加入 Babiology 第 9 年。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph"><div class="ph-corner">DR. K</div><div class="ph-caption"><span>胚胎实验室主任</span><span>3:4</span></div></div>
+          <div class="role-l">LAB DIRECTOR</div>
+          <h4>Dr. Anna Khorenko</h4>
+          <p>第比利斯生殖中心首席胚胎学家；年均 1,500+ IVF 周期；ESHRE 委员。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph blush"><div class="ph-corner">S. LIN</div><div class="ph-caption"><span>大中华区总监</span><span>3:4</span></div></div>
+          <div class="role-l">CHINA HEAD</div>
+          <h4>Stephanie Lin</h4>
+          <p>纽约大学硕士；负责大中华区咨询、教育与跨境后勤；在岗 7 年。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph"><div class="ph-corner">DR. T</div><div class="ph-caption"><span>心理首席</span><span>3:4</span></div></div>
+          <div class="role-l">HEAD OF CARE</div>
+          <h4>Dr. Rina Tanaka</h4>
+          <p>临床心理学博士；专注辅助生殖与代孕心理学；著有同名学术专著。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph sage"><div class="ph-corner">P. ROSS</div><div class="ph-caption"><span>匹配总监</span><span>3:4</span></div></div>
+          <div class="role-l">MATCHING</div>
+          <h4>Patrick Ross</h4>
+          <p>负责捐赠者数据库与代母网络维护；自 2013 年加入团队。</p>
+        </div>
+        <div class="team-card">
+          <div class="ph"><div class="ph-corner">H. WU</div><div class="ph-caption"><span>财务管家</span><span>3:4</span></div></div>
+          <div class="role-l">CFO</div>
+          <h4>Helen Wu</h4>
+          <p>CPA / 前 Big Four 高级经理；建立机构透明定价与第三方托管体系。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICES -->
+  <section class="section is-dark">
+    <div class="container-wide">
+      <p class="eyebrow" style="color: var(--rose);"><span class="num" style="color: var(--rose);">07</span>&nbsp; 办公室 · OFFICES</p>
+      <h2 class="display h-md" style="margin: 28px 0 56px; max-width: 24ch;">
+        四个城市，<br/>同一种<span class="ital">细致</span>。
+      </h2>
+      <div class="offices">
+        <div class="office">
+          <span class="muted" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;">USA</span>
+          <h3 style="margin-top: 12px;">Los Angeles</h3>
+          <p class="addr">9501 Wilshire Blvd, Ste 220<br/>Beverly Hills, CA 90212</p>
+          <div class="est">EST. 2008 · 总部</div>
+        </div>
+        <div class="office">
+          <span class="muted" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;">GEORGIA</span>
+          <h3 style="margin-top: 12px;">Tbilisi</h3>
+          <p class="addr">14 Chavchavadze Avenue<br/>Vake, Tbilisi 0179</p>
+          <div class="est">EST. 2015 · 欧亚枢纽</div>
+        </div>
+        <div class="office">
+          <span class="muted" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;">THAILAND</span>
+          <h3 style="margin-top: 12px;">Bangkok</h3>
+          <p class="addr">Sukhumvit Soi 21<br/>Klongtoey-Nua, Bangkok 10110</p>
+          <div class="est">EST. 2021 · 东南亚</div>
+        </div>
+        <div class="office">
+          <span class="muted" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;">CHINA · 远程</span>
+          <h3 style="margin-top: 12px;">Shanghai</h3>
+          <p class="addr">Jing'an District<br/>仅限私密预约</p>
+          <div class="est">EST. 2012 · 大中华区</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="container">
+      <h2 class="display h-lg">想和我们<span class="ital">见一面</span>？</h2>
+      <p class="body muted" style="margin: 20px auto 32px;">在任意一座办公室或视频中</p>
+      <a class="btn is-solid" href="contact.html">预约一次咨询 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

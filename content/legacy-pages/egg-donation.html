@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>卵子捐赠 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .egg-hero {
+    padding: 80px 0 96px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .egg-hero .img-wrap { position: relative; height: 640px; }
+  .egg-hero .ph.a { position: absolute; right: 0; top: 0; width: 70%; height: 84%; }
+  .egg-hero .ph.b { position: absolute; left: 0; bottom: 0; width: 46%; height: 50%; }
+
+  .filter-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--bg);
+  }
+  .filter-bar > div {
+    padding: 18px 22px;
+    border-right: 1px solid var(--rule);
+  }
+  .filter-bar > div:last-child { border-right: 0; }
+  .filter-bar .k {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 6px;
+  }
+  .filter-bar .v {
+    font-family: var(--font-display);
+    font-size: 18px;
+    color: var(--fg);
+  }
+  .filter-bar .v.acc { color: var(--accent); }
+  .filter-bar button.go {
+    background: var(--plum-ink);
+    color: var(--cream);
+    border: 0;
+    padding: 0 32px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Genetics block */
+  .genetics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .gen-item {
+    padding: 56px 32px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .gen-item:last-child { border-right: 0; }
+  .gen-item .idx {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .gen-item h3 {
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: var(--tr-display);
+  }
+  .gen-item p { color: var(--fg-muted); font-size: 14px; line-height: 1.65; margin: 0; }
+  .gen-item .stat-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    letter-spacing: var(--tr-display);
+    color: var(--fg);
+    line-height: 1;
+    margin-top: 16px;
+  }
+  .gen-item .stat-num .sup { font-size: 0.4em; color: var(--accent); vertical-align: top; margin-left: 4px; }
+
+  /* Funnel / screen pipeline */
+  .funnel {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 40px;
+  }
+  .funnel-step {
+    padding: 24px 20px;
+    background: var(--bg-sunk);
+    position: relative;
+  }
+  .funnel-step .pct {
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: var(--tr-display);
+    color: var(--accent);
+    line-height: 1;
+  }
+  .funnel-step .step-name {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin: 14px 0 4px;
+  }
+  .funnel-step .step-detail { font-size: 13px; color: var(--fg); margin: 0; line-height: 1.5; }
+
+  /* Profile snippet */
+  .featured-donor {
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .featured-donor .ph { aspect-ratio: 3/4; }
+  .donor-card-lg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 32px;
+    margin: 32px 0;
+  }
+  .donor-card-lg .pair { padding: 12px 0; border-top: 1px solid var(--rule); }
+  .donor-card-lg .pair .k {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 4px;
+  }
+  .donor-card-lg .pair .v { font-family: var(--font-display); font-size: 22px; }
+
+  @media (max-width: 960px) {
+    .egg-hero, .featured-donor { grid-template-columns: 1fr; }
+    .filter-bar, .genetics-grid, .funnel { grid-template-columns: 1fr; }
+    .filter-bar > div, .gen-item { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .egg-hero .img-wrap { height: 460px; }
+  }
+</style>
+</head>
+<body data-screen-label="03 Egg Donation">
+
+  <div data-slot="nav"></div>
+
+  <!-- HERO -->
+  <section>
+    <div class="container-wide">
+      <div class="page-hero" style="border-bottom: 0; padding-bottom: 0;">
+        <div class="crumb">
+          <a href="index.html">Home</a><span class="sep">/</span><span>服务</span><span class="sep">/</span><span style="color: var(--accent);">卵子捐赠</span>
+        </div>
+        <div class="egg-hero">
+          <div class="img-wrap">
+            <div class="ph a sage">
+              <div class="ph-corner">EGG · 01</div>
+              <div class="ph-caption"><span>请置入：捐赠者特写人像</span><span>3:4</span></div>
+            </div>
+            <div class="ph b blush">
+              <div class="ph-corner">LAB</div>
+              <div class="ph-caption"><span>显微取卵实验静物</span><span>1:1</span></div>
+            </div>
+          </div>
+          <div>
+            <p class="eyebrow"><span class="num">02</span>&nbsp; EGG DONATION · 卵子捐赠</p>
+            <h1 class="display h-lg" style="margin-top: 28px;">
+              选择，<br/>是<span class="ital">爱</span>的一种<br/>具体形状。
+            </h1>
+            <p class="lede" style="margin-top: 32px;">
+              800+ 位经过六轮筛选的捐赠者，覆盖亚裔、欧裔、混血与拉美。我们把基因、健康、心理与教育同样郑重地呈现给您。
+            </p>
+            <div class="row" style="margin-top: 40px; gap: 12px;">
+              <a class="btn is-solid" href="donors.html">浏览捐赠者库 <span class="arrow">→</span></a>
+              <a class="btn" href="contact.html">个性化匹配</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section class="section-sm">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">03</span>&nbsp; 快速筛选 · QUICK MATCH</p>
+      <h2 class="display h-sm" style="margin: 20px 0 28px;">告诉我们一些偏好。</h2>
+      <div class="filter-bar">
+        <div>
+          <div class="k">族裔 ETHNICITY</div>
+          <div class="v acc">亚裔 ▾</div>
+        </div>
+        <div>
+          <div class="k">年龄 AGE</div>
+          <div class="v">21–28 ▾</div>
+        </div>
+        <div>
+          <div class="k">血型 TYPE</div>
+          <div class="v">任意 ▾</div>
+        </div>
+        <div>
+          <div class="k">教育 EDUCATION</div>
+          <div class="v">本科以上 ▾</div>
+        </div>
+        <div>
+          <div class="k">供卵史 HISTORY</div>
+          <div class="v">已验证活产 ▾</div>
+        </div>
+        <button class="go">查看 142 位 →</button>
+      </div>
+      <p class="muted" style="font-size: 13px; margin-top: 16px; max-width: 56ch; line-height: 1.6;">
+        所有捐赠者均已通过 ASRM 推荐的六轮筛选；以上仅为常用偏好，签约客户可访问完整 38 维档案。
+      </p>
+    </div>
+  </section>
+
+  <!-- GENETICS / SCREENING -->
+  <section style="padding: 32px 0;">
+    <div class="container-wide">
+      <div class="genetics-grid">
+        <div class="gen-item">
+          <span class="idx">01 · GENETIC</span>
+          <h3>基因筛查</h3>
+          <p>500+ 隐性遗传病排查；地中海贫血、SMA、囊性纤维化、Tay-Sachs 等全面覆盖。</p>
+          <div class="stat-num">500<span class="sup">+</span></div>
+        </div>
+        <div class="gen-item" style="background: var(--bg-sunk);">
+          <span class="idx">02 · MEDICAL</span>
+          <h3>医学评估</h3>
+          <p>FSH、AMH、AFC、感染性疾病五项；妇科超声、家族病史三代溯源。</p>
+          <div class="stat-num">38</div>
+        </div>
+        <div class="gen-item">
+          <span class="idx">03 · PSYCH</span>
+          <h3>心理与教育</h3>
+          <p>MMPI-2 心理量表、长访谈、教育与职业核实；本科及以上比例 78%。</p>
+          <div class="stat-num">78<span class="sup">%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENING FUNNEL -->
+  <section class="section">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">04</span>&nbsp; 严选漏斗 · SCREENING</p>
+      <div class="row row-between" style="margin: 18px 0 0; align-items: flex-end;">
+        <h2 class="display h-md" style="max-width: 18ch;">从 <span class="ital">10,000</span> 位申请，到 <span class="ital">800</span> 位入库。</h2>
+        <p class="muted" style="max-width: 36ch; font-size: 14px; line-height: 1.6;">
+          每一位最终进入数据库的捐赠者，平均经历 11 周的评估。
+        </p>
+      </div>
+
+      <div class="funnel">
+        <div class="funnel-step">
+          <div class="pct">100%</div>
+          <div class="step-name">01 · APPLY</div>
+          <p class="step-detail">在线申请 · 10,200 人</p>
+        </div>
+        <div class="funnel-step">
+          <div class="pct">42%</div>
+          <div class="step-name">02 · MEDICAL</div>
+          <p class="step-detail">医学初筛 · 4,284 人</p>
+        </div>
+        <div class="funnel-step">
+          <div class="pct">19%</div>
+          <div class="step-name">03 · GENETIC</div>
+          <p class="step-detail">基因筛查 · 1,938 人</p>
+        </div>
+        <div class="funnel-step">
+          <div class="pct">12%</div>
+          <div class="step-name">04 · PSYCH</div>
+          <p class="step-detail">心理评估 · 1,224 人</p>
+        </div>
+        <div class="funnel-step">
+          <div class="pct">7.8%</div>
+          <div class="step-name">05 · IN DB</div>
+          <p class="step-detail">最终在库 · 800 人</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED DONOR -->
+  <section class="section is-sunk">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">05</span>&nbsp; 档案预览 · DONOR PREVIEW</p>
+      <h2 class="display h-sm" style="margin: 18px 0 48px;">举一例 · D—218。</h2>
+
+      <div class="featured-donor">
+        <div class="ph">
+          <div class="ph-corner">D-218 · LEAD</div>
+          <div class="ph-caption"><span>请置入：捐赠者授权人像</span><span>3:4</span></div>
+        </div>
+        <div>
+          <h3 class="display h-md">Aria L.</h3>
+          <p class="muted" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin: 8px 0 0;">
+            D—218 &nbsp;·&nbsp; 亚裔 · 26 岁 · 北加州
+          </p>
+          <div class="donor-card-lg">
+            <div class="pair"><div class="k">教育 / EDUCATION</div><div class="v">UC Berkeley · MBA</div></div>
+            <div class="pair"><div class="k">职业 / OCCUPATION</div><div class="v">产品经理</div></div>
+            <div class="pair"><div class="k">身高 / 体重</div><div class="v">165 cm · 52 kg</div></div>
+            <div class="pair"><div class="k">血型 / BLOOD</div><div class="v">O+ Rh+</div></div>
+            <div class="pair"><div class="k">AMH</div><div class="v">5.2 ng/ml</div></div>
+            <div class="pair"><div class="k">既往活产</div><div class="v">2 次 · 已验证</div></div>
+          </div>
+          <p class="body muted">
+            兴趣涵盖古典钢琴、长跑与编程；性格自述「细致温和」。家族三代无重大遗传病史，PGT-A 阳性率历史 64%。
+          </p>
+          <a class="link-u" style="margin-top: 24px;" href="donors.html">查看完整档案 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRESH VS FROZEN -->
+  <section class="section">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">06</span>&nbsp; 方案 · PROGRAMS</p>
+      <h2 class="display h-md" style="margin: 18px 0 56px; max-width: 22ch;">
+        <span class="ital">新鲜</span>或<span class="ital">冷冻</span>，<br/>都是一份善意的礼物。
+      </h2>
+      <div class="grid grid-2">
+        <div style="border-top: 1px solid var(--rule); padding-top: 40px;">
+          <div class="row row-between" style="align-items: baseline; margin-bottom: 24px;">
+            <h3 class="display h-sm" style="margin: 0;">新鲜周期</h3>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;">FROM USD 32k</span>
+          </div>
+          <p class="body muted">捐赠者与受卵方同步用药、同周期取卵移植。可获取的卵子数量更多，PGT-A 阳性胚胎率历史更稳定。适合追求最大成功率的家庭。</p>
+          <ul style="list-style: none; padding: 0; margin: 24px 0 0;">
+            <li style="padding: 12px 0; border-top: 1px dashed var(--rule); font-size: 14px;">▸ &nbsp; 平均 18–22 颗成熟卵</li>
+            <li style="padding: 12px 0; border-top: 1px dashed var(--rule); font-size: 14px;">▸ &nbsp; 周期同步 4–6 周</li>
+            <li style="padding: 12px 0; border-top: 1px dashed var(--rule); font-size: 14px;">▸ &nbsp; PGT-A 阳性率 ~62%</li>
+          </ul>
+        </div>
+        <div style="border-top: 1px solid var(--rule); padding-top: 40px;">
+          <div class="row row-between" style="align-items: baseline; margin-bottom: 24px;">
+            <h3 class="display h-sm" style="margin: 0;">冷冻卵</h3>
+            <span class="muted" style="font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;">FROM USD 16k</span>
+          </div>
+          <p class="body muted">已冷冻的卵子，立即可用。适合时间敏感、计划灵活的家庭；卵子可在不同国家之间运输，便于跨境医疗安排。</p>
+          <ul style="list-style: none; padding: 0; margin: 24px 0 0;">
+            <li style="padding: 12px 0; border-top: 1px dashed var(--rule); font-size: 14px;">▸ &nbsp; 套数：6 / 8 / 10 颗</li>
+            <li style="padding: 12px 0; border-top: 1px dashed var(--rule); font-size: 14px;">▸ &nbsp; 即刻匹配，无需周期</li>
+            <li style="padding: 12px 0; border-top: 1px dashed var(--rule); font-size: 14px;">▸ &nbsp; 库存胚胎实时可查</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section is-dark" style="text-align: center;">
+    <div class="container">
+      <h2 class="display h-md">从一个<span class="ital">温柔</span>的开始。</h2>
+      <p class="body" style="color: var(--fg-on-dark-muted); margin: 20px auto 36px;">
+        告诉我们一些偏好，我们将在 48 小时内匹配 3 位候选档案
+      </p>
+      <a class="btn" style="border-color: var(--rose); color: var(--rose);" href="contact.html">开始匹配 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

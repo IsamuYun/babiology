@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>代孕项目 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .svc-hero {
+    padding: 80px 0 96px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .svc-hero .img-wrap { position: relative; height: 640px; }
+  .svc-hero .ph { position: absolute; }
+  .svc-hero .ph.a { left: 0; top: 0; width: 64%; height: 80%; }
+  .svc-hero .ph.b { right: 0; bottom: 0; width: 50%; height: 56%; }
+
+  .tag-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid var(--rule);
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: var(--fg-muted);
+  }
+
+  /* Pillars */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .pillar {
+    padding: 56px 40px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .pillar:last-child { border-right: 0; }
+  .pillar .idx {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .pillar h3 {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 400;
+    margin: 24px 0 16px;
+    line-height: 1.05;
+    letter-spacing: var(--tr-display);
+  }
+  .pillar p { color: var(--fg-muted); font-size: 15px; line-height: 1.65; margin: 0; }
+
+  /* Country picker */
+  .countries {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .country-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    padding: 32px;
+    min-height: 460px;
+  }
+  .country-card .flag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  .country-card h3 {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.0;
+    margin: 28px 0 12px;
+    letter-spacing: var(--tr-display);
+  }
+  .country-card .price {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--accent);
+    margin: 0 0 24px;
+  }
+  .country-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .country-card ul li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    font-size: 14px;
+    color: var(--fg);
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .country-card ul li::before {
+    content: "▸";
+    color: var(--accent);
+    font-size: 10px;
+  }
+
+  /* Process compare */
+  .compare {
+    display: grid;
+    grid-template-columns: 200px repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .compare > div {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .compare > div:nth-child(4n) { border-right: 0; }
+  .compare .head {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    background: var(--bg-sunk);
+  }
+  .compare .label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+
+  /* Inclusion strip */
+  .incl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .incl .item {
+    padding-top: 24px;
+    border-top: 1px solid var(--rule-on-dark);
+  }
+  .incl .item h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    margin: 0 0 6px;
+    font-weight: 400;
+  }
+  .incl .item p {
+    margin: 0;
+    color: var(--fg-on-dark-muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 960px) {
+    .svc-hero, .pillars, .countries, .compare, .incl { grid-template-columns: 1fr; }
+    .compare > div { border-right: 0; }
+    .svc-hero .img-wrap { height: 480px; }
+  }
+</style>
+</head>
+<body data-screen-label="02 Surrogacy">
+
+  <div data-slot="nav"></div>
+
+  <!-- HERO -->
+  <section>
+    <div class="container-wide">
+      <div class="page-hero" style="border-bottom: 0; padding-bottom: 0;">
+        <div class="crumb">
+          <a href="index.html">Home</a><span class="sep">/</span><span>服务</span><span class="sep">/</span><span style="color: var(--accent);">代孕</span>
+        </div>
+        <div class="svc-hero">
+          <div>
+            <p class="eyebrow"><span class="num">01</span>&nbsp; SURROGACY · 代孕项目</p>
+            <h1 class="display h-lg" style="margin-top: 28px;">
+              将一个家的<br/>等待，<span class="ital">交给</span><br/>专业与温度。
+            </h1>
+            <p class="lede" style="margin-top: 32px;">
+              代孕是一段需要医学、法律与心理多重托付的旅程。Babiology 以十六年的实务经验，把每一个未知的台阶，铺成一条可被走完的路。
+            </p>
+            <div class="tag-row">
+              <span class="tag">美国 · 加州 / 内华达</span>
+              <span class="tag">格鲁吉亚</span>
+              <span class="tag">墨西哥</span>
+              <span class="tag">LGBTQ+ 友好</span>
+              <span class="tag">单身父亲计划</span>
+            </div>
+            <div class="row" style="margin-top: 40px; gap: 12px;">
+              <a class="btn is-solid" href="contact.html">预约代孕咨询 <span class="arrow">→</span></a>
+              <a class="btn" href="how-it-works.html">完整流程</a>
+            </div>
+          </div>
+          <div class="img-wrap">
+            <div class="ph a">
+              <div class="ph-corner">SURROGACY · 01</div>
+              <div class="ph-caption"><span>请置入：代母与准父母面谈的纪实摄影</span><span>3:4</span></div>
+            </div>
+            <div class="ph b blush">
+              <div class="ph-corner">DETAIL</div>
+              <div class="ph-caption"><span>合约签署细节</span><span>16:9</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section-sm">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">02</span>&nbsp; 三大支柱 · PILLARS</p>
+      <h2 class="display h-md" style="margin: 24px 0 56px; max-width: 22ch;">
+        让每一段<span class="ital">陪伴</span>，<br/>都建立在三件稳固的事上。
+      </h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="idx">01 · MEDICAL</div>
+          <h3>医学严谨</h3>
+          <p>仅合作 ASRM 认证生殖中心，胚胎实验室年均 1,500+ 周期。代母通过五轮医学与生活方式评估，其中包含 BMI、用药史、心理量表与家庭访谈。</p>
+        </div>
+        <div class="pillar">
+          <div class="idx">02 · LEGAL</div>
+          <h3>法律护航</h3>
+          <p>每个家庭获两位当地律师服务：起草与解读三方协议、产前判令（PBO）、出生证明亲权认定、领事认证与签证准备。</p>
+        </div>
+        <div class="pillar">
+          <div class="idx">03 · HUMAN</div>
+          <h3>人文陪伴</h3>
+          <p>从签约第一天起，您将拥有一位中文项目经理与一位心理咨询师。我们设有专属应用，孕期数据、产检影像与代母日记同步推送。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTRIES -->
+  <section class="section is-sunk">
+    <div class="container-wide">
+      <div class="row row-between" style="margin-bottom: 48px; align-items: flex-end;">
+        <div>
+          <p class="eyebrow"><span class="num">03</span>&nbsp; 目的地 · DESTINATIONS</p>
+          <h2 class="display h-md" style="margin-top: 18px;">三个目的地，<br/>三种<span class="ital">节奏</span>。</h2>
+        </div>
+        <p class="muted" style="max-width: 36ch; font-size: 14px; line-height: 1.6;">
+          根据预算、时间线、亲权偏好与孩子未来教育规划，我们会推荐最适合的代孕目的地。
+        </p>
+      </div>
+
+      <div class="countries">
+        <div class="country-card">
+          <div class="flag"><span>USA · CALIFORNIA</span><span>★ 推荐</span></div>
+          <h3>美国</h3>
+          <div class="price">USD 165,000 起</div>
+          <ul>
+            <li>判决式亲权 · 出生即父母</li>
+            <li>胚胎实验室全美前 5%</li>
+            <li>新生儿即获美籍</li>
+            <li>同性 / 单身父亲完全开放</li>
+            <li>周期 18–22 个月</li>
+          </ul>
+          <a class="link-u" style="margin-top: 32px;" href="contact.html">了解美国方案 <span class="arrow">→</span></a>
+        </div>
+
+        <div class="country-card">
+          <div class="flag"><span>GEORGIA · TBILISI</span><span>性价比</span></div>
+          <h3>格鲁吉亚</h3>
+          <div class="price">USD 68,000 起</div>
+          <ul>
+            <li>合法明文 · 仅限异性已婚夫妇</li>
+            <li>无需领养 · 出生证直系</li>
+            <li>俄语 / 英语 / 中文医疗组</li>
+            <li>周期 14–18 个月</li>
+            <li>欧洲 / 中亚医疗签证便利</li>
+          </ul>
+          <a class="link-u" style="margin-top: 32px;" href="contact.html">了解格鲁方案 <span class="arrow">→</span></a>
+        </div>
+
+        <div class="country-card">
+          <div class="flag"><span>MEXICO · CDMX</span><span>灵活</span></div>
+          <h3>墨西哥</h3>
+          <div class="price">USD 78,000 起</div>
+          <ul>
+            <li>个别州法律明文 · 当地律师配置</li>
+            <li>距离北美时差小</li>
+            <li>同性夫妇友好</li>
+            <li>周期 16–20 个月</li>
+            <li>胚胎可冷冻跨国运输</li>
+          </ul>
+          <a class="link-u" style="margin-top: 32px;" href="contact.html">了解墨西哥方案 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="section">
+    <div class="container-wide">
+      <p class="eyebrow"><span class="num">04</span>&nbsp; 横向对比 · QUICK COMPARE</p>
+      <h2 class="display h-sm" style="margin: 18px 0 40px;">一张表，看清差异。</h2>
+      <div class="compare">
+        <div class="head"></div>
+        <div class="head">美国 · CA</div>
+        <div class="head">格鲁吉亚</div>
+        <div class="head">墨西哥</div>
+
+        <div class="label">起步预算</div>
+        <div>USD 165k</div>
+        <div>USD 68k</div>
+        <div>USD 78k</div>
+
+        <div class="label">总周期</div>
+        <div>18–22 月</div>
+        <div>14–18 月</div>
+        <div>16–20 月</div>
+
+        <div class="label">单身父亲</div>
+        <div>✓ 完全开放</div>
+        <div>— 不适用</div>
+        <div>✓ 部分州</div>
+
+        <div class="label">同性夫妇</div>
+        <div>✓ 完全开放</div>
+        <div>— 不适用</div>
+        <div>✓ 完全开放</div>
+
+        <div class="label">孩子国籍</div>
+        <div>出生即美籍</div>
+        <div>父母国籍</div>
+        <div>父母国籍</div>
+
+        <div class="label">亲权认定</div>
+        <div>产前判令 PBO</div>
+        <div>直接出生证</div>
+        <div>产前判令 PBO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUSIONS -->
+  <section class="section is-dark">
+    <div class="container-wide">
+      <p class="eyebrow" style="color: var(--rose);"><span class="num" style="color: var(--rose);">05</span>&nbsp; 服务包含 · WHAT'S INCLUDED</p>
+      <h2 class="display h-md" style="margin: 28px 0 56px; max-width: 22ch;">
+        一份合约里，<span class="ital">所有事</span>都已被照料。
+      </h2>
+      <div class="incl">
+        <div class="item"><h4>01 · 医学</h4><p>胚胎培养、PGT-A 筛查、移植、整个孕期产检、新生儿初筛与疫苗。</p></div>
+        <div class="item"><h4>02 · 法律</h4><p>三方协议、产前判令、出生证明、签证支持、领事认证。</p></div>
+        <div class="item"><h4>03 · 心理</h4><p>准父母 8 次咨询；代母从筛查到产后共 12 次心理陪护。</p></div>
+        <div class="item"><h4>04 · 生活</h4><p>代母三餐、孕期产检交通、住宿与日常补贴，全程透明明细。</p></div>
+        <div class="item"><h4>05 · 翻译</h4><p>24h 中文项目经理、英 / 俄 / 西 三语同步、医疗术语本地化。</p></div>
+        <div class="item"><h4>06 · 后勤</h4><p>当地接送、医院预约、签证申请、新生儿月嫂与回国陪护。</p></div>
+        <div class="item"><h4>07 · 保险</h4><p>代母医疗保险、新生儿保险、跨境医疗紧急 SOS 同步开通。</p></div>
+        <div class="item"><h4>08 · 退出条款</h4><p>阶段化付款、未发生医学事件可全额退还、终止机制透明可控。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="grid grid-2" style="align-items: center;">
+        <div class="ph" style="aspect-ratio: 4/5;">
+          <div class="ph-corner">PROCESS · 01</div>
+          <div class="ph-caption"><span>请置入：代母孕期产检场景</span><span>4:5</span></div>
+        </div>
+        <div>
+          <p class="pull" style="max-width: 22ch;">
+            我们的代母不是合作伙伴，是<br/>家庭故事里被铭记的人。
+          </p>
+          <p class="body muted" style="margin-top: 36px;">
+            每一位代母都在 Babiology 完成超过 80 小时的术前准备、心理评估与生活支持培训。她们与准父母在医疗、伦理与情感上，被同样郑重地对待。
+          </p>
+          <a class="link-u" style="margin-top: 36px;" href="about.html">认识我们的代母网络 <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section is-sunk" style="text-align: center;">
+    <div class="container">
+      <h2 class="display h-md">从一次<span class="ital">私密的</span>对话开始。</h2>
+      <p class="body muted" style="margin: 20px auto 36px;">90 分钟、一对一、双语顾问 · 完全保密</p>
+      <a class="btn is-solid" href="contact.html">预约代孕咨询 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

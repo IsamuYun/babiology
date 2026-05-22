@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="zh-CN" data-palette="rose" data-typeface="serif-display">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>常见问题 — Babiology</title>
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="site.css" />
+<link rel="icon" href="assets/logo.png" />
+<style>
+  .faq-page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 80px;
+    padding: 56px 0 120px;
+  }
+  .faq-nav {
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
+    align-self: start;
+  }
+  .faq-nav h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin: 0 0 20px;
+    font-weight: 400;
+  }
+  .faq-nav a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--fg);
+  }
+  .faq-nav a:hover { color: var(--accent); }
+  .faq-nav a .c {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--fg-muted);
+  }
+  .faq-nav a.is-on { color: var(--accent); }
+  .faq-nav a.is-on::before {
+    content: "→ ";
+    margin-right: 4px;
+  }
+
+  .faq-section { margin-bottom: 80px; }
+  .faq-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 400;
+    margin: 0 0 40px;
+    letter-spacing: var(--tr-display);
+  }
+  .faq-section h2 .ital { font-style: italic; color: var(--accent); }
+  .faq-section .lbl {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .qa {
+    border-top: 1px solid var(--rule);
+    padding: 28px 0;
+    cursor: pointer;
+  }
+  .qa:last-child { border-bottom: 1px solid var(--rule); }
+  .qa summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    list-style: none;
+    cursor: pointer;
+  }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary .q {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: -0.008em;
+    flex: 1;
+  }
+  .qa summary .sign {
+    font-family: var(--font-display);
+    color: var(--accent);
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: transform 0.3s var(--ease);
+  }
+  .qa[open] summary .sign { transform: rotate(45deg); }
+  .qa .a {
+    padding-top: 20px;
+    color: var(--fg-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+  .qa .a p { margin: 0 0 14px; }
+  .qa .a p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 960px) {
+    .faq-page { grid-template-columns: 1fr; gap: 40px; }
+    .faq-nav { position: static; }
+  }
+</style>
+</head>
+<body data-screen-label="08 FAQ">
+
+  <div data-slot="nav"></div>
+
+  <section class="page-hero">
+    <div class="container-wide">
+      <div class="crumb">
+        <a href="index.html">Home</a><span class="sep">/</span><span style="color: var(--accent);">常见问题</span>
+      </div>
+      <div class="grid grid-2" style="gap: 80px; align-items: end;">
+        <div>
+          <p class="eyebrow"><span class="num">08</span>&nbsp; FAQ</p>
+          <h1 class="display h-xl" style="margin-top: 28px;">
+            那些<br/>需要被<span class="ital">认真</span><br/>回答的事。
+          </h1>
+        </div>
+        <p class="lede">
+          下方是十六年里被准父母最频繁问到的 32 个问题。如果还有未被涵盖的，欢迎直接联系顾问——这是我们最擅长的部分。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-wide">
+      <div class="faq-page">
+
+        <aside class="faq-nav">
+          <h4>分类 · TOPICS</h4>
+          <a class="is-on" href="#start">起步 <span class="c">04</span></a>
+          <a href="#legal">法律 <span class="c">06</span></a>
+          <a href="#medical">医学 <span class="c">07</span></a>
+          <a href="#financial">财务 <span class="c">05</span></a>
+          <a href="#timeline">时间 <span class="c">04</span></a>
+          <a href="#aftercare">归家 <span class="c">06</span></a>
+          <hr class="rule" style="margin: 24px 0;" />
+          <a class="link-u" href="contact.html">未找到？联系顾问 <span class="arrow">→</span></a>
+        </aside>
+
+        <div>
+
+          <div class="faq-section" id="start">
+            <div class="lbl">— SECTION 01</div>
+            <h2>起步 · <span class="ital">Getting Started</span></h2>
+
+            <details class="qa" open>
+              <summary>
+                <span class="q">第一次咨询会发生什么？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>90 分钟的双语视频或面对面会议。我们的顾问会与您一起梳理：家庭背景与意图、医学情况（如已知的检查报告）、预算与时间线偏好、对目的地的初步想法。</p>
+                <p>结束后，我们会在 5 个工作日内为您准备一份个性化的方案建议，并附上初步的费用结构与时间线推演。整个过程完全保密，无任何承诺。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">如何挑选适合的目的地？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>我们会同时考虑四个维度：法律明文（亲权认定方式）、医学水平（实验室与生殖中心）、孩子的预期国籍、整体预算与时间。对大多数中国家庭，加州方案是首选；对预算敏感的异性夫妇，格鲁吉亚是常见选择。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">单身父亲 / 同性夫妇能否申请？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>可以。加州方案对单身父亲与同性夫妇完全开放，亲权认定不要求婚姻关系。墨西哥部分州亦支持。格鲁吉亚目前仅限合法已婚的异性夫妇。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">咨询是否收费？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>首次咨询完全免费。如您决定继续，我们会签署正式服务协议，并支付第一阶段服务费用（占总预算约 8–10%）。所有后续费用按阶段透明明细。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq-section" id="legal">
+            <div class="lbl">— SECTION 02</div>
+            <h2>法律 · <span class="ital">Legal</span></h2>
+
+            <details class="qa">
+              <summary>
+                <span class="q">孩子的国籍如何确定？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>在美国出生的婴儿，依据出生地原则获得美国国籍。其他目的地的婴儿，按照父母国籍法注册。我们会协助办理父母方所在国家的领事认证与回国注册。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">什么是产前判令（PBO）？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>Pre-Birth Order，是加州法院在婴儿出生前签发的法律文书，确认准父母为孩子的合法父母。出生证上将直接登记为准父母名字，代母无任何亲权。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">代母会改变主意带走孩子吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>在加州，PBO 一旦签发，从法律上代母不具备任何亲权主张。在其他目的地，三方合约中亦有明确条款。Babiology 16 年来从未发生过此类纠纷——这与严格的代母筛选与心理评估密切相关。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">合约能否中止？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>可以。我们采用阶段化付款，每个阶段开始前，您都有完整的退出权。未发生医学事件前可全额退还（扣除已发生的第三方成本）。详细条款会在签约前逐条说明。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">如果代母在孕期发生意外，怎么办？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>代母全程由我们购买的医疗与人身意外保险覆盖。三方合约中亦约定了所有可能场景（包括重大医学决策、紧急终止等）的处理流程。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">中国大陆能否将孩子带回？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>可以。孩子持有出生国护照后，可通过中国领事馆办理旅行证回国。回国后再依据父母户籍办理户口。我们的中国区团队全程协助文件准备与翻译。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq-section" id="medical">
+            <div class="lbl">— SECTION 03</div>
+            <h2>医学 · <span class="ital">Medical</span></h2>
+
+            <details class="qa">
+              <summary>
+                <span class="q">IVF 的成功率如何？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>2023–2025 周期数据：活产率 98.3%（经第三方审计）。单胚胎移植后的临床妊娠率约 72%。捐赠卵周期 PGT-A 阳性胚胎率约 62%。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">需要做哪些医学检查？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>意向父母：激素六项、感染五项、染色体核型、基因携带筛查。如使用自卵：还需 AMH、AFC、子宫超声。代母与捐赠者各有更细的评估流程。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">PGT-A 基因筛查是必须的吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>非强制，但我们强烈建议。PGT-A 可识别染色体异常，避免无效移植与早期流产。对 38 岁以上的母亲，PGT-A 几乎是默认配置。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">能否选择孩子性别？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>在美国，性别选择在医学伦理范围内合法。其他目的地受当地法律限制，需逐案咨询。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">代母年龄与生育史的要求？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>21–38 岁，至少有一次自然分娩史，BMI 19–32，无重大病史与高危妊娠史。所有代母通过 ASRM 推荐的医学与心理双重评估。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">能使用我自己的卵子吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>可以。先经过医学评估卵巢储备与质量；如评估通过，您将与捐赠者方案享有同等的实验室服务。约 65% 的代孕家庭使用意向母亲自卵。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">是否能做双胞胎移植？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>医学上不推荐，因为双胎妊娠风险显著高于单胎。我们仅在特定医学条件下接受此请求，并需代母方书面同意。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq-section" id="financial">
+            <div class="lbl">— SECTION 04</div>
+            <h2>财务 · <span class="ital">Investment</span></h2>
+
+            <details class="qa">
+              <summary>
+                <span class="q">总费用大约是多少？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>加州方案：USD 165,000–195,000；格鲁吉亚方案：USD 68,000–82,000；墨西哥方案：USD 78,000–95,000。以上为「无忧路径」一价全包，包含医疗、法律、保险与心理。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">付款是如何安排的？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>分 6 个阶段，每阶段开始前付款。第三方资金由律所信托账户托管，确保只在阶段达成后才支付给对应方。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">是否支持分期或贷款？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>是。我们与三家国际银行合作提供生育金融产品，可分期 24–60 个月。详情请向您的项目经理咨询。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">未发生预想结果是否退款？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>每阶段都有明确的退款条款。例如：医学评估未通过、未匹配到代母、移植未成功，相关阶段费用按合约退还（扣除第三方已发生成本）。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">额外费用有可能产生吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>少数情况会产生，例如：双胞胎、特殊医学事件、签证延误。所有额外费用都需经过您书面确认后才会发生。第一周咨询中我们会列出常见场景的费用预估。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq-section" id="timeline">
+            <div class="lbl">— SECTION 05</div>
+            <h2>时间 · <span class="ital">Timeline</span></h2>
+
+            <details class="qa">
+              <summary>
+                <span class="q">整个流程需要多久？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>加州方案平均 18–22 个月，格鲁吉亚 14–18 个月，墨西哥 16–20 个月，从签约到孩子到家。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">代母匹配通常需要多久？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>4–8 周。我们会一次性提供 2–3 位高度匹配的候选代母，您可以选择视频面谈，决定最终人选。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">需要亲自飞往美国吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>需要至少两次：胚胎培育阶段（取精或共同检查）+ 孩子出生前后。其他环节大多可通过视频与寄送完成。我们协助办理 B1/B2 商务签证。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">能与代母保持联系吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>可以，且我们鼓励。许多家庭至今仍与代母保持节日联系。Babiology 的客户端为双方提供安全的沟通渠道。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="faq-section" id="aftercare">
+            <div class="lbl">— SECTION 06</div>
+            <h2>归家 · <span class="ital">Aftercare</span></h2>
+
+            <details class="qa">
+              <summary>
+                <span class="q">分娩当日我们需要做什么？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>抵达专员会陪同您前往医院。当地心理咨询师协助您与代母完成最后的对话。婴儿出生 72 小时内，我们协助办理出生证明与亲权认定。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">月嫂、护士、翻译是否包含？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>是。一价全包方案中包含 4 周月嫂、新生儿护士陪同与翻译陪同。如需延长可单独议价。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">回国之后还有支持吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>是。前 12 个月内您将获得每月一次的回访；如需育儿心理支持，可继续使用我们的咨询师网络（中、英、日、俄）。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">未来想再要第二个孩子？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>非常欢迎。约 38% 的家庭会在 3 年内回来准备第二个孩子。冷冻胚胎可在我们的实验室继续保存，跨国运输亦可安排。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">如何介绍 Babiology 给朋友？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>我们有一个低调的家庭推荐计划。您信任的朋友可以匿名匹配到对应顾问；如成功签约，将获得专属感谢。所有推荐对家庭身份完全保密。</p>
+              </div>
+            </details>
+
+            <details class="qa">
+              <summary>
+                <span class="q">代母怀孕过我的孩子，孩子之后能见她吗？</span>
+                <span class="sign">+</span>
+              </summary>
+              <div class="a">
+                <p>由家庭决定。许多家庭会保留一张她寄来的照片，孩子长大后再决定是否见面；也有家庭与代母保持长期友好联系。我们提供心理顾问帮助您与孩子做这件事。</p>
+              </div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section is-sunk" style="text-align: center;">
+    <div class="container">
+      <h2 class="display h-md">还有<span class="ital">没</span>被回答的吗？</h2>
+      <p class="body muted" style="margin: 16px auto 32px;">我们的顾问随时在线</p>
+      <a class="btn is-solid" href="contact.html">联系顾问 <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <div data-slot="footer"></div>
+  <script src="partials.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>
