@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { withBasePath } from "@/lib/paths";
 
 export const pages = [
   "surrogacy",
@@ -41,6 +42,8 @@ const routeMap: Record<string, string> = {
   "contact.html": "/contact"
 };
 
+const routePaths = Object.values(routeMap).sort((a, b) => b.length - a.length);
+
 export function isLegacySlug(slug: string): slug is LegacySlug {
   return pages.includes(slug as LegacySlug);
 }
@@ -68,13 +71,18 @@ export function getLegacyPage(slug: LegacySlug | "home") {
     .replace(/\s(?:data-screen-label)=["'][^"']*["']/gi, "");
 
   for (const [from, to] of Object.entries(routeMap)) {
-    content = content.replaceAll(`href="${from}"`, `href="${to}"`);
-    content = content.replaceAll(`href='${from}'`, `href='${to}'`);
+    content = content.replaceAll(`href="${from}"`, `href="${withBasePath(to)}"`);
+    content = content.replaceAll(`href='${from}'`, `href='${withBasePath(to)}'`);
+  }
+
+  for (const routePath of routePaths) {
+    content = content.replaceAll(`href="${routePath}"`, `href="${withBasePath(routePath)}"`);
+    content = content.replaceAll(`href='${routePath}'`, `href='${withBasePath(routePath)}'`);
   }
 
   content = content
-    .replaceAll('src="assets/', 'src="/assets/')
-    .replaceAll("src='assets/", "src='/assets/");
+    .replaceAll('src="assets/', `src="${withBasePath("/assets/")}`)
+    .replaceAll("src='assets/", `src='${withBasePath("/assets/")}`);
 
   return { title, style, content };
 }

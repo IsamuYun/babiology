@@ -4,28 +4,30 @@ import { LegacyPage } from "@/components/legacy-page";
 import { getLegacyPage, isLegacySlug, pages } from "@/lib/legacy-pages";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return pages.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  if (!isLegacySlug(params.slug)) return {};
-  const page = getLegacyPage(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  if (!isLegacySlug(slug)) return {};
+  const page = getLegacyPage(slug);
 
   return {
     title: page.title
   };
 }
 
-export default function SlugPage({ params }: PageProps) {
-  if (!isLegacySlug(params.slug)) notFound();
+export default async function SlugPage({ params }: PageProps) {
+  const { slug } = await params;
+  if (!isLegacySlug(slug)) notFound();
 
-  const page = getLegacyPage(params.slug);
+  const page = getLegacyPage(slug);
 
   return <LegacyPage content={page.content} style={page.style} />;
 }

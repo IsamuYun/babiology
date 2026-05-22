@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { withBasePath } from "@/lib/paths";
 
 const leftLinks = [
   ["/surrogacy", "代孕"],
@@ -38,7 +39,7 @@ export function Nav() {
           ))}
         </div>
         <Link className="nav-brand" href="/" aria-label="Babiology home">
-          <Image src="/assets/logo.png" alt="" width={36} height={36} priority />
+          <Image src={withBasePath("/assets/logo.png")} alt="" width={36} height={36} priority />
           <span className="name">Babiology</span>
         </Link>
         <div className="nav-right">

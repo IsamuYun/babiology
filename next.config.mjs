@@ -1,18 +1,12 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/index.html",
-        destination: "/",
-        permanent: true
-      },
-      {
-        source: "/:slug.html",
-        destination: "/:slug",
-        permanent: true
-      }
-    ];
+  output: "export",
+  basePath,
+  trailingSlash: true,
+  images: {
+    unoptimized: true
   }
 };
 
