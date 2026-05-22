@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cloudflare-pages": "next build",
+    "build:github-pages": "NEXT_PUBLIC_BASE_PATH=/babiology next build",
     "start": "next start",
     "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">=20.9.0"
   },
   "dependencies": {
     "next": "^16.2.6",
