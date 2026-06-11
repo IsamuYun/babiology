@@ -279,7 +279,7 @@ export function HeroSection() {
       <section className="hero">
         <div className="container-wide">
           <p className="eyebrow">
-            <span className="num">01</span>&nbsp; SURROGACY · EGG DONATION · 2012—
+            <span className="num">01</span>&nbsp; BABIOLOGY · SURROGACY · SINCE · 2012—
           </p>
 
           <div className="hero-grid" style={{ marginTop: 36 }}>
