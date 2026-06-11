@@ -44,11 +44,25 @@ const routeMap: Record<string, string> = {
 
 const routePaths = Object.values(routeMap).sort((a, b) => b.length - a.length);
 
+type LegacyPageOptions = {
+  omitHero?: boolean;
+};
+
 export function isLegacySlug(slug: string): slug is LegacySlug {
   return pages.includes(slug as LegacySlug);
 }
 
-export function getLegacyPage(slug: LegacySlug | "home") {
+function removeHomeHero(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*HERO\s*=+\s*-->\s*<section class="hero">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+export function getLegacyPage(
+  slug: LegacySlug | "home",
+  options: LegacyPageOptions = {}
+) {
   const file = pageFiles[slug];
   const html = fs.readFileSync(
     path.join(process.cwd(), "content", "legacy-pages", file),
@@ -69,6 +83,10 @@ export function getLegacyPage(slug: LegacySlug | "home") {
     .replace(/<script\s+src=["']tweaks\.js["']><\/script>/gi, "")
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
     .replace(/\s(?:data-screen-label)=["'][^"']*["']/gi, "");
+
+  if (slug === "home" && options.omitHero) {
+    content = removeHomeHero(content);
+  }
 
   for (const [from, to] of Object.entries(routeMap)) {
     content = content.replaceAll(`href="${from}"`, `href="${withBasePath(to)}"`);
