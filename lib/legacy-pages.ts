@@ -46,6 +46,16 @@ const routePaths = Object.values(routeMap).sort((a, b) => b.length - a.length);
 
 type LegacyPageOptions = {
   omitHero?: boolean;
+  omitMarquee?: boolean;
+  omitServices?: boolean;
+  omitStats?: boolean;
+  omitOverview?: boolean;
+  omitStory?: boolean;
+  omitFeaturedGrid?: boolean;
+  omitDonor?: boolean;
+  omitPractice?: boolean;
+  omitPress?: boolean;
+  omitCTA?: boolean;
 };
 
 export function isLegacySlug(slug: string): slug is LegacySlug {
@@ -55,6 +65,76 @@ export function isLegacySlug(slug: string): slug is LegacySlug {
 function removeHomeHero(content: string) {
   return content.replace(
     /\s*<!--\s*=+\s*HERO\s*=+\s*-->\s*<section class="hero">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeMarquee(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*MARQUEE\s*=+\s*-->\s*<div class="marquee">[\s\S]*?<\/div>\s*<\/div>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeServices(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*SERVICES\s*=+\s*-->\s*<section class="section">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeStats(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*STATS\s*=+\s*-->\s*<section style="padding: 0;">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeOverview(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*HOW IT WORKS\s*·\s*OVERVIEW\s*=+\s*-->\s*<section class="section">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeStory(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*STORY\s*=+\s*-->\s*<section class="section is-sunk">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeFeaturedGrid(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*FEATURED GRID\s*=+\s*-->\s*<section class="section">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeDonor(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*DONOR PREVIEW\s*=+\s*-->\s*<section class="section is-sunk">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomePractice(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*PRACTICE \/ VALUES\s*=+\s*-->\s*<section class="section is-dark">[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomePress(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*PRESS\s*=+\s*-->\s*<section>[\s\S]*?<\/section>\s*/i,
+    "\n\n"
+  );
+}
+
+function removeHomeCTA(content: string) {
+  return content.replace(
+    /\s*<!--\s*=+\s*CTA\s*=+\s*-->\s*<section class="cta-strip">[\s\S]*?<\/section>\s*/i,
     "\n\n"
   );
 }
@@ -86,6 +166,46 @@ export function getLegacyPage(
 
   if (slug === "home" && options.omitHero) {
     content = removeHomeHero(content);
+  }
+
+  if (slug === "home" && options.omitMarquee) {
+    content = removeHomeMarquee(content);
+  }
+
+  if (slug === "home" && options.omitServices) {
+    content = removeHomeServices(content);
+  }
+
+  if (slug === "home" && options.omitStats) {
+    content = removeHomeStats(content);
+  }
+
+  if (slug === "home" && options.omitOverview) {
+    content = removeHomeOverview(content);
+  }
+
+  if (slug === "home" && options.omitStory) {
+    content = removeHomeStory(content);
+  }
+
+  if (slug === "home" && options.omitFeaturedGrid) {
+    content = removeHomeFeaturedGrid(content);
+  }
+
+  if (slug === "home" && options.omitDonor) {
+    content = removeHomeDonor(content);
+  }
+
+  if (slug === "home" && options.omitPractice) {
+    content = removeHomePractice(content);
+  }
+
+  if (slug === "home" && options.omitPress) {
+    content = removeHomePress(content);
+  }
+
+  if (slug === "home" && options.omitCTA) {
+    content = removeHomeCTA(content);
   }
 
   for (const [from, to] of Object.entries(routeMap)) {
