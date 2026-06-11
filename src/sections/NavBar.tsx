@@ -52,6 +52,9 @@ export function NavBar() {
           {rightLinks.map((item) => (
             <NavBarLink {...item} key={item.href} />
           ))}
+          <Link className="nav-cta" href="/en" aria-label="English homepage">
+            EN
+          </Link>
           <Link className="nav-cta" href="/contact">
             预约咨询
           </Link>
