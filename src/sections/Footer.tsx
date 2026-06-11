@@ -85,7 +85,7 @@ export function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 Babiology Inc. &nbsp;·&nbsp; All rights reserved</span>
+          <span>Copyright © 2025 Babiology® - All Rights Reserved.</span>
           <span>隐私 · 条款 · 医疗合规声明</span>
         </div>
       </div>

@@ -45,8 +45,7 @@ export function NavBar() {
         </div>
 
         <Link className="nav-brand" href="/" aria-label="Babiology home">
-          <Image src={withBasePath("/assets/logo.png")} alt="" width={72} height={72} priority />
-          <span className="name">Babiology</span>
+          <Image src={withBasePath("/assets/logo.png")} alt="" width={80} height={80} priority />
         </Link>
 
         <div className="nav-right">
