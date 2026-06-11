@@ -206,7 +206,10 @@ button { font: inherit; cursor: pointer; }
   gap: 12px;
   justify-content: center;
 }
-.nav-brand img { width: 36px; height: 36px; }
+.nav-brand img {
+  display: block;
+  flex: 0 0 auto;
+}
 .nav-brand .name {
   font-family: var(--font-display);
   font-size: 26px;

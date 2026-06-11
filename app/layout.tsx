@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Footer } from "@/components/footer";
-import { Nav } from "@/components/nav";
 import { basePath, withBasePath } from "@/lib/paths";
+import { Footer } from "@/src/sections/Footer";
+import { NavBar } from "@/src/sections/NavBar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
         <link rel="stylesheet" href={withBasePath("/site.css")} />
       </head>
       <body>
-        <Nav />
+        <NavBar />
         {children}
         <Footer />
         <Script src={withBasePath("/tweaks.js")} strategy="afterInteractive" />
