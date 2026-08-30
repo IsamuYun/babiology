@@ -298,26 +298,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="hero-foot">
-            {heroStats.map((stat) => (
-              <div className="pair" key={stat.label}>
-                <span className="k">{stat.label}</span>
-                <span className="v">{stat.value}</span>
-              </div>
-            ))}
-
-            <div className="pair ctas" style={{ gridColumn: 4 }}>
-              <span />
-              <div className="row" style={{ gap: 10 }}>
-                <Link className="btn is-solid" href="/contact">
-                  预约咨询 <span className="arrow">→</span>
-                </Link>
-                <Link className="btn" href="/how-it-works">
-                  了解流程
-                </Link>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </section>
     </>

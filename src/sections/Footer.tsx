@@ -70,7 +70,7 @@ export function Footer() {
             items={[
               ["/contact", "预约咨询"],
               ["", "info@babiologyfamily.com"],
-              ["", "+1 (415) 555-0188"],
+              ["", "+1 (917) 912-8976"],
               ["", "Mon-Sun · 09:00-19:00 PST"]
             ]}
           />
