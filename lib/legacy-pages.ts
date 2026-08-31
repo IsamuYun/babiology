@@ -10,8 +10,7 @@ export const pages = [
   "stories",
   "about",
   "faq",
-  "blog",
-  "contact"
+  "blog"
 ] as const;
 
 export type LegacySlug = (typeof pages)[number];
@@ -25,10 +24,11 @@ const pageFiles: Record<LegacySlug | "home", string> = {
   stories: "stories.html",
   about: "about.html",
   faq: "faq.html",
-  blog: "blog.html",
-  contact: "contact.html"
+  blog: "blog.html"
 };
 
+// 注意：contact.html 已由 src/app/contact 的新版页面接管，不在 pages 里，
+// 但仍需保留映射，好让其他 legacy 页面里指向它的链接被改写成 /contact。
 const routeMap: Record<string, string> = {
   "index.html": "/",
   "surrogacy.html": "/surrogacy",

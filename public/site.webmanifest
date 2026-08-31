@@ -1,0 +1,25 @@
+{
+  "name": "Babiology Family",
+  "short_name": "Babiology",
+  "description": "代孕与卵子捐赠服务：中英双语顾问、医疗团队与法律顾问全程同行。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#673ab7",
+  "icons": [
+    {
+      "src": "assets/logo/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/logo/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

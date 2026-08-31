@@ -1,0 +1,135 @@
+/* ============================================================
+   Babiology — 品牌 token  v1.1
+   主色 #673AB7；辅助色取自标志本体。
+   字号 / 间距 / 布局阶梯沿用 public/tokens.css，此处只重定义调色板。
+   用法：替换 public/tokens.css 中 ":root" 的颜色段，或整体 @import。
+   ============================================================ */
+
+/* 字体全部使用系统字体，不下载任何字体文件：
+   西文 San Francisco（Apple 平台经 -apple-system 解析为 SF Pro），
+   中文 PingFang SC。两者均为 Apple 专有字体，授权不允许作为 webfont
+   分发，因此只能走系统字体栈。Windows 分别回退 Segoe UI / 微软雅黑。 */
+
+:root {
+  /* ---------- 主紫 Violet（500 = 品牌主色） ---------------- */
+  --v-50:#F5F1FC;  --v-100:#E8DFF8; --v-200:#D3C0F4; --v-300:#B798EE;
+  --v-400:#9668E8; --v-500:#673AB7; --v-600:#57319A; --v-700:#46287C;
+  --v-800:#37215F; --v-900:#2A1A47;
+
+  /* ---------- 洋红 Magenta（标志果实 #EE297B） ------------- */
+  --m-100:#F8DFEA; --m-200:#F4C0D6; --m-300:#EE98BC; --m-400:#E8689E;
+  --m-500:#EE297B; --m-600:#D91164; --m-700:#AE1052; --m-800:#850F40;
+
+  /* ---------- 嫩绿 Leaf（标志叶片 #8CC43D） ---------------- */
+  --l-100:#EEF8DF; --l-200:#DEF4C0; --l-300:#CAEE98; --l-400:#B3E868;
+  --l-500:#8CC43D; --l-600:#76A632; --l-700:#5F852A; --l-800:#4A6622;
+
+  /* ---------- 藕荷 Mauve（标志躯干 #C77FA7） --------------- */
+  --w-50:#FBF3F7;  --w-100:#F6E6EF; --w-200:#EFCFE1; --w-300:#DCA5C4;
+  --w-400:#C77FA7; --w-500:#B56190; --w-600:#9E4A79; --w-700:#7D3D61;
+
+  /* ---------- 中性色（色相锁定 261.6°，勿用纯灰） --------- */
+  --n-0:#FFFFFF;   --n-50:#F8F7FB;  --n-100:#F1EFF5; --n-200:#E6E2EB;
+  --n-300:#CFCBD8; --n-400:#ABA4B6; --n-500:#887F97; --n-600:#6A627A;
+  --n-700:#4F475C; --n-800:#342E40; --n-900:#201C29; --n-950:#14101B;
+
+  /* ---------- 语义 token（页面只引用这一层） --------------- */
+  --bg:            var(--n-0);
+  --bg-sunk:       var(--n-50);
+  --bg-raised:     var(--n-0);
+  --bg-brand:      var(--v-500);
+  --bg-brand-soft: var(--v-50);
+  --bg-dark:       var(--n-950);
+
+  --fg:            var(--n-900);
+  --fg-muted:      var(--n-600);   /* 白底 5.77:1 — 次级文字下限 */
+  --fg-faint:      var(--n-400);   /* 仅占位符与装饰，不承载信息 */
+  --fg-on-brand:   #FFFFFF;        /* 白 on #673AB7 = 7.33:1 AAA  */
+  --fg-on-dark:    var(--n-100);
+
+  --rule:          var(--n-200);
+  --rule-strong:   var(--n-300);
+  --rule-on-dark:  #332C44;
+
+  --brand:         var(--v-500);
+  --brand-hover:   var(--v-600);   /* 白底 9.09:1 */
+  --brand-active:  var(--v-700);
+  --brand-ink:     #FFFFFF;
+
+  --highlight:     var(--m-600);   /* 洋红文字唯一合规值 4.98:1  */
+  --highlight-fill:var(--m-500);   /* #EE297B 仅填充与大字      */
+  --accent-ink:    var(--l-800);   /* 绿色文字 6.53:1           */
+  --accent-fill:   var(--l-500);   /* #8CC43D 仅填充，勿做文字  */
+  --bridge:        var(--w-400);   /* 藕荷，仅装饰与蒙版        */
+
+  --focus:         var(--v-400);   /* 白底 3.86 / 深底 4.86     */
+  --shadow:        0 1px 2px rgba(32,28,41,.05), 0 8px 24px -12px rgba(32,28,41,.14);
+
+  /* ---------- 字族（中英成对） ---------------------------- */
+  --font-text:   -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --font-display:var(--font-text);
+  --font-serif:  var(--font-text);
+  --font-mono:   ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---------- 圆角 / 缓动 ---------------------------------
+     直角规则：卡片、banner、输入框一律 0 圆角（--r-sm/md/lg）。
+     按钮与标签用 --r-btn (2px)：不是胶囊，只是把尖角磨掉一点。 */
+  --r-sm:0; --r-md:0; --r-lg:0; --r-btn:2px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --dur-color:180ms; --dur-panel:280ms; --dur-reveal:520ms;
+}
+
+/* ============================================================
+   深色模式 — 主色降到 300，否则 #673AB7 在深底只有 2.40:1
+   系统偏好；[data-theme="light"] 显式浅色时不生效
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:            var(--n-950);
+    --bg-sunk:       #0D0A13;
+    --bg-raised:     var(--n-900);
+    --bg-brand-soft: #241B3B;
+
+    --fg:            var(--n-100);
+    --fg-muted:      var(--n-400);
+    --fg-faint:      var(--n-500);
+
+    --rule:          #332C44;
+    --rule-strong:   #453C5A;
+
+    --brand:         var(--v-300);   /* 深底 7.81:1 AAA */
+    --brand-hover:   var(--v-200);
+    --brand-active:  var(--v-100);
+    --brand-ink:     var(--n-950);   /* 按钮填充用 v-400，文字用近黑 4.86:1 */
+    --bg-brand:      var(--v-400);
+
+    --highlight:     var(--m-200);   /* 深底 11.93:1 */
+    --accent-ink:    var(--l-400);   /* 深底 13.09:1 */
+
+    --shadow:        0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
+  }
+}
+/* 显式切换到深色时同样生效 */
+:root[data-theme="dark"] {
+  --bg:#14101B; --bg-sunk:#0D0A13; --bg-raised:#201C29; --bg-brand-soft:#241B3B;
+  --fg:#F1EFF5; --fg-muted:#ABA4B6; --fg-faint:#887F97;
+  --rule:#332C44; --rule-strong:#453C5A;
+  --brand:#B798EE; --brand-hover:#D3C0F4; --brand-active:#E8DFF8;
+  --brand-ink:#14101B; --bg-brand:#9668E8;
+  --highlight:#F4C0D6; --accent-ink:#B3E868;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
+}
+
+/* ============================================================
+   基础约定
+   ============================================================ */
+body { background: var(--bg); color: var(--fg); font-family: var(--font-text); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

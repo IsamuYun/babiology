@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Babiology 品牌设计规范 v1.0 — 主色 #673AB7，辅助色取自标志本体。">
+<meta name="theme-color" content="#673AB7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14101B" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="logo/bb-favicon-512.png">
+<title>Babiology 品牌规范</title>
+<!-- 字体：本规范页面直接使用系统字体演示回退效果 -->
+<style>
+/* ============================================================
+   Babiology 品牌规范 — 本页即以所述规范构建
+   ============================================================ */
+
+:root{
+  /* --- 紫色主色阶 Violet --- */
+  --v-50:#F5F1FC; --v-100:#E8DFF8; --v-200:#D3C0F4; --v-300:#B798EE;
+  --v-400:#9668E8; --v-500:#673AB7; --v-600:#57319A; --v-700:#46287C;
+  --v-800:#37215F; --v-900:#2A1A47;
+  /* --- 洋红 Magenta（取自标志果实）--- */
+  --m-100:#F8DFEA; --m-200:#F4C0D6; --m-400:#E8689E; --m-500:#EE297B;
+  --m-600:#D91164; --m-700:#AE1052; --m-800:#850F40;
+  /* --- 嫩绿 Leaf（取自标志叶片）--- */
+  --l-100:#EEF8DF; --l-200:#DEF4C0; --l-400:#B3E868; --l-500:#8CC43D;
+  --l-600:#76A632; --l-700:#5F852A; --l-800:#4A6622;
+  /* --- 藕荷 Mauve（取自标志躯干）--- */
+  --w-100:#F6E6EF; --w-200:#EFCFE1; --w-300:#DCA5C4; --w-400:#C77FA7;
+  --w-500:#B56190; --w-600:#9E4A79; --w-700:#7D3D61;
+  /* --- 中性色（偏紫）Neutral --- */
+  --n-0:#FFFFFF; --n-50:#F8F7FB; --n-100:#F1EFF5; --n-200:#E6E2EB;
+  --n-300:#CFCBD8; --n-400:#ABA4B6; --n-500:#887F97; --n-600:#6A627A;
+  --n-700:#4F475C; --n-800:#342E40; --n-900:#201C29; --n-950:#14101B;
+
+  /* --- 语义 token（浅色）--- */
+  --bg:var(--n-0);
+  --bg-sunk:var(--n-50);
+  --bg-raised:var(--n-0);
+  --bg-brand-soft:var(--v-50);
+  --fg:var(--n-900);
+  --fg-muted:var(--n-600);
+  --fg-faint:var(--n-400);
+  --rule:var(--n-200);
+  --rule-strong:var(--n-300);
+  --brand:var(--v-500);
+  --brand-hover:var(--v-600);
+  --brand-ink:#FFFFFF;
+  --highlight:var(--m-600);
+  --accent-ink:var(--l-800);
+  --focus:var(--v-400);
+  --shadow:0 1px 2px rgba(32,28,41,.05), 0 8px 24px -12px rgba(32,28,41,.14);
+  --code-bg:var(--v-50);
+  --code-fg:var(--v-700);
+
+  /* --- 字体 --- */
+  --f-display:var(--f-text);
+  --f-text:-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Source Han Sans SC", sans-serif;
+  --f-mono:ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* --- 空间（8px 基准）--- */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px;
+  --s7:48px; --s8:64px; --s9:96px; --s10:128px;
+  --r-sm:0; --r-md:0; --r-lg:0; --r-btn:2px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:var(--n-950);
+    --bg-sunk:#0D0A13;
+    --bg-raised:var(--n-900);
+    --bg-brand-soft:#241B3B;
+    --fg:var(--n-100);
+    --fg-muted:var(--n-400);
+    --fg-faint:var(--n-500);
+    --rule:#332C44;
+    --rule-strong:#453C5A;
+    --brand:var(--v-300);
+    --brand-hover:var(--v-200);
+    --brand-ink:var(--n-950);
+    --highlight:var(--m-200);
+    --accent-ink:var(--l-400);
+    --focus:var(--v-400);
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
+    --code-bg:#241B3B;
+    --code-fg:var(--v-200);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:var(--n-950);
+  --bg-sunk:#0D0A13;
+  --bg-raised:var(--n-900);
+  --bg-brand-soft:#241B3B;
+  --fg:var(--n-100);
+  --fg-muted:var(--n-400);
+  --fg-faint:var(--n-500);
+  --rule:#332C44;
+  --rule-strong:#453C5A;
+  --brand:var(--v-300);
+  --brand-hover:var(--v-200);
+  --brand-ink:var(--n-950);
+  --highlight:var(--m-200);
+  --accent-ink:var(--l-400);
+  --focus:var(--v-400);
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 24px -12px rgba(0,0,0,.7);
+  --code-bg:#241B3B;
+  --code-fg:var(--v-200);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--f-text); font-size:16px; line-height:1.7;
+  font-weight:400; -webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand); text-decoration-thickness:1px; text-underline-offset:3px}
+a:hover{color:var(--brand-hover)}
+:focus-visible{outline:2px solid var(--focus); outline-offset:3px}
+code,.mono{font-family:var(--f-mono); font-size:.86em; font-variant-numeric:tabular-nums}
+
+/* ---------- 页面骨架 ---------- */
+.wrap{max-width:1280px; margin:0 auto; padding:0 var(--s5)}
+.shell{display:grid; grid-template-columns:236px minmax(0,1fr); gap:var(--s9); align-items:start}
+@media (max-width:940px){ .shell{grid-template-columns:1fr; gap:var(--s6)} }
+
+/* ---------- 头图 ---------- */
+.hero{background:var(--v-500); color:#fff; padding:var(--s9) 0 0}
+.hero-in{display:grid; grid-template-columns:auto minmax(0,1fr); gap:var(--s8); align-items:end; padding-bottom:var(--s8)}
+@media (max-width:760px){ .hero-in{grid-template-columns:1fr; gap:var(--s5)} }
+.hero img{width:176px; height:176px; display:block}
+.hero h1{
+  font-family:var(--f-display); font-weight:300; font-size:64px; line-height:1.05;
+  letter-spacing:-.018em; margin:0 0 var(--s3); text-wrap:balance;
+}
+.hero h1 em{font-style:italic; color:var(--v-200)}
+.hero p{margin:0; max-width:52ch; color:var(--v-100); font-size:18px; font-weight:300}
+.hero .meta{
+  margin-top:var(--s5); font-family:var(--f-mono); font-size:12px;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--v-200);
+  display:flex; flex-wrap:wrap; gap:var(--s5);
+}
+.spectrum{height:6px; display:grid; grid-template-columns:repeat(4,1fr)}
+.spectrum i{display:block}
+
+/* ---------- 侧栏目录 ---------- */
+.rail{position:sticky; top:0; padding:var(--s8) 0 var(--s8) var(--s4); border-left:3px solid transparent;
+  background-image:linear-gradient(180deg,var(--v-500),var(--w-400) 42%,var(--m-500) 72%,var(--l-500));
+  background-repeat:no-repeat; background-size:3px 100%; background-position:left top;}
+@media (max-width:940px){ .rail{position:static; padding-top:var(--s6); padding-bottom:0} }
+.rail ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:var(--s3)}
+.rail a{display:flex; gap:var(--s3); text-decoration:none; color:var(--fg-muted); font-size:14px; line-height:1.4}
+.rail a:hover{color:var(--brand)}
+.rail .num{font-family:var(--f-mono); font-size:11px; color:var(--fg-faint); padding-top:3px}
+
+/* ---------- 章节 ---------- */
+main{padding:var(--s8) 0 var(--s10); min-width:0}
+section{padding-block:var(--s8); border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0; padding-top:var(--s5)}
+.sec-head{margin-bottom:var(--s6)}
+.clause{font-family:var(--f-mono); font-size:12px; letter-spacing:.14em; color:var(--brand); display:block; margin-bottom:var(--s2)}
+h2{font-family:var(--f-display); font-weight:400; font-size:42px; line-height:1.15; letter-spacing:-.015em; margin:0 0 var(--s3); text-wrap:balance}
+h3{font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin:var(--s7) 0 var(--s4); color:var(--fg)}
+h3:first-child{margin-top:0}
+h4{font-size:14px; font-weight:600; margin:0 0 var(--s2)}
+p{margin:0 0 var(--s4); max-width:68ch}
+.lede{font-size:18px; color:var(--fg-muted); font-weight:300; max-width:62ch}
+ul.plain{margin:0 0 var(--s4); padding-left:1.15em; max-width:66ch}
+ul.plain li{margin-bottom:var(--s2)}
+.note{font-size:14px; color:var(--fg-muted); max-width:68ch}
+
+/* ---------- 通用块 ---------- */
+.panel{background:var(--bg-sunk); border:1px solid var(--rule); border-radius:var(--r-lg); padding:var(--s5)}
+.grid{display:grid; gap:var(--s4)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:720px){ .g2,.g3{grid-template-columns:1fr} }
+
+/* ---------- 色阶 ---------- */
+.ramp{display:grid; grid-template-columns:repeat(10,minmax(0,1fr)); border-radius:var(--r-md); overflow:hidden; border:1px solid var(--rule)}
+.ramp.n12{grid-template-columns:repeat(12,minmax(0,1fr))}
+.ramp.n8{grid-template-columns:repeat(8,minmax(0,1fr))}
+.ramp.n7{grid-template-columns:repeat(7,minmax(0,1fr))}
+.chip{aspect-ratio:1/1.5; display:flex; flex-direction:column; justify-content:flex-end; padding:var(--s2); gap:1px; min-width:0}
+.chip b{font-family:var(--f-mono); font-size:10px; font-weight:500; letter-spacing:.02em}
+.chip span{font-family:var(--f-mono); font-size:8.5px; opacity:.8; letter-spacing:-.02em}
+.chip.star b::after{content:"●"; font-size:7px; margin-left:3px; vertical-align:2px}
+.ramp-cap{display:flex; justify-content:space-between; align-items:baseline; gap:var(--s4); margin:var(--s6) 0 var(--s3)}
+.ramp-cap p{margin:0; font-size:14px; color:var(--fg-muted); max-width:46ch}
+
+/* ---------- 表格 ---------- */
+.tw{overflow-x:auto; margin-bottom:var(--s4); border:1px solid var(--rule); border-radius:var(--r-md)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
+th,td{text-align:left; padding:var(--s3) var(--s4); border-bottom:1px solid var(--rule); vertical-align:top}
+thead th{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-muted); font-weight:600; background:var(--bg-sunk)}
+tbody tr:last-child td{border-bottom:0}
+td.mono,th.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+.pass{color:var(--accent-ink); font-weight:600}
+.fail{color:var(--highlight); font-weight:600}
+.sw{display:inline-block; width:12px; height:12px; border-radius:3px; vertical-align:-1px; margin-right:6px; border:1px solid rgba(0,0,0,.12)}
+
+/* ---------- 标志展示 ---------- */
+.logo-board{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s4)}
+@media (max-width:720px){ .logo-board{grid-template-columns:1fr} }
+.lb{border:1px solid var(--rule); border-radius:var(--r-lg); overflow:hidden}
+.lb .stage{aspect-ratio:4/3; display:grid; place-items:center; padding:var(--s5)}
+.lb .stage img{width:88px; height:88px}
+.lb .cap{padding:var(--s3) var(--s4); border-top:1px solid var(--rule); font-size:13px; background:var(--bg-raised)}
+.lb .cap b{display:block; font-size:13px; font-weight:600}
+.lb .cap span{color:var(--fg-muted); font-size:12px}
+
+.clearspace{position:relative; display:grid; place-items:center; background:var(--bg-sunk); border:1px solid var(--rule); border-radius:var(--r-lg); padding:var(--s8)}
+.clearspace .box{position:relative; padding:56px; outline:1px dashed var(--w-400); outline-offset:0}
+.clearspace .box img{width:112px; height:112px; display:block}
+.clearspace .tag{position:absolute; font-family:var(--f-mono); font-size:10px; color:var(--w-600); letter-spacing:.06em}
+.clearspace .tag.t{top:22px; left:50%; transform:translateX(-50%)}
+.clearspace .tag.l{left:14px; top:50%; transform:translateY(-50%)}
+
+.dont{border:1px solid var(--rule); border-radius:var(--r-md); overflow:hidden}
+.dont .stage{aspect-ratio:16/9; display:grid; place-items:center}
+.dont .stage img{width:64px; height:64px}
+.dont .cap{padding:var(--s3); font-size:12.5px; border-top:1px solid var(--rule); background:var(--bg-raised); display:flex; gap:6px}
+.dont .cap i{font-style:normal; font-weight:700}
+.no i{color:var(--highlight)} .yes i{color:var(--accent-ink)}
+
+/* ---------- 字体样张 ---------- */
+.spec{border-top:1px solid var(--rule); padding:var(--s5) 0; display:grid; grid-template-columns:132px minmax(0,1fr); gap:var(--s5); align-items:baseline}
+@media (max-width:720px){ .spec{grid-template-columns:1fr; gap:var(--s2)} }
+.spec .k{font-family:var(--f-mono); font-size:11px; color:var(--fg-muted); letter-spacing:.06em; line-height:1.6}
+.d-1{font-family:var(--f-display); font-weight:300; font-size:58px; line-height:1.08; letter-spacing:-.018em; margin:0}
+.d-2{font-family:var(--f-display); font-weight:400; font-size:42px; line-height:1.15; letter-spacing:-.015em; margin:0}
+.d-3{font-family:var(--f-display); font-weight:500; font-size:30px; line-height:1.25; margin:0}
+.b-lg{font-size:22px; font-weight:300; line-height:1.55; margin:0}
+.b-md{font-size:18px; line-height:1.7; margin:0}
+.b-base{font-size:16px; line-height:1.7; margin:0}
+.b-sm{font-size:14px; line-height:1.6; margin:0; color:var(--fg-muted)}
+.eyebrow{font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; margin:0; color:var(--brand)}
+
+/* ---------- 组件样例 ---------- */
+.btn{display:inline-flex; align-items:center; gap:var(--s2); font-family:var(--f-text); font-size:14px;
+  font-weight:600; letter-spacing:.02em; padding:12px 24px; border-radius:var(--r-btn);
+  border:1px solid transparent; cursor:pointer; text-decoration:none; transition:background .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease)}
+.btn-1{background:var(--brand); color:var(--brand-ink)}
+.btn-1:hover{background:var(--brand-hover); color:var(--brand-ink)}
+.btn-2{background:transparent; color:var(--brand); border-color:currentColor}
+.btn-2:hover{background:var(--bg-brand-soft); color:var(--brand-hover)}
+.btn-3{background:transparent; color:var(--fg); padding-inline:0; border-radius:0; border-bottom:1px solid var(--rule-strong)}
+.btn-3:hover{color:var(--brand); border-color:var(--brand)}
+.btn-x{background:var(--highlight); color:#fff; border-color:transparent}
+.btn[disabled]{opacity:.4; cursor:not-allowed}
+.row{display:flex; flex-wrap:wrap; gap:var(--s4); align-items:center}
+
+.card{background:var(--bg-raised); border:1px solid var(--rule); border-radius:var(--r-lg); padding:var(--s5); box-shadow:var(--shadow)}
+.card .kicker{font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--highlight); margin:0 0 var(--s2)}
+.card h4{font-family:var(--f-display); font-size:26px; font-weight:500; margin:0 0 var(--s2); letter-spacing:-.01em}
+.card p{margin:0; font-size:14px; color:var(--fg-muted)}
+
+.tag{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; letter-spacing:.04em;
+  padding:5px 12px; border-radius:var(--r-btn)}
+.tag-v{background:var(--v-50); color:var(--v-700)}
+.tag-m{background:var(--m-100); color:var(--m-800)}
+.tag-l{background:var(--l-100); color:var(--l-800)}
+.tag-n{background:var(--n-100); color:var(--n-700)}
+
+.field{display:flex; flex-direction:column; gap:6px; max-width:340px}
+.field label{font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--fg-muted)}
+.field input{font-family:var(--f-text); font-size:15px; padding:11px 14px; border-radius:var(--r-md);
+  border:1px solid var(--rule-strong); background:var(--bg); color:var(--fg)}
+.field input::placeholder{color:var(--fg-faint)}
+.field input:focus{outline:2px solid var(--focus); outline-offset:1px; border-color:transparent}
+
+pre{margin:0; overflow-x:auto; background:var(--code-bg); color:var(--code-fg);
+  border:1px solid var(--rule); border-radius:var(--r-md); padding:var(--s4);
+  font-family:var(--f-mono); font-size:12.5px; line-height:1.75}
+pre .c{color:var(--fg-faint)}
+
+footer{border-top:1px solid var(--rule); padding:var(--s6) 0 var(--s8); font-size:13px; color:var(--fg-muted)}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important; animation-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+html{scroll-behavior:smooth}
+</style>
+<style>
+/* 独立文件补充：Artifact 环境自带 CSS reset，此处显式声明 */
+html{-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto}
+button,input{font:inherit}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-in">
+      <img src="logo/bb-logo-white-512.png" alt="Babiology 标志（白色版）">
+      <div>
+        <h1>Babiology<br><em>品牌规范</em></h1>
+        <p>以 <span class="mono">#673AB7</span> 为系统主色，标志自带的洋红、藕荷、嫩绿三色作为品牌语气。一套颜色负责结构，三种颜色负责温度。</p>
+        <div class="meta">
+          <span>Version 1.1</span>
+          <span>2026-08-30</span>
+          <span>Primary #673AB7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="spectrum">
+    <i style="background:#673AB7"></i><i style="background:#C77FA7"></i><i style="background:#EE297B"></i><i style="background:#8CC43D"></i>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="shell">
+
+  <nav class="rail" aria-label="目录">
+    <ol>
+      <li><a href="#s1"><span class="num">01</span><span>品牌定位</span></a></li>
+      <li><a href="#s2"><span class="num">02</span><span>标志</span></a></li>
+      <li><a href="#s3"><span class="num">03</span><span>色彩系统</span></a></li>
+      <li><a href="#s4"><span class="num">04</span><span>对比度与无障碍</span></a></li>
+      <li><a href="#s5"><span class="num">05</span><span>字体</span></a></li>
+      <li><a href="#s6"><span class="num">06</span><span>空间与版式</span></a></li>
+      <li><a href="#s7"><span class="num">07</span><span>组件</span></a></li>
+      <li><a href="#s8"><span class="num">08</span><span>动效</span></a></li>
+      <li><a href="#s9"><span class="num">09</span><span>落地实施</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+  <!-- ================= 01 ================= -->
+  <section id="s1">
+    <div class="sec-head">
+      <span class="clause">§ 01</span>
+      <h2>品牌定位</h2>
+      <p class="lede">Babiology 服务于代孕与卵子捐赠——一个高度私密、周期漫长、决策沉重的领域。品牌要同时传达两件事：可托付的专业性，与有人陪着你的温度。</p>
+    </div>
+
+    <h3>色彩分工</h3>
+    <p>紫色 <span class="mono">#673AB7</span> 承担“可托付”：它比蓝色更有人情味，比粉色更有分量，在医疗与生育服务品类里也足够罕见，不会被误认成竞品。标志里原有的洋红、藕荷、嫩绿承担“温度”：它们是家庭、生长与生命力的直接视觉证据，且不需要重新发明——它们已经在标志里了。</p>
+    <p>因此本规范的核心结构是：<b>一主三辅</b>。紫色定义所有结构性元素（导航、按钮、链接、强调、深色区块），三种标志色只在需要情绪的地方出现（数据高亮、插图、标签、图形装饰）。</p>
+
+    <h3>色彩配比</h3>
+    <div class="grid g3">
+      <div class="panel">
+        <h4>60% 中性</h4>
+        <p class="b-sm">白与偏紫灰。承载正文、留白与图片，是页面的呼吸空间。</p>
+      </div>
+      <div class="panel">
+        <h4>30% 主紫</h4>
+        <p class="b-sm">导航、按钮、链接、深色区块、图表主序列。品牌的骨架。</p>
+      </div>
+      <div class="panel">
+        <h4>10% 三辅色</h4>
+        <p class="b-sm">洋红点睛、嫩绿表示进展与成功、藕荷做柔和过渡。绝不成片使用。</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--s4)">三辅色同时出现在一屏内不超过两种；洋红与嫩绿不直接相邻（它们在标志里由藕荷隔开，页面上也应如此）。</p>
+  </section>
+
+  <!-- ================= 02 ================= -->
+  <section id="s2">
+    <div class="sec-head">
+      <span class="clause">§ 02</span>
+      <h2>标志</h2>
+      <p class="lede">完整标志是「树 + 果实」，figure 舒展成树形，象征养育与延续。favicon 取其躯干与两片叶子，是标志的最小可识别单元。</p>
+    </div>
+
+    <h3>版本与使用底色</h3>
+    <div class="logo-board">
+      <div class="lb">
+        <div class="stage" style="background:#FFFFFF"><img src="logo/bb-logo-512.png" alt="彩色标志置于白底"></div>
+        <div class="cap"><b>彩色版 / 白底</b><span>首选。仅用于 #FFFFFF 与 #F8F7FB 两种底色</span></div>
+      </div>
+      <div class="lb">
+        <div class="stage" style="background:#673AB7"><img src="logo/bb-logo-white-512.png" alt="白色标志置于主紫底"></div>
+        <div class="cap"><b>白色反白版 / 紫底</b><span>所有深色底一律用此版，不可用彩色版</span></div>
+      </div>
+      <div class="lb">
+        <div class="stage" style="background:#F5F1FC"><img src="logo/bb-logo-violet-512.png" alt="单色紫标志置于浅紫底"></div>
+        <div class="cap"><b>单色紫版 / 浅底</b><span>单色印刷、水印、盖章、合作方文档</span></div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--s4)">彩色标志<b>不可</b>置于主紫底：洋红果实与 <span class="mono">#673AB7</span> 的对比度仅 <span class="mono">1.83:1</span>，藕荷躯干仅 <span class="mono">2.45:1</span>，图形会糊成一团。深色底一律使用白色反白版（<span class="mono">7.33:1</span>）。</p>
+
+    <h3>安全边距与最小尺寸</h3>
+    <div class="grid g2">
+      <div class="clearspace">
+        <div class="box">
+          <img src="logo/bb-logo-512.png" alt="标志安全边距示意">
+          <span class="tag t">x = 果实直径</span>
+          <span class="tag l">x</span>
+        </div>
+      </div>
+      <div>
+        <p>四周留出的空白不小于 <b>x</b>，x 等于标志中单颗果实的直径（约为标志总高的 1/6）。任何文字、图片、边框都不得进入该区域。</p>
+        <div class="tw">
+          <table>
+            <thead><tr><th>场景</th><th class="mono">最小尺寸</th></tr></thead>
+            <tbody>
+              <tr><td>屏幕 · 完整标志</td><td class="mono">32 px 高</td></tr>
+              <tr><td>屏幕 · favicon 单元</td><td class="mono">16 px</td></tr>
+              <tr><td>印刷 · 完整标志</td><td class="mono">12 mm 高</td></tr>
+              <tr><td>刺绣 / 压印</td><td class="mono">20 mm 高</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">小于 32 px 时改用 favicon 单元，不要缩放完整标志——果实会碎成噪点。</p>
+      </div>
+    </div>
+
+    <h3>禁止事项</h3>
+    <div class="grid g3">
+      <div class="dont no">
+        <div class="stage" style="background:#673AB7"><img src="logo/bb-logo-512.png" alt="错误示范：彩色标志置于紫底"></div>
+        <div class="cap"><i>✕</i><span>彩色版置于紫底或任何深色底</span></div>
+      </div>
+      <div class="dont no">
+        <div class="stage" style="background:#8CC43D"><img src="logo/bb-logo-512.png" alt="错误示范：标志置于嫩绿底"></div>
+        <div class="cap"><i>✕</i><span>置于任何辅助色实底</span></div>
+      </div>
+      <div class="dont yes">
+        <div class="stage" style="background:#F8F7FB"><img src="logo/bb-logo-512.png" alt="正确示范：标志置于浅灰底"></div>
+        <div class="cap"><i>✓</i><span>白色或 #F8F7FB 浅底</span></div>
+      </div>
+    </div>
+    <ul class="plain" style="margin-top:var(--s4)">
+      <li>不拉伸、不倾斜、不旋转，等比缩放。</li>
+      <li>不替换标志内部配色（洋红/藕荷/嫩绿是固定的），单色需求请用白色版或单色紫版。</li>
+      <li>不加描边、投影、渐变或外发光。</li>
+      <li>不置于繁忙照片之上；确需叠图时，先铺 <span class="mono">rgba(103,58,183,.86)</span> 蒙版再用白色版。</li>
+      <li>不与其他 logo 直接拼接，中间至少留 2x 间距。</li>
+    </ul>
+  </section>
+
+  <!-- ================= 03 ================= -->
+  <section id="s3">
+    <div class="sec-head">
+      <span class="clause">§ 03</span>
+      <h2>色彩系统</h2>
+      <p class="lede">四条品牌色阶 + 一条偏紫中性色阶。色阶中带 ● 标记的色阶是「正文安全色」——在白底上对比度 ≥ 4.5:1，可用于普通文字。</p>
+    </div>
+
+    <div class="ramp-cap">
+      <h3 style="margin:0">主紫 Violet · 500 = #673AB7</h3>
+      <p>系统主色。500 是唯一的品牌紫，其余色阶只用于状态、底纹与深色区块，不可单独作为“品牌色”对外使用。</p>
+    </div>
+    <div class="ramp">
+      <div class="chip" style="background:#F5F1FC;color:#46287C"><b>50</b><span>F5F1FC</span></div>
+      <div class="chip" style="background:#E8DFF8;color:#46287C"><b>100</b><span>E8DFF8</span></div>
+      <div class="chip" style="background:#D3C0F4;color:#46287C"><b>200</b><span>D3C0F4</span></div>
+      <div class="chip" style="background:#B798EE;color:#2A1A47"><b>300</b><span>B798EE</span></div>
+      <div class="chip" style="background:#9668E8;color:#2A1A47"><b>400</b><span>9668E8</span></div>
+      <div class="chip star" style="background:#673AB7;color:#fff"><b>500</b><span>673AB7</span></div>
+      <div class="chip star" style="background:#57319A;color:#fff"><b>600</b><span>57319A</span></div>
+      <div class="chip star" style="background:#46287C;color:#fff"><b>700</b><span>46287C</span></div>
+      <div class="chip star" style="background:#37215F;color:#fff"><b>800</b><span>37215F</span></div>
+      <div class="chip star" style="background:#2A1A47;color:#fff"><b>900</b><span>2A1A47</span></div>
+    </div>
+
+    <div class="ramp-cap">
+      <h3 style="margin:0">洋红 Magenta · 取自标志果实</h3>
+      <p>点睛色。用于数据高亮、引言标记、重要标签。<b>500 不可用于正文</b>（白底 4.01:1），文字场景一律用 600。</p>
+    </div>
+    <div class="ramp n8">
+      <div class="chip" style="background:#F8DFEA;color:#850F40"><b>100</b><span>F8DFEA</span></div>
+      <div class="chip" style="background:#F4C0D6;color:#850F40"><b>200</b><span>F4C0D6</span></div>
+      <div class="chip" style="background:#EE98BC;color:#850F40"><b>300</b><span>EE98BC</span></div>
+      <div class="chip" style="background:#E8689E;color:#430B22"><b>400</b><span>E8689E</span></div>
+      <div class="chip" style="background:#EE297B;color:#fff"><b>500</b><span>EE297B</span></div>
+      <div class="chip star" style="background:#D91164;color:#fff"><b>600</b><span>D91164</span></div>
+      <div class="chip star" style="background:#AE1052;color:#fff"><b>700</b><span>AE1052</span></div>
+      <div class="chip star" style="background:#850F40;color:#fff"><b>800</b><span>850F40</span></div>
+    </div>
+
+    <div class="ramp-cap">
+      <h3 style="margin:0">嫩绿 Leaf · 取自标志叶片</h3>
+      <p>生长与成功。用于进度、完成状态、正向数据。500 亮度高，<b>仅作填充</b>，绿色文字必须用 800。</p>
+    </div>
+    <div class="ramp n8">
+      <div class="chip" style="background:#EEF8DF;color:#4A6622"><b>100</b><span>EEF8DF</span></div>
+      <div class="chip" style="background:#DEF4C0;color:#4A6622"><b>200</b><span>DEF4C0</span></div>
+      <div class="chip" style="background:#CAEE98;color:#384C1B"><b>300</b><span>CAEE98</span></div>
+      <div class="chip" style="background:#B3E868;color:#273414"><b>400</b><span>B3E868</span></div>
+      <div class="chip" style="background:#8CC43D;color:#273414"><b>500</b><span>8CC43D</span></div>
+      <div class="chip" style="background:#76A632;color:#fff"><b>600</b><span>76A632</span></div>
+      <div class="chip" style="background:#5F852A;color:#fff"><b>700</b><span>5F852A</span></div>
+      <div class="chip star" style="background:#4A6622;color:#fff"><b>800</b><span>4A6622</span></div>
+    </div>
+
+    <div class="ramp-cap">
+      <h3 style="margin:0">藕荷 Mauve · 取自标志躯干</h3>
+      <p>过渡色。紫与洋红之间的桥，用于插图、分隔、柔和底纹与照片蒙版。不用于交互元素。</p>
+    </div>
+    <div class="ramp n7">
+      <div class="chip" style="background:#FBF3F7;color:#7D3D61"><b>50</b><span>FBF3F7</span></div>
+      <div class="chip" style="background:#F6E6EF;color:#7D3D61"><b>100</b><span>F6E6EF</span></div>
+      <div class="chip" style="background:#EFCFE1;color:#7D3D61"><b>200</b><span>EFCFE1</span></div>
+      <div class="chip" style="background:#DCA5C4;color:#3D1E2F"><b>300</b><span>DCA5C4</span></div>
+      <div class="chip" style="background:#C77FA7;color:#3D1E2F"><b>400</b><span>C77FA7</span></div>
+      <div class="chip" style="background:#B56190;color:#fff"><b>500</b><span>B56190</span></div>
+      <div class="chip star" style="background:#7D3D61;color:#fff"><b>700</b><span>7D3D61</span></div>
+    </div>
+
+    <div class="ramp-cap">
+      <h3 style="margin:0">中性 Neutral · 偏紫灰</h3>
+      <p>色相锁定在主紫的 261.6°，饱和度 10–30%。不要使用纯灰——纯灰与主紫并置时会显脏。</p>
+    </div>
+    <div class="ramp n12">
+      <div class="chip" style="background:#FFFFFF;color:#201C29;box-shadow:inset 0 0 0 1px #E6E2EB"><b>0</b><span>FFFFFF</span></div>
+      <div class="chip" style="background:#F8F7FB;color:#201C29"><b>50</b><span>F8F7FB</span></div>
+      <div class="chip" style="background:#F1EFF5;color:#201C29"><b>100</b><span>F1EFF5</span></div>
+      <div class="chip" style="background:#E6E2EB;color:#201C29"><b>200</b><span>E6E2EB</span></div>
+      <div class="chip" style="background:#CFCBD8;color:#201C29"><b>300</b><span>CFCBD8</span></div>
+      <div class="chip" style="background:#ABA4B6;color:#14101B"><b>400</b><span>ABA4B6</span></div>
+      <div class="chip" style="background:#887F97;color:#fff"><b>500</b><span>887F97</span></div>
+      <div class="chip star" style="background:#6A627A;color:#fff"><b>600</b><span>6A627A</span></div>
+      <div class="chip star" style="background:#4F475C;color:#fff"><b>700</b><span>4F475C</span></div>
+      <div class="chip star" style="background:#342E40;color:#fff"><b>800</b><span>342E40</span></div>
+      <div class="chip star" style="background:#201C29;color:#fff"><b>900</b><span>201C29</span></div>
+      <div class="chip star" style="background:#14101B;color:#fff"><b>950</b><span>14101B</span></div>
+    </div>
+
+    <h3>语义 token</h3>
+    <p>页面永远引用语义 token，不直接写色阶值——深浅两套主题靠同一组 token 名切换。</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Token</th><th class="mono">浅色</th><th class="mono">深色</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">--bg</td><td class="mono"><span class="sw" style="background:#FFFFFF"></span>n-0</td><td class="mono"><span class="sw" style="background:#14101B"></span>n-950</td><td>页面底色</td></tr>
+          <tr><td class="mono">--bg-sunk</td><td class="mono"><span class="sw" style="background:#F8F7FB"></span>n-50</td><td class="mono"><span class="sw" style="background:#0D0A13"></span>#0D0A13</td><td>下沉区块、表头</td></tr>
+          <tr><td class="mono">--bg-raised</td><td class="mono"><span class="sw" style="background:#FFFFFF"></span>n-0</td><td class="mono"><span class="sw" style="background:#201C29"></span>n-900</td><td>卡片、浮层</td></tr>
+          <tr><td class="mono">--fg</td><td class="mono"><span class="sw" style="background:#201C29"></span>n-900</td><td class="mono"><span class="sw" style="background:#F1EFF5"></span>n-100</td><td>正文</td></tr>
+          <tr><td class="mono">--fg-muted</td><td class="mono"><span class="sw" style="background:#6A627A"></span>n-600</td><td class="mono"><span class="sw" style="background:#ABA4B6"></span>n-400</td><td>次级文字、注释</td></tr>
+          <tr><td class="mono">--rule</td><td class="mono"><span class="sw" style="background:#E6E2EB"></span>n-200</td><td class="mono"><span class="sw" style="background:#332C44"></span>#332C44</td><td>分隔线、描边</td></tr>
+          <tr><td class="mono">--brand</td><td class="mono"><span class="sw" style="background:#673AB7"></span>v-500</td><td class="mono"><span class="sw" style="background:#B798EE"></span>v-300</td><td>主按钮、链接、强调</td></tr>
+          <tr><td class="mono">--brand-ink</td><td class="mono"><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</td><td class="mono"><span class="sw" style="background:#14101B"></span>n-950</td><td>主按钮上的文字</td></tr>
+          <tr><td class="mono">--highlight</td><td class="mono"><span class="sw" style="background:#D91164"></span>m-600</td><td class="mono"><span class="sw" style="background:#F4C0D6"></span>m-200</td><td>点睛文字、kicker</td></tr>
+          <tr><td class="mono">--accent-ink</td><td class="mono"><span class="sw" style="background:#4A6622"></span>l-800</td><td class="mono"><span class="sw" style="background:#B3E868"></span>l-400</td><td>成功状态文字</td></tr>
+          <tr><td class="mono">--focus</td><td class="mono"><span class="sw" style="background:#9668E8"></span>v-400</td><td class="mono"><span class="sw" style="background:#9668E8"></span>v-400</td><td>键盘焦点环（两套通用）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">深色模式下主色由 500 换成 300：<span class="mono">#B798EE</span> 在 <span class="mono">#14101B</span> 上是 <span class="mono">7.81:1</span>，而 500 只有 <span class="mono">2.40:1</span>，直接沿用会读不出来。深色主按钮用 <span class="mono">#9668E8</span> 填充 + <span class="mono">#14101B</span> 文字（<span class="mono">4.86:1</span>）。</p>
+  </section>
+
+  <!-- ================= 04 ================= -->
+  <section id="s4">
+    <div class="sec-head">
+      <span class="clause">§ 04</span>
+      <h2>对比度与无障碍</h2>
+      <p class="lede">目标 WCAG 2.1 AA：普通文字 ≥ 4.5:1，大字（≥ 24px 或 ≥ 19px 粗体）与图形界面元素 ≥ 3:1。以下为实测值。</p>
+    </div>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>组合</th><th class="mono">比值</th><th>普通文字</th><th>大字 / 图形</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sw" style="background:#673AB7"></span>#673AB7 on #FFFFFF</td><td class="mono">7.33</td><td class="pass">AAA</td><td class="pass">通过</td><td>正文链接、标题强调均可</td></tr>
+          <tr><td><span class="sw" style="background:#FFFFFF"></span>#FFFFFF on #673AB7</td><td class="mono">7.33</td><td class="pass">AAA</td><td class="pass">通过</td><td>主按钮标准组合</td></tr>
+          <tr><td><span class="sw" style="background:#57319A"></span>#57319A on #FFFFFF</td><td class="mono">9.09</td><td class="pass">AAA</td><td class="pass">通过</td><td>hover 态更深，安全</td></tr>
+          <tr><td><span class="sw" style="background:#673AB7"></span>#673AB7 on #F5F1FC</td><td class="mono">6.58</td><td class="pass">AAA</td><td class="pass">通过</td><td>浅紫底上的紫字可用</td></tr>
+          <tr><td><span class="sw" style="background:#EE297B"></span>#EE297B on #FFFFFF</td><td class="mono">4.01</td><td class="fail">不通过</td><td class="pass">通过</td><td>仅限大标题与图形，正文改用 600</td></tr>
+          <tr><td><span class="sw" style="background:#D91164"></span>#D91164 on #FFFFFF</td><td class="mono">4.98</td><td class="pass">AA</td><td class="pass">通过</td><td>洋红文字唯一合规值</td></tr>
+          <tr><td><span class="sw" style="background:#8CC43D"></span>#8CC43D on #FFFFFF</td><td class="mono">2.08</td><td class="fail">不通过</td><td class="fail">不通过</td><td>只能做填充，绝不做文字或图标</td></tr>
+          <tr><td><span class="sw" style="background:#4A6622"></span>#4A6622 on #FFFFFF</td><td class="mono">6.53</td><td class="pass">AAA</td><td class="pass">通过</td><td>绿色文字请用此值</td></tr>
+          <tr><td><span class="sw" style="background:#6A627A"></span>#6A627A on #FFFFFF</td><td class="mono">5.77</td><td class="pass">AA</td><td class="pass">通过</td><td>次级文字下限</td></tr>
+          <tr><td><span class="sw" style="background:#B798EE"></span>#B798EE on #14101B</td><td class="mono">7.81</td><td class="pass">AAA</td><td class="pass">通过</td><td>深色模式主色</td></tr>
+          <tr><td><span class="sw" style="background:#F4C0D6"></span>#F4C0D6 on #14101B</td><td class="mono">11.93</td><td class="pass">AAA</td><td class="pass">通过</td><td>深色模式点睛</td></tr>
+          <tr><td><span class="sw" style="background:#9668E8"></span>#9668E8 on #FFFFFF</td><td class="mono">3.86</td><td class="fail">不通过</td><td class="pass">通过</td><td>只做焦点环与描边</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>额外规则</h3>
+    <ul class="plain">
+      <li><b>颜色不可承载唯一语义。</b>成功/警告/错误必须同时有图标或文案，色盲用户区分不了嫩绿与洋红。</li>
+      <li><b>焦点必须可见。</b>统一 <span class="mono">2px solid #9668E8</span>，offset 3px；深浅两套主题共用，因为它对白底（3.86:1）和深底（4.86:1）都达标。</li>
+      <li><b>正文最小 16px。</b>注释类文字不小于 14px，且必须用 <span class="mono">--fg-muted</span> 而非更浅的 <span class="mono">--fg-faint</span>。</li>
+      <li><b><span class="mono">--fg-faint</span> 只用于占位符与装饰性数字</b>，永不承载需要阅读的信息。</li>
+    </ul>
+  </section>
+
+  <!-- ================= 05 ================= -->
+  <section id="s5">
+    <div class="sec-head">
+      <span class="clause">§ 05</span>
+      <h2>字体</h2>
+      <p class="lede">沿用现有站点已在使用的三套字族，中英文成对配置。衬线负责情绪，无衬线负责信息，等宽负责数据。</p>
+    </div>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>角色</th><th>西文</th><th>中文</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">--font-text</td><td>San Francisco（<span class="mono">-apple-system</span>）· Windows 回退 Segoe UI</td><td>PingFang SC · Windows 回退微软雅黑</td><td>全站正文、按钮、导航、表单</td></tr>
+          <tr><td class="mono">--font-display</td><td colspan="2">= <span class="mono">--font-text</span>，标题与正文同族</td><td>标题层级靠字号与字重拉开</td></tr>
+          <tr><td class="mono">--font-mono</td><td>SF Mono（<span class="mono">ui-monospace</span>）· Windows 回退 Consolas</td><td>—</td><td>编号、金额、日期、代码</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><b>全站只用系统字体，不下载任何字体文件。</b>西文 San Francisco，中文 PingFang SC —— 两者都是 Apple 专有字体，授权不允许作为 webfont 分发，因此只能通过 <span class="mono">-apple-system</span> / <span class="mono">"PingFang SC"</span> 的系统字体栈引用，不可自托管。Windows 依次回退 Segoe UI 与微软雅黑。</p>
+    <p class="note"><b>标题与正文同族</b>，层级只靠字号与字重拉开，不再有衬线对比。因此无衬线的字号阶梯比衬线时代整体收了约四分之一（SF Pro 的 x-height 远大于 Cormorant，同样 px 值视觉上大一圈），并把小标题字重从 500 提到 600。<b>字标</b> BABIOLOGY / FAMILY 同样使用这一字族。</p>
+
+    <h3>字号阶梯</h3>
+    <div class="spec"><div class="k">--t-4xl · 78px<br>display 300</div><p class="d-1">让每一次选择都被稳稳接住</p></div>
+    <div class="spec"><div class="k">--t-2xl · 42px<br>display 400</div><p class="d-2">Make an impact that lasts</p></div>
+    <div class="spec"><div class="k">--t-xl · 30px<br>display 500</div><p class="d-3">我们的服务方式</p></div>
+    <div class="spec"><div class="k">--t-lg · 22px<br>text 300</div><p class="b-lg">从第一次咨询到宝宝回家，全程有专属顾问陪同。</p></div>
+    <div class="spec"><div class="k">--t-md · 18px<br>text 400</div><p class="b-md">导语与卡片正文。行高 1.7，单行控制在 65 字符左右。</p></div>
+    <div class="spec"><div class="k">--t-base · 16px<br>text 400</div><p class="b-base">正文默认字号。中英混排时中文字号与西文一致，不做额外放大。</p></div>
+    <div class="spec"><div class="k">--t-sm · 14px<br>text 400</div><p class="b-sm">注释、表格、图注、表单说明。</p></div>
+    <div class="spec"><div class="k">--t-xs · 12px<br>text 600 · 字距 .18em</div><p class="eyebrow">Becoming a Surrogate</p></div>
+
+    <h3>排版规则</h3>
+    <ul class="plain">
+      <li>标题一律 <span class="mono">text-wrap: balance</span>，字距 <span class="mono">-0.015em</span>（display 越大越紧）。</li>
+      <li>全大写小标题（eyebrow）字距 <span class="mono">0.18em</span>，且只用于西文；中文改用 400 字重 + 主紫色，不做字距拉伸。</li>
+      <li>正文行长 60–75 字符；一屏内不超过两级标题层次。</li>
+      <li>数字对齐场景（价格、周期、统计）加 <span class="mono">font-variant-numeric: tabular-nums</span>。</li>
+      <li>斜体只用于英文引言与强调单词，不用于中文（中文没有真正的斜体，会被拉斜变形）。</li>
+    </ul>
+  </section>
+
+  <!-- ================= 06 ================= -->
+  <section id="s6">
+    <div class="sec-head">
+      <span class="clause">§ 06</span>
+      <h2>空间与版式</h2>
+      <p class="lede">8px 基准栅格，所有间距取自固定阶梯，不出现 13px、27px 这类随手值。</p>
+    </div>
+
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-top:0">间距阶梯</h3>
+        <div class="tw">
+          <table>
+            <thead><tr><th class="mono">Token</th><th class="mono">值</th><th>典型用途</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">--s2</td><td class="mono">8px</td><td>图标与文字间距</td></tr>
+              <tr><td class="mono">--s4</td><td class="mono">16px</td><td>段落间距、栅格 gap</td></tr>
+              <tr><td class="mono">--s5</td><td class="mono">24px</td><td>卡片内边距</td></tr>
+              <tr><td class="mono">--s6</td><td class="mono">32px</td><td>组件之间</td></tr>
+              <tr><td class="mono">--s8</td><td class="mono">64px</td><td>区块内上下留白</td></tr>
+              <tr><td class="mono">--s9</td><td class="mono">96px</td><td>section 之间（移动端）</td></tr>
+              <tr><td class="mono">--s10</td><td class="mono">128px</td><td>section 之间（桌面端）</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-top:0">圆角、描边与投影</h3>
+        <div class="tw">
+          <table>
+            <thead><tr><th class="mono">Token</th><th class="mono">值</th><th>用途</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">--r-sm</td><td class="mono">0</td><td>小色块、装饰条</td></tr>
+              <tr><td class="mono">--r-md</td><td class="mono">0</td><td>输入框、代码块</td></tr>
+              <tr><td class="mono">--r-lg</td><td class="mono">0</td><td>卡片、banner、图片</td></tr>
+              <tr><td class="mono">--r-btn</td><td class="mono">2px</td><td>按钮、标签（唯一例外）</td></tr>
+              <tr><td class="mono">border</td><td class="mono">1px --rule</td><td>唯一描边宽度</td></tr>
+              <tr><td class="mono">--shadow</td><td class="mono">2 层柔和</td><td>仅卡片与浮层</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><b>直角规则：</b>所有卡片、banner、图片、输入框与代码块一律使用直角（圆角为 0）。按钮与标签用 <span class="mono">--r-btn</span>（2px）——不是胶囊，只是把尖角磨掉一点，让可点击的元件与静态容器之间有一道极轻的区分。除这两者外不要给任何元素加圆角，也不要把 2px 放大成 4px、8px。</p>
+    <p class="note">投影带紫调（<span class="mono">rgba(32,28,41,…)</span>）而非纯黑，与偏紫中性色一致。全站只有一档投影，不做多层级 elevation。</p>
+      </div>
+    </div>
+
+    <h3>栅格与容器</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>断点</th><th class="mono">容器</th><th class="mono">左右留白</th><th>栅格</th></tr></thead>
+        <tbody>
+          <tr><td>≥ 1280px</td><td class="mono">1280px</td><td class="mono">64px</td><td>12 列 / gap 32px</td></tr>
+          <tr><td>960–1279px</td><td class="mono">100%</td><td class="mono">48px</td><td>12 列 / gap 24px</td></tr>
+          <tr><td>640–959px</td><td class="mono">100%</td><td class="mono">32px</td><td>6 列 / gap 24px</td></tr>
+          <tr><td>&lt; 640px</td><td class="mono">100%</td><td class="mono">20px</td><td>单列</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">导航高度固定 <span class="mono">80px</span>；正文阅读区最大 <span class="mono">68ch</span>，即使容器更宽也不拉满。</p>
+  </section>
+
+  <!-- ================= 07 ================= -->
+  <section id="s7">
+    <div class="sec-head">
+      <span class="clause">§ 07</span>
+      <h2>组件</h2>
+      <p class="lede">以下为实际渲染的组件，可直接取样。每类组件在一屏内只出现一个主按钮。</p>
+    </div>
+
+    <h3>按钮</h3>
+    <div class="panel">
+      <div class="row">
+        <button class="btn btn-1" type="button">预约咨询</button>
+        <button class="btn btn-2" type="button">了解流程</button>
+        <button class="btn btn-3" type="button">下载资料 →</button>
+        <button class="btn btn-1" type="button" disabled>提交中</button>
+      </div>
+    </div>
+    <div class="tw" style="margin-top:var(--s4)">
+      <table>
+        <thead><tr><th>层级</th><th>默认</th><th>hover</th><th>使用限制</th></tr></thead>
+        <tbody>
+          <tr><td>Primary</td><td class="mono">bg #673AB7 / 文字 #FFF</td><td class="mono">bg #57319A</td><td>每屏至多一个</td></tr>
+          <tr><td>Secondary</td><td class="mono">描边 #673AB7 / 文字 #673AB7</td><td class="mono">bg #F5F1FC</td><td>并列次要动作</td></tr>
+          <tr><td>Tertiary</td><td class="mono">文字 #201C29 + 下划线</td><td class="mono">文字 #673AB7</td><td>低权重、正文内</td></tr>
+          <tr><td>Emphasis</td><td class="mono">bg #D91164 / 文字 #FFF</td><td class="mono">bg #AE1052</td><td>仅限营销落地页的唯一 CTA</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">按钮高度 44px（含内边距），满足触控最小点击区；圆角一律 pill，不混用直角按钮。洋红强调按钮与主紫按钮<b>不同屏出现</b>。</p>
+
+    <h3>卡片</h3>
+    <div class="grid g3">
+      <div class="card">
+        <p class="kicker">Surrogacy</p>
+        <h4>代孕计划</h4>
+        <p>从匹配到分娩的全流程管理，专属顾问与法律团队随行。</p>
+      </div>
+      <div class="card">
+        <p class="kicker">Egg Donation</p>
+        <h4>卵子捐赠</h4>
+        <p>严格筛查的捐赠者库，医学、心理与遗传三重评估。</p>
+      </div>
+      <div class="card">
+        <p class="kicker">Support</p>
+        <h4>全程陪护</h4>
+        <p>中英文双语顾问，覆盖跨境行程、保险与产后安排。</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--s4)">卡片 kicker 用洋红 <span class="mono">--highlight</span>，是整张卡片唯一的辅助色；标题用 display 字族，正文用 <span class="mono">--fg-muted</span>。</p>
+
+    <h3>标签与状态</h3>
+    <div class="panel">
+      <div class="row">
+        <span class="tag tag-v">进行中</span>
+        <span class="tag tag-l">✓ 已完成</span>
+        <span class="tag tag-m">需补充材料</span>
+        <span class="tag tag-n">已归档</span>
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--s4)">状态标签底色用 100 档、文字用 700/800 档，保证 AA。“已完成”带 ✓ 符号——不靠颜色单独表意。</p>
+
+    <h3>表单</h3>
+    <div class="panel">
+      <div class="field">
+        <label for="demo-mail">邮箱</label>
+        <input id="demo-mail" type="email" placeholder="you@example.com">
+      </div>
+    </div>
+    <p class="note" style="margin-top:var(--s4)">标签置于输入框上方且始终可见（不做 placeholder 当标签）。聚焦时 <span class="mono">outline 2px #9668E8</span>，错误态用 <span class="mono">#D91164</span> 描边 + 文字说明，不只变红。</p>
+
+    <h3>链接</h3>
+    <p>正文中的链接使用 <a href="#s7">主紫 + 下划线</a>，下划线偏移 3px、粗细 1px。导航链接不带下划线，用 hover 变色与 2px 底部指示条表示当前页。链接颜色不做“已访问”变化。</p>
+  </section>
+
+  <!-- ================= 08 ================= -->
+  <section id="s8">
+    <div class="sec-head">
+      <span class="clause">§ 08</span>
+      <h2>动效</h2>
+      <p class="lede">这是一个需要让人安心的品牌，动效应当克制。原则：只用于确认状态变化，不用于吸引注意。</p>
+    </div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>场景</th><th class="mono">时长</th><th class="mono">缓动</th></tr></thead>
+        <tbody>
+          <tr><td>颜色 / 描边过渡（hover、focus）</td><td class="mono">180ms</td><td class="mono">--ease</td></tr>
+          <tr><td>展开、折叠、抽屉</td><td class="mono">280ms</td><td class="mono">--ease</td></tr>
+          <tr><td>滚动进场（淡入 + 上移 12px）</td><td class="mono">520ms</td><td class="mono">--ease</td></tr>
+          <tr><td>页面切换</td><td class="mono">240ms</td><td class="mono">ease-out</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><span class="mono">--ease: cubic-bezier(.2,.7,.2,1)</span>，全站唯一缓动曲线。禁止弹跳（overshoot）、无限循环动画与视差滚动。滚动进场每个区块只触发一次，且必须包裹在 <span class="mono">@media (prefers-reduced-motion: reduce)</span> 的降级里。</p>
+  </section>
+
+  <!-- ================= 09 ================= -->
+  <section id="s9">
+    <div class="sec-head">
+      <span class="clause">§ 09</span>
+      <h2>落地实施</h2>
+      <p class="lede">代码层已按本规范生成 <span class="mono">docs/design/brand-tokens.css</span>，替换现有 <span class="mono">public/tokens.css</span> 的调色板部分即可。字号、间距、布局阶梯与现有站点完全一致，无需改动组件。</p>
+    </div>
+
+    <h3>Tailwind 映射</h3>
+    <pre><span class="c">// tailwind.config.ts — theme.extend</span>
+colors: {
+  brand:      "var(--brand)",       <span class="c">// #673AB7 / 深色 #B798EE</span>
+  "brand-ink":"var(--brand-ink)",
+  highlight:  "var(--highlight)",   <span class="c">// 洋红 #D91164</span>
+  accent:     "var(--accent-ink)",  <span class="c">// 嫩绿 #4A6622</span>
+  bg:         "var(--bg)",
+  "bg-sunk":  "var(--bg-sunk)",
+  "bg-raised":"var(--bg-raised)",
+  fg:         "var(--fg)",
+  muted:      "var(--fg-muted)",
+  rule:       "var(--rule)"
+},
+fontFamily: {
+  display: ["var(--font-display)"],
+  text:    ["var(--font-text)"],
+  mono:    ["var(--font-mono)"]
+}</pre>
+
+    <h3>图标与 favicon 规格</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>文件</th><th class="mono">尺寸</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">favicon.ico</td><td class="mono">16 / 32 / 48</td><td>favicon 单元，彩色版，透明底</td></tr>
+          <tr><td class="mono">icon-192.png</td><td class="mono">192×192</td><td>彩色版，透明底</td></tr>
+          <tr><td class="mono">icon-512.png</td><td class="mono">512×512</td><td>彩色版，透明底</td></tr>
+          <tr><td class="mono">apple-touch-icon.png</td><td class="mono">180×180</td><td>白底 + 彩色标志，四周留 16px</td></tr>
+          <tr><td class="mono">maskable-512.png</td><td class="mono">512×512</td><td><span class="sw" style="background:#673AB7"></span>#673AB7 实底 + 白色版，安全区 80%</td></tr>
+          <tr><td class="mono">og-image.png</td><td class="mono">1200×630</td><td><span class="sw" style="background:#673AB7"></span>#673AB7 实底 + 白色完整标志</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <pre><span class="c">&lt;!-- 浏览器主题色 --&gt;</span>
+&lt;meta name="theme-color" content="#673AB7" media="(prefers-color-scheme: light)"&gt;
+&lt;meta name="theme-color" content="#14101B" media="(prefers-color-scheme: dark)"&gt;</pre>
+
+    <h3>已生成的标志资源</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th class="mono">docs/design/logo/</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td class="mono">bb-logo-512.png</td><td>彩色完整标志（原始）</td></tr>
+          <tr><td class="mono">bb-favicon-512.png</td><td>彩色 favicon 单元（原始）</td></tr>
+          <tr><td class="mono">bb-logo-white-512.png</td><td>白色反白版，用于紫底与深色底</td></tr>
+          <tr><td class="mono">bb-logo-violet-512.png</td><td>单色 #673AB7 版，用于单色印刷</td></tr>
+          <tr><td class="mono">bb-favicon-white-512.png</td><td>白色反白 favicon 单元</td></tr>
+          <tr><td class="mono">bb-favicon-violet-512.png</td><td>单色紫 favicon 单元</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>检查清单</h3>
+    <ul class="plain">
+      <li>页面里没有硬编码的十六进制色值，全部走语义 token。</li>
+      <li>深浅两套主题都实测过：正文、次级文字、链接、按钮、焦点环。</li>
+      <li>一屏内主按钮唯一，辅助色不超过两种。</li>
+      <li>所有交互元素有可见的键盘焦点态。</li>
+      <li>标志所在底色符合 §02 的三种组合之一。</li>
+      <li>动效在 <span class="mono">prefers-reduced-motion</span> 下有降级。</li>
+    </ul>
+  </section>
+
+  <footer>
+    Babiology 品牌规范 v1.1 · 主色 #673AB7 · 辅助色取自标志本体 #EE297B / #C77FA7 / #8CC43D<br>
+    对比度数值按 WCAG 2.1 相对亮度公式实测。字号、间距、布局阶梯沿用现有 <span class="mono">public/tokens.css</span>。
+  </footer>
+
+  </main>
+</div>
+</div>
+</body>
+</html>

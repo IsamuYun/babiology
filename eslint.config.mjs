@@ -8,7 +8,8 @@ const eslintConfig = [
     }
   },
   {
-    ignores: [".next/**", "node_modules/**", "out/**"]
+    // docs/design/familymakers 是抓取的第三方站点镜像，不是本项目代码
+    ignores: [".next/**", "node_modules/**", "out/**", "docs/design/familymakers/**"]
   }
 ];
 

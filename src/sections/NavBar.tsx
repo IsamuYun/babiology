@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { isRedesignedRoute } from "@/lib/routes";
 import { withBasePath } from "@/lib/paths";
 
 type NavItem = {
@@ -35,6 +36,10 @@ function NavBarLink({ href, label }: NavItem) {
 }
 
 export function NavBar() {
+  // 采用新版设计的页面自带 header（src/sections/homepage/SiteHeader），此处不渲染以免重复
+  const pathname = usePathname();
+  if (isRedesignedRoute(pathname)) return null;
+
   return (
     <nav className="nav">
       <div className="container-wide">
@@ -45,7 +50,7 @@ export function NavBar() {
         </div>
 
         <Link className="nav-brand" href="/" aria-label="Babiology home">
-          <Image src={withBasePath("/assets/logo.png")} alt="" width={80} height={80} priority />
+          <Image src={withBasePath("/assets/logo/bb-logo.png")} alt="" width={80} height={80} priority />
         </Link>
 
         <div className="nav-right">

@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Babiology — 让爱延续，让家完整</title>
+<meta name="description" content="Babiology 代孕与卵子捐赠服务 — 首页设计稿。">
+<meta name="theme-color" content="#673AB7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14101B" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="logo/bb-favicon-512.png">
+
+<!-- 品牌 token：色彩 / 字体 / 圆角 / 缓动全部来自规范文件 -->
+<link rel="stylesheet" href="brand-tokens.css">
+
+<style>
+/* ============================================================
+   Babiology 首页 — 版式层
+   只引用 brand-tokens.css 的语义 token，页面内无硬编码色值
+   信息架构参照 familymakers.com/for-surrogates
+   ============================================================ */
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:var(--font-text); font-size:16px; line-height:1.75; font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+button,input{font:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus); outline-offset:3px}
+
+/* ---------- 容器 ---------- */
+.wrap{width:100%; max-width:1280px; margin-inline:auto; padding-inline:64px}
+@media (max-width:1279px){ .wrap{padding-inline:48px} }
+@media (max-width:959px) { .wrap{padding-inline:32px} }
+@media (max-width:639px) { .wrap{padding-inline:20px} }
+
+section{padding-block:128px}
+@media (max-width:959px){ section{padding-block:96px} }
+.sunk{background:var(--bg-sunk)}
+.ink{background:var(--bg-dark); color:var(--fg-on-dark)}
+.ink .eyebrow{color:var(--v-300)}
+.ink .lede,.ink p{color:var(--n-300)}
+
+/* ---------- 排版 ---------- */
+.eyebrow{
+  font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--brand); margin:0 0 20px;
+}
+.eyebrow.cn{letter-spacing:.08em; text-transform:none; font-weight:500}
+h1,h2,h3{font-family:var(--font-display); font-weight:400; text-wrap:balance; margin:0}
+h1{font-size:78px; line-height:1.05; letter-spacing:-.018em; font-weight:300}
+h2{font-size:58px; line-height:1.1;  letter-spacing:-.018em; font-weight:300}
+h3{font-size:30px; line-height:1.25; letter-spacing:-.01em;  font-weight:500}
+@media (max-width:959px){ h1{font-size:52px} h2{font-size:40px} h3{font-size:26px} }
+@media (max-width:639px){ h1{font-size:40px} h2{font-size:32px} }
+p{margin:0 0 var(--s4,16px); max-width:66ch}
+.lede{font-size:18px; font-weight:300; color:var(--fg-muted); max-width:56ch}
+.small{font-size:14px; color:var(--fg-muted)}
+.stack{display:flex; flex-direction:column; gap:24px; align-items:flex-start}
+.media-stack{display:flex; flex-direction:column; gap:24px; align-items:stretch; justify-content:center}
+
+/* ---------- 按钮 ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600;
+  letter-spacing:.02em; padding:13px 26px; border-radius:var(--r-btn);
+  border:1px solid transparent; text-decoration:none; cursor:pointer;
+  transition:background var(--dur-color) var(--ease), color var(--dur-color) var(--ease),
+             border-color var(--dur-color) var(--ease);
+}
+.btn-1{background:var(--bg-brand); color:var(--brand-ink)}
+.btn-1:hover{background:var(--brand-hover); color:var(--brand-ink)}
+.btn-2{background:transparent; color:var(--brand); border-color:currentColor}
+.btn-2:hover{background:var(--bg-brand-soft)}
+.btn-light{background:#fff; color:var(--v-700)}
+.btn-light:hover{background:var(--v-50)}
+.btn-ghost-light{background:transparent; color:#fff; border-color:rgba(255,255,255,.55)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.12); color:#fff}
+.btn-3{
+  background:none; border:0; border-bottom:1px solid var(--rule-strong); border-radius:0;
+  padding:6px 0; color:var(--fg); font-weight:600; font-size:14px;
+}
+.btn-3:hover{color:var(--brand); border-color:var(--brand)}
+.btns{display:flex; flex-wrap:wrap; gap:16px}
+
+/* ---------- 图片占位符 ---------- */
+.ph{
+  margin:0; position:relative; aspect-ratio:var(--ar,4/3);
+  background:
+    repeating-linear-gradient(135deg,
+      transparent 0 11px, color-mix(in srgb, var(--bridge) 18%, transparent) 11px 12px),
+    var(--bg-brand-soft);
+  border:1px dashed color-mix(in srgb, var(--bridge) 62%, transparent);
+  border-radius:var(--r-lg);
+  display:grid; place-items:center; padding:20px; overflow:hidden;
+}
+.ph figcaption{
+  font-family:var(--font-mono); font-size:11px; line-height:1.6; letter-spacing:.04em;
+  color:var(--w-700); text-align:center; max-width:26ch;
+}
+.ph::after{
+  content:""; position:absolute; inset:auto 14px 12px auto;
+  font-family:var(--font-mono); font-size:9px; color:var(--w-600); opacity:.7;
+}
+
+
+/* ---------- 顶部公告条 ---------- */
+.notice{
+  background:var(--bg-brand); color:#fff; text-align:center;
+  font-size:12px; letter-spacing:.1em; padding:12px 20px; font-weight:500;
+}
+.notice a{color:#fff; text-underline-offset:3px}
+
+/* ---------- 导航 ---------- */
+.nav{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  border-bottom:1px solid var(--rule); backdrop-filter:saturate(1.4) blur(8px);
+}
+.nav-in{height:80px; display:flex; align-items:center; justify-content:space-between; gap:32px}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+.brand img{width:38px; height:38px}
+.brand-txt{display:block}
+.brand b{font-family:var(--font-display); font-size:23px; font-weight:500; letter-spacing:.01em; line-height:1}
+.brand-txt span{display:block; font-size:9.5px; letter-spacing:.3em; color:var(--fg-muted); font-weight:600; margin-top:3px}
+.nav-links{display:flex; align-items:center; gap:36px; list-style:none; margin:0; padding:0}
+.nav-links a{
+  text-decoration:none; font-size:13px; font-weight:500; letter-spacing:.04em;
+  color:var(--fg); padding-block:6px; border-bottom:2px solid transparent;
+  transition:color var(--dur-color) var(--ease), border-color var(--dur-color) var(--ease);
+}
+.nav-links a:hover{color:var(--brand); border-color:var(--brand)}
+@media (max-width:959px){ .nav-links{display:none} }
+
+/* ---------- Hero ---------- */
+.hero{position:relative; padding:0}
+.hero-img{width:100%; aspect-ratio:1935/813; object-fit:cover; display:block}
+@media (max-width:959px){ .hero-img{aspect-ratio:16/12; object-position:62% center} }
+.hero-card{
+  position:absolute; left:max(64px, calc((100% - 1280px)/2 + 64px)); bottom:12%;
+  width:min(440px, calc(100% - 128px));
+  background:color-mix(in srgb, var(--v-700) 88%, transparent);
+  color:#fff; padding:44px 40px; border-radius:var(--r-lg);
+  backdrop-filter:blur(6px);
+}
+.hero-card h1{font-size:52px; line-height:1.08; color:#fff}
+.hero-card p{color:var(--v-100); font-size:16px; margin:18px 0 26px; max-width:none}
+@media (max-width:959px){
+  .hero-card{position:static; width:auto; border-radius:0; padding:40px 32px; backdrop-filter:none}
+  .hero-card h1{font-size:40px}
+}
+@media (max-width:639px){ .hero-card{padding:32px 20px} }
+
+/* ---------- Our Approach ----------
+   参照 familymakers.com/for-surrogates：图标 + 标签，
+   下面一个 top / right 为紫、bottom / left 透明的直角托架包住内容。 */
+/* 区块顶部留白压到最小：Hero 之后不滚动就能看到图标、标题与顶边线 */
+section#approach{padding-top:48px}
+.approach-frame{
+  position:relative;
+  border:1px solid transparent;
+  border-top-color:var(--brand); border-right-color:var(--brand);
+  padding:48px 56px 0 0;
+}
+/* 图标 + 标签骑在顶边线上，背景色遮住线条（fieldset legend 效果） */
+.approach-head{
+  position:absolute; top:0; left:-1px; transform:translateY(-50%);
+  display:flex; align-items:center; gap:16px;
+  background:var(--bg); padding-right:24px;
+}
+.approach-head img{width:48px; height:48px; flex:none}
+.approach-head span{font-size:12px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--brand)}
+.approach-cols{display:grid; grid-template-columns:.85fr 1.15fr; gap:72px; align-items:start}
+.approach-copy p{font-size:15px; color:var(--fg-muted); max-width:40ch}
+.approach-copy p:last-child{margin-bottom:0}
+.approach-copy .lede{font-size:17px; color:var(--fg)}
+.approach-lead h2{margin-bottom:32px}
+.approach-figures{display:grid; grid-template-columns:.9fr 1.1fr; gap:24px; margin-top:72px; padding-bottom:56px}
+.approach-figures img{width:100%; height:400px; object-fit:cover}
+@media (max-width:959px){
+  section#approach{padding-top:40px}
+  .approach-frame{padding:44px 24px 0 0}
+  .approach-cols{grid-template-columns:1fr; gap:32px}
+  .approach-figures{grid-template-columns:1fr; gap:16px; margin-top:48px; padding-bottom:40px}
+  .approach-figures img{height:260px}
+}
+
+/* ---------- 双列图文 ---------- */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:center}
+.split.tight{gap:64px}
+.split.wide-left{grid-template-columns:1.15fr .85fr}
+.split.wide-right{grid-template-columns:.85fr 1.15fr}
+@media (max-width:959px){
+  .split,.split.wide-left,.split.wide-right{grid-template-columns:1fr; gap:48px}
+  .split .media{order:-1}
+}
+
+/* ---------- 引述 ---------- */
+/* 内容宽度走 .wrap，与 Our Approach 托架左右对齐（不再通栏）。
+   两图中间留白；引述卡片压在中间会遮住各自一半，
+   悬停时把图片抬到卡片之上并上浮，露出完整照片。 */
+section.quote-section{padding-block:96px}
+.quote-band{position:relative; display:grid; grid-template-columns:1fr 1fr; gap:32px}
+.quote-band img{
+  position:relative; z-index:1;
+  width:100%; height:auto; aspect-ratio:5/4; object-fit:cover;
+  box-shadow:0 10px 30px -12px rgba(103,58,183,.45);
+  transition:transform .28s var(--ease), box-shadow .28s var(--ease);
+}
+.quote-band img:hover{
+  z-index:3; transform:translateY(-12px);
+  box-shadow:0 26px 56px -14px rgba(103,58,183,.6);
+}
+@media (prefers-reduced-motion:reduce){
+  .quote-band img{transition:none}
+  .quote-band img:hover{transform:none}
+}
+.quote-card{
+  position:absolute; z-index:2; inset:50% auto auto 50%; transform:translate(-50%,-50%);
+  width:min(560px, 82%); background:var(--bg-raised); padding:56px 52px;
+  text-align:center; box-shadow:var(--shadow); border:1px solid var(--rule);
+}
+.quote-card h2{font-size:38px; line-height:1.25}
+.quote-card p{margin:22px auto 0; color:var(--fg-muted); font-size:15px; max-width:44ch}
+.quote-card .by{
+  margin-top:26px; font-size:12px; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--highlight);
+}
+@media (max-width:959px){
+  .quote-band{grid-template-columns:1fr}
+  .quote-band img:last-of-type{display:none}
+  .quote-card{position:static; transform:none; width:auto; padding:44px 28px}
+}
+
+/* ---------- 三栏特性 ---------- */
+.trio{display:grid; grid-template-columns:repeat(3,1fr); gap:48px; margin-top:64px}
+@media (max-width:959px){ .trio{grid-template-columns:1fr; gap:40px} }
+.trio h3{font-size:26px; margin-bottom:12px}
+.trio .bar{width:40px; height:3px; background:var(--accent-fill); margin-bottom:20px}
+.trio p{font-size:15px; color:var(--fg-muted); margin:0}
+
+/* ---------- 数据 ---------- */
+.stat{display:grid; grid-template-columns:auto 1fr; gap:64px; align-items:center}
+.stat .fig{
+  font-family:var(--font-display); font-size:160px; line-height:.9; font-weight:300;
+  letter-spacing:-.04em; color:var(--v-300); font-variant-numeric:tabular-nums;
+}
+.stat .fig sup{font-size:.36em; vertical-align:.9em; margin-left:.06em; letter-spacing:0}
+@media (max-width:959px){ .stat{grid-template-columns:1fr; gap:24px} .stat .fig{font-size:112px} }
+
+/* ---------- 流程步骤（真实序列，故保留编号） ---------- */
+.steps{margin-top:72px; border-top:1px solid var(--rule)}
+.step{
+  display:grid; grid-template-columns:88px 1fr 1.1fr; gap:40px;
+  padding-block:36px; border-bottom:1px solid var(--rule); align-items:baseline;
+}
+.step .n{
+  font-family:var(--font-mono); font-size:13px; color:var(--highlight);
+  font-variant-numeric:tabular-nums; letter-spacing:.06em;
+}
+.step h3{font-size:26px}
+.step p{margin:0; font-size:15px; color:var(--fg-muted)}
+@media (max-width:959px){
+  .step{grid-template-columns:56px 1fr; gap:20px 24px}
+  .step p{grid-column:2}
+}
+
+/* ---------- 文章卡片 ---------- */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:56px}
+@media (max-width:959px){ .cards{grid-template-columns:1fr; gap:40px} }
+.card{display:flex; flex-direction:column; gap:20px; text-decoration:none}
+.card .kicker{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--highlight); margin:0;
+}
+.card h3{font-size:23px; line-height:1.35}
+.card p{font-size:14.5px; color:var(--fg-muted); margin:0}
+.card .more{font-size:13px; font-weight:600; color:var(--brand); margin-top:auto}
+.card:hover h3{color:var(--brand)}
+
+/* ---------- 表单 ---------- */
+.form-band{display:grid; grid-template-columns:1fr 1fr; gap:96px; align-items:center}
+@media (max-width:959px){ .form-band{grid-template-columns:1fr; gap:48px} }
+.form{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.field{display:flex; flex-direction:column; gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--fg-muted)}
+.field input{
+  padding:12px 14px; border-radius:var(--r-md); border:1px solid var(--rule-strong);
+  background:var(--bg); color:var(--fg); font-size:15px;
+}
+.field input::placeholder{color:var(--fg-faint)}
+.field input:focus{outline:2px solid var(--focus); outline-offset:1px; border-color:transparent}
+
+/* ---------- 双入口 ---------- */
+.gates{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--rule-on-dark)}
+@media (max-width:759px){ .gates{grid-template-columns:1fr} }
+.gate{
+  background:var(--bg-dark); padding:80px 56px; display:flex; flex-direction:column;
+  gap:16px; align-items:flex-start; text-decoration:none; transition:background var(--dur-panel) var(--ease);
+}
+/* 外侧留白与 .wrap 的栅格对齐，避免通栏区块与正文左右边界错位 */
+.gate:first-child{padding-left:max(56px, calc((100vw - 1280px)/2 + 64px))}
+.gate:last-child{padding-right:max(56px, calc((100vw - 1280px)/2 + 64px))}
+.gate:hover{background:var(--v-900)}
+.gate h3{color:#fff; font-size:34px}
+.gate p{color:var(--n-400); font-size:15px; margin:0; max-width:34ch}
+.gate .go{margin-top:14px; color:var(--v-300); font-weight:600; font-size:14px}
+@media (max-width:639px){ .gate{padding:56px 24px} }
+
+/* ---------- CTA 问卷 ---------- */
+.quiz{text-align:center; display:flex; flex-direction:column; align-items:center; gap:20px}
+.quiz h2{max-width:16ch}
+.quiz .time{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--fg-muted);
+}
+.quiz p{text-align:center; max-width:46ch; margin:0}
+
+/* ---------- 页脚 ---------- */
+footer{background:var(--bg-sunk); border-top:1px solid var(--rule); padding-block:80px 40px}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:48px}
+@media (max-width:959px){ .foot-grid{grid-template-columns:1fr 1fr; gap:40px} }
+@media (max-width:559px){ .foot-grid{grid-template-columns:1fr} }
+.foot-grid h4{font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--fg-muted); margin:0 0 18px}
+.foot-grid ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px}
+.foot-grid a{text-decoration:none; font-size:14px; color:var(--fg)}
+.foot-grid a:hover{color:var(--brand)}
+.foot-note{
+  margin-top:64px; padding-top:28px; border-top:1px solid var(--rule);
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between;
+  font-size:12.5px; color:var(--fg-muted);
+}
+.tagline{font-family:var(--font-display); font-size:26px; font-weight:400; margin:18px 0 0; color:var(--fg)}
+
+/* ---------- 滚动进场 ---------- */
+.reveal{opacity:0; transform:translateY(12px); transition:opacity var(--dur-reveal) var(--ease), transform var(--dur-reveal) var(--ease)}
+.reveal.in{opacity:1; transform:none}
+/* 自身已用 transform 定位的元素只淡入，避免覆盖定位 */
+.reveal-fade{opacity:0; transition:opacity var(--dur-reveal) var(--ease)}
+.reveal-fade.in{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal-fade{opacity:1; transform:none; transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== 公告条 ===================== -->
+<div class="notice">首次咨询免费 · 匹配成功前不收取任何服务费 · <a href="#quiz">先做 3 分钟评估 →</a></div>
+
+<!-- ===================== 导航 ===================== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <img src="logo/bb-logo-512.png" alt="Babiology">
+      <div class="brand-txt"><b>Babiology</b><span>BABIOLOGY</span></div>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#approach">我们的方式</a></li>
+        <li><a href="#support">保障与支持</a></li>
+        <li><a href="#journey">服务流程</a></li>
+        <li><a href="#articles">科普与资讯</a></li>
+        <li><a href="#gates">English</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-1" href="#quiz">开启旅程</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===================== Hero ===================== -->
+<section class="hero">
+  <img class="hero-img" src="bbf-hero-banner.jpg" alt="日落麦田中，准父母与代孕妈妈并肩而立">
+  <div class="hero-card">
+    <h1>让爱延续，<br>让家完整</h1>
+    <p>代孕与卵子捐赠的每一步，都有中英双语顾问、医疗团队与法律顾问同行。你不需要独自面对任何一个决定。</p>
+    <div class="btns">
+      <a class="btn btn-light" href="#quiz">开启旅程</a>
+      <a class="btn btn-ghost-light" href="#approach">了解我们的方式</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 我们的方式 ===================== -->
+<section id="approach">
+  <div class="wrap reveal">
+    <div class="approach-frame">
+      <div class="approach-head">
+        <img src="logo/bb-logo-512.png" alt="">
+        <span>Our Approach</span>
+      </div>
+
+      <div class="approach-cols">
+        <div class="approach-copy">
+          <p class="lede">因为我们团队里的每一个人，都亲历过一段求子之路。我们知道等待一通电话是什么感觉，也知道一句解释不清的医学名词能让人失眠多久。</p>
+          <p>从第一次咨询到宝宝回家，你会有一位固定的专属顾问——不是客服轮班，而是同一个人，记得你的病史、你的顾虑、你上周提过的那个问题。医疗、法律、心理、跨境行程，由我们串联，你只需要做决定。</p>
+        </div>
+
+        <div class="approach-lead">
+          <h2>你不会在别处<br>得到这样的照护</h2>
+          <div class="btns">
+            <a class="btn btn-2" href="#support">我们的方式</a>
+            <a class="btn btn-3" href="#quiz">先做评估 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="approach-figures">
+        <img src="img/our-approach-2.jpg" alt="准父母与代孕妈妈坐在一起，面前的茶几上放着待签的文件">
+        <img src="img/our-approach-1.jpg" alt="医生指着屏幕上的超声影像，向孕妇讲解胎儿情况">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 证言 ===================== -->
+<section class="quote-section">
+  <div class="wrap">
+    <div class="quote-band">
+      <img src="img/image-004.jpg" alt="海边礁石旁的孕妇，透过一双手比出的心形望向远方">
+      <img src="img/image-005.jpg" alt="两位女性并肩而立，手里举着一串超声照片，笑着看向镜头">
+
+      <div class="quote-card reveal-fade">
+        <h2>「我始终被告知、被尊重、<br>也被好好照顾。」</h2>
+        <p>作为一名护士，我原以为没有什么能比接生更打动我。直到我成为那个让别人第一次抱起孩子的人——那是我人生中最深刻的时刻之一。</p>
+        <p class="by">— 代孕妈妈 Sarah</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 保障与支持 ===================== -->
+<section id="support" class="sunk">
+  <div class="wrap reveal">
+    <p class="eyebrow">Compensation &amp; Support</p>
+    <h2>给出生命的礼物，<br>也让自己的人生更完整</h2>
+    <div class="trio">
+      <div>
+        <div class="bar"></div>
+        <h3>透明的补偿</h3>
+        <p>基础补偿与各项津贴在签约前全部书面列明，没有中途追加，没有含糊条款。每一笔支出你都看得见。</p>
+      </div>
+      <div>
+        <div class="bar"></div>
+        <h3>全面的保障</h3>
+        <p>月度津贴、误工补偿、育儿支持、健康管理、心理咨询与月度互助小组，覆盖整个周期与产后恢复期。</p>
+      </div>
+      <div>
+        <div class="bar"></div>
+        <h3>可调整的方案</h3>
+        <p>没有两段旅程是相同的。补偿结构可以按你的实际情况调整——你始终拥有选择权。</p>
+      </div>
+    </div>
+    <div class="btns" style="margin-top:56px">
+      <a class="btn btn-1" href="#quiz">查看补偿与保障</a>
+      <a class="btn btn-2" href="#journey">了解服务流程</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 数据 ===================== -->
+<section class="ink">
+  <div class="wrap stat reveal">
+    <div class="fig">97<sup>%</sup></div>
+    <div>
+      <h3 style="color:#fff; margin-bottom:16px">真诚的关系，才走得长久</h3>
+      <p style="max-width:52ch">97% 的代孕妈妈在旅程结束后，仍与准父母保持着积极而长久的联系。我们从不撮合“交易”，我们促成的是两个家庭之间真实的信任。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 服务流程 ===================== -->
+<section id="journey">
+  <div class="wrap reveal">
+    <div class="split tight" style="align-items:end">
+      <div>
+        <p class="eyebrow">Your Journey with Babiology</p>
+        <h2>踏出第一步</h2>
+      </div>
+      <p class="lede" style="margin:0">关于安全、安心、有意义地开始这段旅程，你需要知道的每一件事。整个周期通常为 12–18 个月。</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>免费咨询</h3>
+        <p>30 分钟一对一沟通，了解你的情况与期待，说明流程、时间与费用结构。不收费，也不承诺任何你还没准备好的事。</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>医学与心理评估</h3>
+        <p>由合作生殖中心完成体检、传染病筛查与心理评估；准父母同步完成促排或胚胎评估。</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>双向匹配</h3>
+        <p>依据价值观、沟通方式与期待进行匹配，双方视频见面后共同决定。匹配成功前不产生任何服务费。</p>
+      </div>
+      <div class="step">
+        <span class="n">04</span>
+        <h3>法律与移植周期</h3>
+        <p>双方各自聘请独立律师签署协议，随后进入用药与胚胎移植周期，全程有顾问陪同就诊。</p>
+      </div>
+      <div class="step">
+        <span class="n">05</span>
+        <h3>孕期与迎接新生</h3>
+        <p>产检陪同、跨境行程与保险安排、出生证明与法律手续，直到宝宝平安回家。</p>
+      </div>
+    </div>
+
+    <div class="btns" style="margin-top:48px">
+      <a class="btn btn-2" href="#quiz">完整流程说明</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 科普与资讯 ===================== -->
+<section id="articles" class="sunk">
+  <div class="wrap reveal">
+    <div class="split tight" style="align-items:end">
+      <div>
+        <p class="eyebrow">Resources</p>
+        <h2>把复杂的事，<br>讲成人话</h2>
+      </div>
+      <p class="lede" style="margin:0">医学名词、法律条款、跨境流程——我们把它们拆开，一篇一篇讲清楚。</p>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="#articles">
+        <figure class="ph" style="--ar:3/2"><figcaption>文章封面 · 3:2</figcaption></figure>
+        <p class="kicker">科普</p>
+        <h3>试管婴儿周期日历：移植前后到底会发生什么</h3>
+        <p>从降调、用药到移植与验孕，逐周拆解一个完整的用药移植周期，附常见副作用与应对方式。</p>
+        <span class="more">阅读全文 →</span>
+      </a>
+      <a class="card" href="#articles">
+        <figure class="ph" style="--ar:3/2"><figcaption>文章封面 · 3:2</figcaption></figure>
+        <p class="kicker">流程</p>
+        <h3>如何成为一名代孕妈妈？基本条件与筛查全解</h3>
+        <p>年龄、生育史、体检指标、心理评估——把申请门槛与筛查环节一次讲明白。</p>
+        <span class="more">阅读全文 →</span>
+      </a>
+      <a class="card" href="#articles">
+        <figure class="ph" style="--ar:3/2"><figcaption>文章封面 · 3:2</figcaption></figure>
+        <p class="kicker">故事</p>
+        <h3>那些在这段旅程里，被重新认识的自己</h3>
+        <p>三位代孕妈妈讲述这段经历如何改变了她们对身体、家庭与自我价值的理解。</p>
+        <span class="more">阅读全文 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 资料下载 ===================== -->
+<section>
+  <div class="wrap form-band reveal">
+    <div class="stack">
+      <div>
+        <p class="eyebrow">Free Download</p>
+        <h2>试管周期日历</h2>
+      </div>
+      <p>下载一份完整的示例周期日历，看清每一个节点：什么时候用药、什么时候复查、什么时候移植、什么时候验孕。中英双语对照。</p>
+      <p class="small">留下邮箱即可获取，我们不会将你的信息用于任何其他用途。</p>
+    </div>
+    <form class="form" onsubmit="return false">
+      <div class="field">
+        <label for="fn">姓</label>
+        <input id="fn" name="fn" type="text" placeholder="王" autocomplete="family-name">
+      </div>
+      <div class="field">
+        <label for="ln">名</label>
+        <input id="ln" name="ln" type="text" placeholder="小雨" autocomplete="given-name">
+      </div>
+      <div class="field full">
+        <label for="em">邮箱</label>
+        <input id="em" name="em" type="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="field full">
+        <button class="btn btn-1" type="submit" style="width:100%; justify-content:center">立即获取</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== 评估问卷 ===================== -->
+<section id="quiz" class="sunk">
+  <div class="wrap quiz reveal">
+    <p class="eyebrow" style="margin-bottom:8px">Eligibility</p>
+    <h2>先看看你是否符合条件</h2>
+    <p class="time">预计用时 3 分钟</p>
+    <p>快速、审慎、合乎伦理。这份评估是正式筛查的第一步，它保护的是这段关系里的每一个人。</p>
+    <a class="btn btn-1" href="#quiz" style="margin-top:8px">开始评估</a>
+  </div>
+</section>
+
+<!-- ===================== 双入口 ===================== -->
+<section id="gates" style="padding:0">
+  <div class="gates">
+    <a class="gate" href="#quiz">
+      <h3>我想成为准父母</h3>
+      <p>了解代孕与卵子捐赠方案、周期与费用结构，以及跨境流程如何安排。</p>
+      <span class="go">准父母入口 →</span>
+    </a>
+    <a class="gate" href="#quiz">
+      <h3>我想成为代孕妈妈</h3>
+      <p>了解申请条件、筛查流程、补偿与保障，以及整个周期里你会得到的支持。</p>
+      <span class="go">爱心妈妈入口 →</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== 页脚 ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:0">
+          <img src="logo/bb-logo-512.png" alt="Babiology">
+          <div class="brand-txt"><b>Babiology</b><span>BABIOLOGY</span></div>
+        </a>
+        <p class="tagline">每一个细节都重要，<br>因为你很重要。</p>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#approach">我们的方式</a></li>
+          <li><a href="#support">保障与支持</a></li>
+          <li><a href="#journey">服务流程</a></li>
+          <li><a href="#articles">科普与资讯</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>服务</h4>
+        <ul>
+          <li><a href="#gates">代孕计划</a></li>
+          <li><a href="#gates">卵子捐赠</a></li>
+          <li><a href="#gates">LGBTQ+ 家庭</a></li>
+          <li><a href="#quiz">资格评估</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系</h4>
+        <ul>
+          <li><a href="tel:">电话：待填写</a></li>
+          <li><a href="mailto:">邮箱：待填写</a></li>
+          <li><a href="#top">微信咨询</a></li>
+          <li><a href="#top">English site</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>© 2026 Babiology</span>
+      <span>服务条款 · 隐私政策</span>
+      <span>设计稿 — 图片为占位符，文案待确认</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 滚动进场：每个区块只触发一次；prefers-reduced-motion 下由 CSS 直接显示
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal, .reveal-fade');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px' });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

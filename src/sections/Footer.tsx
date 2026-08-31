@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { isRedesignedRoute } from "@/lib/routes";
 
 type FooterItem = [href: string, label: string];
 
@@ -24,6 +28,10 @@ function FooterColumn({
 }
 
 export function Footer() {
+  // 采用新版设计的页面自带 footer（src/sections/homepage/SiteFooter），此处不渲染以免重复
+  const pathname = usePathname();
+  if (isRedesignedRoute(pathname)) return null;
+
   return (
     <footer className="footer">
       <div className="container-wide">
